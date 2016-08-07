@@ -1,0 +1,533 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB31D56BBF200AACB59 /* AppDelegate.swift */; };
+		90348BB61D56BBF200AACB59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB51D56BBF200AACB59 /* ViewController.swift */; };
+		90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90348BB71D56BBF200AACB59 /* Main.storyboard */; };
+		90348BBB1D56BBF200AACB59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90348BBA1D56BBF200AACB59 /* Assets.xcassets */; };
+		90348BBE1D56BBF200AACB59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */; };
+		90348BC91D56BBF300AACB59 /* SmartParkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BC81D56BBF300AACB59 /* SmartParkTests.swift */; };
+		90348BD41D56BBF300AACB59 /* SmartParkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		90348BC51D56BBF300AACB59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90348BA81D56BBF100AACB59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90348BAF1D56BBF200AACB59;
+			remoteInfo = SmartPark;
+		};
+		90348BD01D56BBF300AACB59 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90348BA81D56BBF100AACB59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90348BAF1D56BBF200AACB59;
+			remoteInfo = SmartPark;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		90348BB01D56BBF200AACB59 /* SmartPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90348BB31D56BBF200AACB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		90348BB51D56BBF200AACB59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		90348BB81D56BBF200AACB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		90348BBA1D56BBF200AACB59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		90348BBD1D56BBF200AACB59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		90348BBF1D56BBF300AACB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90348BC41D56BBF300AACB59 /* SmartParkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartParkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90348BC81D56BBF300AACB59 /* SmartParkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartParkTests.swift; sourceTree = "<group>"; };
+		90348BCA1D56BBF300AACB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90348BCF1D56BBF300AACB59 /* SmartParkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartParkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartParkUITests.swift; sourceTree = "<group>"; };
+		90348BD51D56BBF300AACB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		90348BAD1D56BBF200AACB59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90348BC11D56BBF300AACB59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90348BCC1D56BBF300AACB59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		90348BA71D56BBF100AACB59 = {
+			isa = PBXGroup;
+			children = (
+				90348BB21D56BBF200AACB59 /* SmartPark */,
+				90348BC71D56BBF300AACB59 /* SmartParkTests */,
+				90348BD21D56BBF300AACB59 /* SmartParkUITests */,
+				90348BB11D56BBF200AACB59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		90348BB11D56BBF200AACB59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				90348BB01D56BBF200AACB59 /* SmartPark.app */,
+				90348BC41D56BBF300AACB59 /* SmartParkTests.xctest */,
+				90348BCF1D56BBF300AACB59 /* SmartParkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		90348BB21D56BBF200AACB59 /* SmartPark */ = {
+			isa = PBXGroup;
+			children = (
+				90348BB31D56BBF200AACB59 /* AppDelegate.swift */,
+				90348BB51D56BBF200AACB59 /* ViewController.swift */,
+				90348BB71D56BBF200AACB59 /* Main.storyboard */,
+				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
+				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
+				90348BBF1D56BBF300AACB59 /* Info.plist */,
+			);
+			path = SmartPark;
+			sourceTree = "<group>";
+		};
+		90348BC71D56BBF300AACB59 /* SmartParkTests */ = {
+			isa = PBXGroup;
+			children = (
+				90348BC81D56BBF300AACB59 /* SmartParkTests.swift */,
+				90348BCA1D56BBF300AACB59 /* Info.plist */,
+			);
+			path = SmartParkTests;
+			sourceTree = "<group>";
+		};
+		90348BD21D56BBF300AACB59 /* SmartParkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */,
+				90348BD51D56BBF300AACB59 /* Info.plist */,
+			);
+			path = SmartParkUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		90348BAF1D56BBF200AACB59 /* SmartPark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90348BD81D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartPark" */;
+			buildPhases = (
+				90348BAC1D56BBF200AACB59 /* Sources */,
+				90348BAD1D56BBF200AACB59 /* Frameworks */,
+				90348BAE1D56BBF200AACB59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartPark;
+			productName = SmartPark;
+			productReference = 90348BB01D56BBF200AACB59 /* SmartPark.app */;
+			productType = "com.apple.product-type.application";
+		};
+		90348BC31D56BBF300AACB59 /* SmartParkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90348BDB1D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartParkTests" */;
+			buildPhases = (
+				90348BC01D56BBF300AACB59 /* Sources */,
+				90348BC11D56BBF300AACB59 /* Frameworks */,
+				90348BC21D56BBF300AACB59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90348BC61D56BBF300AACB59 /* PBXTargetDependency */,
+			);
+			name = SmartParkTests;
+			productName = SmartParkTests;
+			productReference = 90348BC41D56BBF300AACB59 /* SmartParkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		90348BCE1D56BBF300AACB59 /* SmartParkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90348BDE1D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartParkUITests" */;
+			buildPhases = (
+				90348BCB1D56BBF300AACB59 /* Sources */,
+				90348BCC1D56BBF300AACB59 /* Frameworks */,
+				90348BCD1D56BBF300AACB59 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90348BD11D56BBF300AACB59 /* PBXTargetDependency */,
+			);
+			name = SmartParkUITests;
+			productName = SmartParkUITests;
+			productReference = 90348BCF1D56BBF300AACB59 /* SmartParkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		90348BA81D56BBF100AACB59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Jose Cordova";
+				TargetAttributes = {
+					90348BAF1D56BBF200AACB59 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Q8Y835U42W;
+						ProvisioningStyle = Automatic;
+					};
+					90348BC31D56BBF300AACB59 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Q8Y835U42W;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 90348BAF1D56BBF200AACB59;
+					};
+					90348BCE1D56BBF300AACB59 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Q8Y835U42W;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 90348BAF1D56BBF200AACB59;
+					};
+				};
+			};
+			buildConfigurationList = 90348BAB1D56BBF100AACB59 /* Build configuration list for PBXProject "SmartPark" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 90348BA71D56BBF100AACB59;
+			productRefGroup = 90348BB11D56BBF200AACB59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				90348BAF1D56BBF200AACB59 /* SmartPark */,
+				90348BC31D56BBF300AACB59 /* SmartParkTests */,
+				90348BCE1D56BBF300AACB59 /* SmartParkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		90348BAE1D56BBF200AACB59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90348BBE1D56BBF200AACB59 /* LaunchScreen.storyboard in Resources */,
+				90348BBB1D56BBF200AACB59 /* Assets.xcassets in Resources */,
+				90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90348BC21D56BBF300AACB59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90348BCD1D56BBF300AACB59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		90348BAC1D56BBF200AACB59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90348BB61D56BBF200AACB59 /* ViewController.swift in Sources */,
+				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90348BC01D56BBF300AACB59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90348BC91D56BBF300AACB59 /* SmartParkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90348BCB1D56BBF300AACB59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90348BD41D56BBF300AACB59 /* SmartParkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90348BC61D56BBF300AACB59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90348BAF1D56BBF200AACB59 /* SmartPark */;
+			targetProxy = 90348BC51D56BBF300AACB59 /* PBXContainerItemProxy */;
+		};
+		90348BD11D56BBF300AACB59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90348BAF1D56BBF200AACB59 /* SmartPark */;
+			targetProxy = 90348BD01D56BBF300AACB59 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		90348BB71D56BBF200AACB59 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90348BB81D56BBF200AACB59 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				90348BBD1D56BBF200AACB59 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		90348BD61D56BBF300AACB59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		90348BD71D56BBF300AACB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		90348BD91D56BBF300AACB59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8Y835U42W;
+				INFOPLIST_FILE = SmartPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartPark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		90348BDA1D56BBF300AACB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q8Y835U42W;
+				INFOPLIST_FILE = SmartPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartPark;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		90348BDC1D56BBF300AACB59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Q8Y835U42W;
+				INFOPLIST_FILE = SmartParkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartParkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPark.app/SmartPark";
+			};
+			name = Debug;
+		};
+		90348BDD1D56BBF300AACB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Q8Y835U42W;
+				INFOPLIST_FILE = SmartParkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartParkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPark.app/SmartPark";
+			};
+			name = Release;
+		};
+		90348BDF1D56BBF300AACB59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Q8Y835U42W;
+				INFOPLIST_FILE = SmartParkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartParkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SmartPark;
+			};
+			name = Debug;
+		};
+		90348BE01D56BBF300AACB59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = Q8Y835U42W;
+				INFOPLIST_FILE = SmartParkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartParkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SmartPark;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		90348BAB1D56BBF100AACB59 /* Build configuration list for PBXProject "SmartPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90348BD61D56BBF300AACB59 /* Debug */,
+				90348BD71D56BBF300AACB59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90348BD81D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90348BD91D56BBF300AACB59 /* Debug */,
+				90348BDA1D56BBF300AACB59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		90348BDB1D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartParkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90348BDC1D56BBF300AACB59 /* Debug */,
+				90348BDD1D56BBF300AACB59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		90348BDE1D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartParkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90348BDF1D56BBF300AACB59 /* Debug */,
+				90348BE01D56BBF300AACB59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 90348BA81D56BBF100AACB59 /* Project object */;
+}
