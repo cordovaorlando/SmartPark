@@ -16,6 +16,8 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
+    var bcode = false
+    
     
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
@@ -80,6 +82,13 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    func barCodeRead(){
+        self.performSegue(withIdentifier: "qrCodeSegue", sender: self)
+    }
+
 
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, from connection: AVCaptureConnection!) {
         
@@ -91,7 +100,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
         }
         
         // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        let metadataObj = metadataObjects.first as! AVMetadataMachineReadableCodeObject  //first for [0]
         
         // Here we use filter method to check if the type of metadataObj is supported
         // Instead of hardcoding the AVMetadataObjectTypeQRCode, we check if the type
@@ -102,10 +111,37 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
+            
             if metadataObj.stringValue != nil {
+                
                 messageLabel.text = metadataObj.stringValue
+                bcode = true
+                print("Yes")
+                print(messageLabel.text)
+                print(metadataObj)
+                
+                }
+        }
+        
+        
+        
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "qrCodeSegue" {
+            if let destViewController = segue.destination as?CheckOutView {
+                
+                destViewController.message = messageLabel.text!
+                
+                //print("test")
+                //print(bcode)
             }
         }
     }
+    
+    
+    
 }
 

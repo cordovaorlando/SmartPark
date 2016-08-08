@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SmartPark
+//@testable import SmartPark
 
 class SmartParkTests: XCTestCase {
     

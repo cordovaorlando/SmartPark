@@ -15,6 +15,8 @@
 		90348BC91D56BBF300AACB59 /* SmartParkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BC81D56BBF300AACB59 /* SmartParkTests.swift */; };
 		90348BD41D56BBF300AACB59 /* SmartParkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */; };
 		90348BE21D56BCF000AACB59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BE11D56BCF000AACB59 /* ViewController.swift */; };
+		90348BE41D57E25400AACB59 /* CheckOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BE31D57E25400AACB59 /* CheckOutView.swift */; };
+		90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BE51D582D8000AACB59 /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartParkUITests.swift; sourceTree = "<group>"; };
 		90348BD51D56BBF300AACB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90348BE11D56BCF000AACB59 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		90348BE31D57E25400AACB59 /* CheckOutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutView.swift; sourceTree = "<group>"; };
+		90348BE51D582D8000AACB59 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 				90348BB31D56BBF200AACB59 /* AppDelegate.swift */,
 				90348BB51D56BBF200AACB59 /* HomeScreen.swift */,
 				90348BE11D56BCF000AACB59 /* ViewController.swift */,
+				90348BE51D582D8000AACB59 /* ScannerViewController.swift */,
 				90348BB71D56BBF200AACB59 /* Main.storyboard */,
+				90348BE31D57E25400AACB59 /* CheckOutView.swift */,
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
 				90348BBF1D56BBF300AACB59 /* Info.plist */,
@@ -197,17 +203,20 @@
 					90348BAF1D56BBF200AACB59 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Q8Y835U42W;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					90348BC31D56BBF300AACB59 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Q8Y835U42W;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 90348BAF1D56BBF200AACB59;
 					};
 					90348BCE1D56BBF300AACB59 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Q8Y835U42W;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 90348BAF1D56BBF200AACB59;
 					};
@@ -267,6 +276,8 @@
 			files = (
 				90348BE21D56BCF000AACB59 /* ViewController.swift in Sources */,
 				90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */,
+				90348BE41D57E25400AACB59 /* CheckOutView.swift in Sources */,
+				90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +432,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q8Y835U42W;
 				INFOPLIST_FILE = SmartPark/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartPark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,6 +446,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q8Y835U42W;
 				INFOPLIST_FILE = SmartPark/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JCordova.SmartPark;
 				PRODUCT_NAME = "$(TARGET_NAME)";

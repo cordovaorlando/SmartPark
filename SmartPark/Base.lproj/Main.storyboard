@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="SgZ-dk-Vmo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bxz-Jp-yGX">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
@@ -9,7 +9,7 @@
         <!--Home-->
         <scene sceneID="wkZ-Td-m8O">
             <objects>
-                <viewController id="9BH-t7-get" customClass="Home" customModule="CSC695" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9BH-t7-get" customClass="Home" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fkz-Si-a1W"/>
                         <viewControllerLayoutGuide type="bottom" id="GWL-Jo-NWc"/>
@@ -37,6 +37,9 @@
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="4vl-Qq-AgH" kind="show" id="AlF-VH-6Xu"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1x-hB-7Jj">
                                 <constraints>
@@ -59,9 +62,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fhO-0k-Ckj" kind="show" id="gjN-6C-qfa">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="jtA-9B-K8X" kind="show" id="teX-M4-xoX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -81,30 +82,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYZ-1l-GZJ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-247.19999999999999" y="894.60269865067471"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="w8z-hU-FqE">
+        <!--Check Out View-->
+        <scene sceneID="W8n-j3-c2g">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SgZ-dk-Vmo" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yG6-p4-i1Y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController id="4vl-Qq-AgH" customClass="CheckOutView" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KcX-o8-Rh8"/>
+                        <viewControllerLayoutGuide type="bottom" id="gIM-b8-3Pa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f8K-fE-oCw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTl-Ld-Ls9">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="179" id="SSH-Ei-YRx"/>
+                                    <constraint firstAttribute="height" constant="21" id="aW4-mq-94P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YTl-Ld-Ls9" firstAttribute="centerY" secondItem="f8K-fE-oCw" secondAttribute="centerY" id="22N-Zl-HlN"/>
+                            <constraint firstItem="YTl-Ld-Ls9" firstAttribute="centerX" secondItem="f8K-fE-oCw" secondAttribute="centerX" id="t42-yu-32b"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <segue destination="9BH-t7-get" kind="relationship" relationship="rootViewController" id="WYF-GA-Aaz"/>
+                        <outlet property="barCodeLabel" destination="YTl-Ld-Ls9" id="djG-8w-6gS"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lEV-iu-gIE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLD-b9-6Z2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="145" y="139"/>
+            <point key="canvasLocation" x="-132" y="1736.5817091454273"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="ekS-cm-sNk">
+            <objects>
+                <viewController id="jtA-9B-K8X" customClass="ScannerViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2RQ-Z8-fUg"/>
+                        <viewControllerLayoutGuide type="bottom" id="jVc-sn-Bgy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1Qg-jh-Kwy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="4vl-Qq-AgH" kind="show" identifier="sampleSegue" id="6fq-xA-JUd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPN-04-SpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903.20000000000005" y="905.3973013493254"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="LSV-eN-lwl">
             <objects>
-                <viewController id="fhO-0k-Ckj" customClass="ViewController" customModule="CSC695" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OGb-9z-1VK" sceneMemberID="firstResponder"/>
+                <viewController id="fhO-0k-Ckj" customClass="ViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b6l-QL-snc"/>
                         <viewControllerLayoutGuide type="bottom" id="afd-dR-sVx"/>
@@ -134,12 +175,32 @@
                         <outlet property="messageLabel" destination="emD-lF-PME" id="arH-sA-kzk"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OGb-9z-1VK" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="888"/>
+            <point key="canvasLocation" x="340" y="379"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3ob-qz-uMj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bxz-Jp-yGX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cSU-LN-ZhJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9BH-t7-get" kind="relationship" relationship="rootViewController" id="mdD-Dr-vgm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYs-Jp-ZpT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1186.4000000000001" y="894.60269865067471"/>
         </scene>
     </scenes>
     <resources>
         <image name="qr85" width="28" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="6fq-xA-JUd"/>
+    </inferredMetricsTieBreakers>
 </document>
