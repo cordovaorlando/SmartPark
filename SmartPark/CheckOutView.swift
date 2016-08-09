@@ -10,7 +10,10 @@ import UIKit
 
 class CheckOutView: UIViewController {
     
-    @IBOutlet weak var barCodeLabel: UILabel!
+    @IBOutlet weak var restaurantName: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var totalAmount: UILabel!
+    
     var message = String()
     
     override func viewDidLoad() {
@@ -19,8 +22,10 @@ class CheckOutView: UIViewController {
         self.navigationItem.title = "#" + message
         print( "Message Print: "  + message)
         print("Testing View Did Load")
-        barCodeLabel.text = "Fogo de Chao"
-       
+        
+        restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
+        totalLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        totalAmount.font = UIFont.boldSystemFont(ofSize: 16.0)
         
         // Do any additional setup after loading the view, typically from a nib.
     }
