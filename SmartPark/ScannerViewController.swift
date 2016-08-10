@@ -7,10 +7,15 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     var bCode = String()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Scan Ticket"
+        self.navigationItem.leftBarButtonItem?.title = nil
+        self.navigationController!.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
+        self.navigationController!.navigationBar.tintColor = UIColor.white
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
         
@@ -49,6 +54,13 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         captureSession.startRunning();
     }
+    
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
+    
     
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)

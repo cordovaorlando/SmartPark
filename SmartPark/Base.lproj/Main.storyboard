@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home Screen-->
         <scene sceneID="wkZ-Td-m8O">
             <objects>
-                <viewController id="9BH-t7-get" customClass="Home" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9BH-t7-get" customClass="HomeScreen" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VPG-gZ-ntJ"/>
                         <viewControllerLayoutGuide type="bottom" id="0Nr-01-ci1"/>
@@ -18,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Ticket Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PpX-KO-mo6">
-                                <frame key="frameInset" minX="112" minY="199" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Ticket Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PpX-KO-mo6">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqc-Gj-skM">
-                                <frame key="frameInset" minX="137" minY="237" width="100" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqc-Gj-skM">
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.5725490196078431" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="88w-ZX-KN5"/>
+                                    <constraint firstAttribute="width" constant="138" id="vRO-r7-ujA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,30 +37,41 @@
                                     <segue destination="4vl-Qq-AgH" kind="push" id="AlF-VH-6Xu"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1x-hB-7Jj">
-                                <frame key="frameInset" minX="176" minY="313" width="22" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1x-hB-7Jj">
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x66-Js-ksS">
-                                <frame key="frameInset" minX="91" minY="382" width="193" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x66-Js-ksS">
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.57254901960000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="6hu-o9-D2R"/>
+                                    <constraint firstAttribute="height" constant="33" id="JjG-3C-PMa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Scan Ticket Code" image="qr85">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
+                                <state key="normal" title=" Scan Ticket" image="QR-Scan1-250x250"/>
                                 <connections>
                                     <segue destination="jtA-9B-K8X" kind="push" id="teX-M4-xoX"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="x66-Js-ksS" firstAttribute="centerX" secondItem="XGP-wK-OV9" secondAttribute="centerX" constant="1" id="1if-gN-mWV"/>
+                            <constraint firstItem="kqc-Gj-skM" firstAttribute="centerX" secondItem="XGP-wK-OV9" secondAttribute="centerX" id="4GD-Mj-0Km"/>
+                            <constraint firstItem="x66-Js-ksS" firstAttribute="top" secondItem="e1x-hB-7Jj" secondAttribute="bottom" constant="45" id="6dY-zX-b8I"/>
+                            <constraint firstItem="e1x-hB-7Jj" firstAttribute="centerX" secondItem="XGP-wK-OV9" secondAttribute="centerX" id="7YC-Hj-gek"/>
+                            <constraint firstItem="PpX-KO-mo6" firstAttribute="centerX" secondItem="XGP-wK-OV9" secondAttribute="centerX" id="F53-ey-EqX"/>
+                            <constraint firstItem="kqc-Gj-skM" firstAttribute="top" secondItem="PpX-KO-mo6" secondAttribute="bottom" constant="8" id="fHD-3w-bVv"/>
+                            <constraint firstItem="e1x-hB-7Jj" firstAttribute="top" secondItem="kqc-Gj-skM" secondAttribute="bottom" constant="46" id="nud-To-PS3"/>
+                            <constraint firstItem="PpX-KO-mo6" firstAttribute="top" secondItem="VPG-gZ-ntJ" secondAttribute="bottom" constant="135" id="pSl-SW-UoD"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KVf-3h-euM"/>
+                    <connections>
+                        <outlet property="ticketCodeField" destination="PpX-KO-mo6" id="n3j-gA-eFd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYZ-1l-GZJ" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,7 +130,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QDk-1y-wjt">
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.57254901960000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="IU9-SK-JXS"/>
                                 </constraints>
@@ -140,8 +151,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$10.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvS-4t-S4L">
-                                <frame key="frameInset" minX="161" minY="101" width="53" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$10.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvS-4t-S4L">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -257,7 +267,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="qr85" width="28" height="28"/>
+        <image name="QR-Scan1-250x250" width="33" height="33"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -265,6 +275,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6fq-xA-JUd"/>
+        <segue reference="AlF-VH-6Xu"/>
     </inferredMetricsTieBreakers>
 </document>
