@@ -115,7 +115,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "sampleSegue" {
-            if let destViewController = segue.destination as?CheckOutView {
+            if let destViewController = segue.destination as?CheckOutView2 {
                 
                 destViewController.message = bCode
                 

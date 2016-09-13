@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900C990F1D7DDEB5002878B1 /* CheckOutView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900C990E1D7DDEB4002878B1 /* CheckOutView2.swift */; };
 		90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB31D56BBF200AACB59 /* AppDelegate.swift */; };
 		90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB51D56BBF200AACB59 /* HomeScreen.swift */; };
 		90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90348BB71D56BBF200AACB59 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		900C990E1D7DDEB4002878B1 /* CheckOutView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutView2.swift; sourceTree = "<group>"; };
 		90348BB01D56BBF200AACB59 /* SmartPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90348BB31D56BBF200AACB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90348BB51D56BBF200AACB59 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				90348BE11D56BCF000AACB59 /* ViewController.swift */,
 				90348BE51D582D8000AACB59 /* ScannerViewController.swift */,
 				90348BB71D56BBF200AACB59 /* Main.storyboard */,
+				900C990E1D7DDEB4002878B1 /* CheckOutView2.swift */,
 				90348BE31D57E25400AACB59 /* CheckOutView.swift */,
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
@@ -277,6 +280,7 @@
 				90348BE21D56BCF000AACB59 /* ViewController.swift in Sources */,
 				90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */,
 				90348BE41D57E25400AACB59 /* CheckOutView.swift in Sources */,
+				900C990F1D7DDEB5002878B1 /* CheckOutView2.swift in Sources */,
 				90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 			);
@@ -527,6 +531,7 @@
 				90348BDA1D56BBF300AACB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90348BDB1D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartParkTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +540,7 @@
 				90348BDD1D56BBF300AACB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		90348BDE1D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartParkUITests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +549,7 @@
 				90348BE01D56BBF300AACB59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
