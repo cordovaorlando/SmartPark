@@ -129,7 +129,7 @@ class ViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "qrCodeSegue" {
             if let destViewController = segue.destination as?CheckOutView {
                 
