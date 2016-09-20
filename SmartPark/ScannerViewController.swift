@@ -12,6 +12,9 @@ import AVFoundation
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var messageLabel: UILabel!
+    var bCode = String()
+    var seguePerformed = false
+    
     //@IBOutlet weak var messageLabel:UILabel!
     
     var captureSession:AVCaptureSession?
@@ -23,6 +26,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        seguePerformed = false
+        
+        toggleTorch(on: true)
         
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
         // as the media type parameter.
@@ -82,6 +89,53 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        seguePerformed = false
+        
+        if (captureSession?.isRunning == false) {
+            captureSession?.startRunning();
+        }
+        
+        toggleTorch(on: true)
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if (captureSession?.isRunning == true) {
+            captureSession?.stopRunning();
+        }
+      
+    }
+    
+    func toggleTorch(on: Bool) {
+        guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
+        
+        if device.hasTorch {
+            do {
+                try device.lockForConfiguration()
+                
+                if on == true {
+                    device.torchMode = .on
+                } else {
+                    device.torchMode = .off
+                }
+                
+                device.unlockForConfiguration()
+            } catch {
+                print("Torch could not be used")
+            }
+        } else {
+            print("Torch is not available")
+        }
+    }
+    
+    
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
@@ -105,8 +159,60 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
+                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                //print(messageLabel.text)
+                
+                //foundCode(metadataObj.stringValue);
+                bCode = metadataObj.stringValue
+                
+                
+                if !self.seguePerformed {
+                
+                    let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
+                    
+                    destViewController.message = bCode
+                    
+                
+                    self.navigationController?.pushViewController(destViewController, animated: true)
+                    
+                    self.seguePerformed = true
+                //self.performSegue(withIdentifier: "sampleSegue", sender: self)
+            
+                }
+                
             }
+            
+            
+            
+            //bCode = messageLabel.text!
+            //print("BarCode = " + bCode)
         }
+        //self.performSegue(withIdentifier: "sampleSegue", sender: self)
+        
+        //dismiss(animated: true, completion: nil)
     }
+    
+    
+    //func foundCode(_ code: String) {
+        //print(code)
+       // print(messageLabel.text)
+     //   bCode = messageLabel.text!
+        
+   // }
+    
+    //func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+        //if segue.identifier == "sampleSegue" {
+            //if let destViewController = segue.destination as?CheckOutView2 {
+                
+          //      destViewController.message = messageLabel.text!
+                //destViewController.message = bCode
+                //print(messageLabel.text)
+                
+        //    }
+      //  }
+    //}
+    
+    
 }
 

@@ -80,7 +80,7 @@
         <!--Check Out View2-->
         <scene sceneID="B0u-5m-yKs">
             <objects>
-                <tableViewController id="mAh-US-96O" customClass="CheckOutView2" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="destView" id="mAh-US-96O" customClass="CheckOutView2" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="163" sectionHeaderHeight="28" sectionFooterHeight="28" id="Zv0-wd-9zY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -325,7 +325,7 @@
         <!--Scanner View Controller-->
         <scene sceneID="ekS-cm-sNk">
             <objects>
-                <viewController id="jtA-9B-K8X" customClass="ScannerViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScannerViewController" id="jtA-9B-K8X" customClass="ScannerViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pb9-UD-PEV"/>
                         <viewControllerLayoutGuide type="bottom" id="m8k-tL-E6M"/>
@@ -360,24 +360,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPN-04-SpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="564.5" y="1006.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="LSV-eN-lwl">
-            <objects>
-                <viewController id="fhO-0k-Ckj" customClass="ViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Z8f-ae-Tdf"/>
-                        <viewControllerLayoutGuide type="bottom" id="rr5-Vf-Doi"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dgf-hS-L6L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OGb-9z-1VK" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="219" y="219"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3ob-qz-uMj">

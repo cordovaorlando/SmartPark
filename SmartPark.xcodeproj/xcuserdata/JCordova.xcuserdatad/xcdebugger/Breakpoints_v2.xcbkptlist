@@ -14,9 +14,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "captureOutput(_:didOutputMetadataObjects:from:)"
-            landmarkType = "7">
+            endingLineNumber = "122">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -62,9 +60,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "captureOutput(_:didOutputMetadataObjects:from:)"
-            landmarkType = "7">
+            endingLineNumber = "125">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
