@@ -9,11 +9,15 @@
 import UIKit
 import AVFoundation
 
-class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetadataOutputObjectsDelegate{
     
     @IBOutlet weak var messageLabel: UILabel!
     var bCode = String()
     var seguePerformed = false
+    
+    
+    var feedItems: NSArray = NSArray()
+    var selectedLocation : LocationModel = LocationModel()
     
     //@IBOutlet weak var messageLabel:UILabel!
     
@@ -26,6 +30,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+
         
         seguePerformed = false
         
@@ -84,6 +93,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -112,6 +123,17 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
       
     }
+    
+    
+    func itemsDownloaded(_ items: NSArray) {
+        
+        feedItems = items
+        //self.listTableView.reloadData()
+        print(feedItems[0])
+    }
+
+    
+    
     
     func toggleTorch(on: Bool) {
         guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
