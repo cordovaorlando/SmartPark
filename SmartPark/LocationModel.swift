@@ -12,10 +12,10 @@ class LocationModel: NSObject {
     
     //properties
     
-    var name: String?
-    var address: String?
-    var latitude: String?
-    var longitude: String?
+    var id: String?
+    var restaurantName: String?
+    var qrCode: String?
+    var price: String?
     
     
     //empty constructor
@@ -27,12 +27,12 @@ class LocationModel: NSObject {
     
     //construct with @name, @address, @latitude, and @longitude parameters
     
-    init(name: String, address: String, latitude: String, longitude: String) {
+    init(id: String, restaurantName: String, qrCode: String, price: String) {
         
-        self.name = name
-        self.address = address
-        self.latitude = latitude
-        self.longitude = longitude
+        self.id = id
+        self.restaurantName = restaurantName
+        self.qrCode = qrCode
+        self.price = price
         
     }
     
@@ -40,7 +40,7 @@ class LocationModel: NSObject {
     //prints object's current state
     
     override var description: String {
-        return "Name: \(name), Address: \(address), Latitude: \(latitude), Longitude: \(longitude)"
+        return "ID: \(id), RestaurantName: \(restaurantName), QRCode: \(qrCode), Price: \(price)"
         
     }
     

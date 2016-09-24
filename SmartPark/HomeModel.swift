@@ -77,16 +77,16 @@ class HomeModel: NSObject, URLSessionDataDelegate {
             let location = LocationModel()
             
             //the following insures none of the JsonElement values are nil through optional binding
-            if let name = jsonElement["Name"] as? String,
-                let address = jsonElement["Address"] as? String,
-                let latitude = jsonElement["Latitude"] as? String,
-                let longitude = jsonElement["Longitude"] as? String
+            if let id = jsonElement["ID"] as? String,
+                let restaurantName = jsonElement["RestaurantName"] as? String,
+                let qrCode = jsonElement["QRCode"] as? String,
+                let price = jsonElement["Price"] as? String
             {
                 
-                location.name = name
-                location.address = address
-                location.latitude = latitude
-                location.longitude = longitude
+                location.id = id
+                location.restaurantName = restaurantName
+                location.qrCode = qrCode
+                location.price = price
                 
             }
             

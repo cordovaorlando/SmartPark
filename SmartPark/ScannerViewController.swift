@@ -130,6 +130,10 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         feedItems = items
         //self.listTableView.reloadData()
         print(feedItems[0])
+        
+        //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
+        
+       // destViewController.message = feedItems.description
     }
 
     
