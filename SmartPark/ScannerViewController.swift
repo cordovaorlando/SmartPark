@@ -131,10 +131,17 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         //self.listTableView.reloadData()
         print(feedItems[0])
         
-        //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
+       // let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
         
-       // destViewController.message = feedItems.description
-    }
+        //destViewController.feedItems = items
+        
+        
+            
+                
+            }
+    
+        
+
 
     
     
@@ -197,6 +204,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                     let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
                     
                     destViewController.message = bCode
+                    destViewController.feedItems = feedItems
                     
                 
                     self.navigationController?.pushViewController(destViewController, animated: true)
@@ -219,25 +227,26 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     }
     
     
-    //func foundCode(_ code: String) {
-        //print(code)
-       // print(messageLabel.text)
-     //   bCode = messageLabel.text!
+  //  func foundCode(_ code: String) {
+    //    print(code)
+      //  print(messageLabel.text)
+        //bCode = messageLabel.text!
         
-   // }
-    
-    //func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-    
-        //if segue.identifier == "sampleSegue" {
-            //if let destViewController = segue.destination as?CheckOutView2 {
-                
-          //      destViewController.message = messageLabel.text!
-                //destViewController.message = bCode
-                //print(messageLabel.text)
-                
-        //    }
-      //  }
     //}
+    
+//    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+//    
+//        
+//        if segue.identifier == "sampleSegue" {
+//            if let destViewController = segue.destination as?CheckOutView2 {
+//                
+//                destViewController.feedItems = feedItems
+//               
+//                
+//                
+//            }
+//        }
+//    }
     
     
 }

@@ -14,7 +14,10 @@ class CheckOutView2: UITableViewController {
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
+    var feedItems: NSArray = NSArray()
+    
     var message = String()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +30,11 @@ class CheckOutView2: UITableViewController {
         print( "Message Print: "  + message)
         print("Testing View Did Load")
         
+        restaurantName.text = (feedItems[0] as AnyObject).description
         restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
         totalLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
 
-        
+        print(feedItems)
         
 
         // Uncomment the following line to preserve selection between presentations
