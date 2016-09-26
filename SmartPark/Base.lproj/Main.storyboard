@@ -314,7 +314,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="QNR-RR-Ij7"/>
                     <connections>
+                        <outlet property="fee" destination="6HP-7w-bwh" id="EIP-OI-Shd"/>
+                        <outlet property="finalTotal" destination="WEg-Vy-GOm" id="wSH-bU-eYZ"/>
                         <outlet property="restaurantName" destination="rgN-io-CiU" id="xpq-MF-UT6"/>
+                        <outlet property="subtotal" destination="Y7H-f6-bNR" id="tDU-1b-ec4"/>
+                        <outlet property="tip" destination="a0Y-o9-fMy" id="lSN-OR-Gyu"/>
                         <outlet property="totalLabel" destination="zvS-4t-S4L" id="0VN-lM-7T2"/>
                     </connections>
                 </tableViewController>

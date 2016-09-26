@@ -14,6 +14,23 @@ class CheckOutView2: UITableViewController {
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
+    @IBOutlet weak var subtotal: UILabel!
+    
+    @IBOutlet weak var fee: UILabel!
+    
+    @IBOutlet weak var tip: UILabel!
+    
+    @IBOutlet weak var finalTotal: UILabel!
+    
+    var totalInt = Int()
+    var subtotalInt = Int()
+    var feeInt = Int()
+    var tipInt = Int()
+    var finalTotalInt = Int()
+    
+    var SERVICE_FEE:Float = 2.00
+    
+    
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
     
@@ -23,25 +40,28 @@ class CheckOutView2: UITableViewController {
     
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
-        self.navigationController!.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes =
-            [NSForegroundColorAttributeName: UIColor.white]
-        self.navigationItem.title = "#" + message
-        print( "Message Print: "  + message)
-        print("Testing View Did Load")
+        initializeLabels()
+        checkoutDetails()
         
-        restaurantName.text = (feedItems[bCodeIndex] as AnyObject).description
-        restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
         
-        totalLabel.text = (feedItems2[bCodeIndex] as AnyObject).description
-        totalLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        //checkoutDetails()
+        
+        
+        
+        
+        
 
-        print(feedItems)
-        print(feedItems2)
-
+        
+        
+        //subtotal.text = subtotalInt.description
+        //fee.text = feeInt.description
+        //tip.text = tipInt.description
+        //totalLabel.text = finalTotalInt.description
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -64,6 +84,35 @@ class CheckOutView2: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 3
+    }
+    
+    func initializeLabels(){
+        
+        self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
+        self.navigationController!.navigationBar.tintColor = UIColor.white
+        self.navigationController!.navigationBar.titleTextAttributes =
+            [NSForegroundColorAttributeName: UIColor.white]
+        self.navigationItem.title = "#" + message
+        
+        restaurantName.text = (feedItems[bCodeIndex] as AnyObject).description
+        restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
+        
+        totalLabel.text = (feedItems2[bCodeIndex] as AnyObject).description
+        totalLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
+        
+        subtotal.text = totalLabel.text
+        fee.text = String(SERVICE_FEE)
+        tip.text = String(0.00)
+        //totalLabel.text = String(0)
+        finalTotal.text = String()
+    }
+    
+    func checkoutDetails(){
+        
+        //subtotalInt = convertFloat
+        //feeInt = Int(fee.text!)!
+        //tipInt = Int(tip.text!)!
+        //finalTotalInt = (subtotalInt + feeInt + finalTotalInt)
     }
 
     /*

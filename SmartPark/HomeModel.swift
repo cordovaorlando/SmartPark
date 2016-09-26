@@ -70,14 +70,14 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         }
         
         var jsonElement: NSDictionary = NSDictionary()
-        let locations: NSMutableArray = NSMutableArray()
+        //let locations: NSMutableArray = NSMutableArray()
         
         for i in (0..<jsonResult.count)
         {
             
             jsonElement = jsonResult[i] as! NSDictionary
             
-            let location = LocationModel()
+            //let location = LocationModel()
             
             //the following insures none of the JsonElement values are nil through optional binding
             if let id = jsonElement["ID"] as? String,
@@ -86,10 +86,10 @@ class HomeModel: NSObject, URLSessionDataDelegate {
                 let price = jsonElement["Price"] as? String
             {
                 
-                location.id = id
-                location.restaurantName = restaurantName
-                location.qrCode = qrCode
-                location.price = price
+                //location.id = id
+                //location.restaurantName = restaurantName
+                //location.qrCode = qrCode
+                //location.price = price
                 
                 restaurantNamesArray.append(restaurantName)
                 restaurantPricesArray.append(price)
@@ -97,7 +97,7 @@ class HomeModel: NSObject, URLSessionDataDelegate {
                 
             }
             
-            locations.add(location)
+            //locations.add(location)
             
         }
         

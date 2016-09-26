@@ -22,7 +22,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     var textFieldText = String()
     
     
-    var selectedLocation : LocationModel = LocationModel()
+    //var selectedLocation : LocationModel = LocationModel()
 
     override func viewDidLoad() {
         

@@ -21,7 +21,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     var feedItems3: NSArray = NSArray()
     
     
-    var selectedLocation : LocationModel = LocationModel()
+    //var selectedLocation : LocationModel = LocationModel()
     
     
     var captureSession:AVCaptureSession?
