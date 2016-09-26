@@ -20,6 +20,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     var feedItems2: NSArray = NSArray()
     var feedItems3: NSArray = NSArray()
     
+    
     var selectedLocation : LocationModel = LocationModel()
     
     
@@ -204,7 +205,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 
                 if feedItems3.contains(bCode) {
-                    
+                    let index = feedItems3.index(of: bCode)
+                    print("Found bCode at index:  \(index)")
                     print("We've got apples!")
                 
                 if !self.seguePerformed {
@@ -214,6 +216,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                     destViewController.message = bCode
                     destViewController.feedItems = feedItems
                     destViewController.feedItems2 = feedItems2
+                    destViewController.bCodeIndex = index
+
                     
                 
                     self.navigationController?.pushViewController(destViewController, animated: true)

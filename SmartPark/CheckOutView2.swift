@@ -17,6 +17,8 @@ class CheckOutView2: UITableViewController {
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
     
+    var bCodeIndex = Int()
+    
     var message = String()
     
 
@@ -31,10 +33,10 @@ class CheckOutView2: UITableViewController {
         print( "Message Print: "  + message)
         print("Testing View Did Load")
         
-        restaurantName.text = (feedItems[0] as AnyObject).description
+        restaurantName.text = (feedItems[bCodeIndex] as AnyObject).description
         restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
         
-        totalLabel.text = (feedItems2[0] as AnyObject).description
+        totalLabel.text = (feedItems2[bCodeIndex] as AnyObject).description
         totalLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
 
         print(feedItems)
