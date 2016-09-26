@@ -15,6 +15,7 @@ class CheckOutView2: UITableViewController {
     @IBOutlet weak var totalLabel: UILabel!
     
     var feedItems: NSArray = NSArray()
+    var feedItems2: NSArray = NSArray()
     
     var message = String()
     
@@ -32,10 +33,12 @@ class CheckOutView2: UITableViewController {
         
         restaurantName.text = (feedItems[0] as AnyObject).description
         restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
+        
+        totalLabel.text = (feedItems2[0] as AnyObject).description
         totalLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
 
         print(feedItems)
-        
+        print(feedItems2)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol HomeModelProtocal: class {
-    func itemsDownloaded(_ items: NSArray)
+    func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray)
 }
 
 
@@ -23,6 +23,9 @@ class HomeModel: NSObject, URLSessionDataDelegate {
     
     let urlPath: String = "http://kemodata.com/service.php" //this will be changed to the path where service.php lives
     
+    var restaurantNamesArray = [String]()
+    var restaurantPricesArray = [String]()
+    var qrCodeArray = [String]()
     
     func downloadItems() {
         
@@ -88,6 +91,10 @@ class HomeModel: NSObject, URLSessionDataDelegate {
                 location.qrCode = qrCode
                 location.price = price
                 
+                restaurantNamesArray.append(restaurantName)
+                restaurantPricesArray.append(price)
+                qrCodeArray.append(qrCode)
+                
             }
             
             locations.add(location)
@@ -96,8 +103,9 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         
         DispatchQueue.main.async(execute: { () -> Void in
             
-            self.delegate.itemsDownloaded(locations)
-            
+            //self.delegate.itemsDownloaded(locations)
+            self.delegate.itemsDownloaded(self.restaurantNamesArray as NSArray, self.restaurantPricesArray as NSArray, self.qrCodeArray as NSArray)
+          
         })
     }
     

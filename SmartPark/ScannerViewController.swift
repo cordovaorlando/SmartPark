@@ -17,9 +17,11 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     
     
     var feedItems: NSArray = NSArray()
+    var feedItems2: NSArray = NSArray()
+    var feedItems3: NSArray = NSArray()
+    
     var selectedLocation : LocationModel = LocationModel()
     
-    //@IBOutlet weak var messageLabel:UILabel!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -125,15 +127,14 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     }
     
     
-    func itemsDownloaded(_ items: NSArray) {
+    func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
         
         feedItems = items
-        //self.listTableView.reloadData()
         print(feedItems[0])
         
-       // let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
+        feedItems2 = items2
         
-        //destViewController.feedItems = items
+        feedItems3 = items3
         
         
             
@@ -199,12 +200,18 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 bCode = metadataObj.stringValue
                 
                 
+                
+                if feedItems3.contains(bCode) {
+                    
+                    print("We've got apples!")
+                
                 if !self.seguePerformed {
                 
                     let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
                     
                     destViewController.message = bCode
                     destViewController.feedItems = feedItems
+                    destViewController.feedItems2 = feedItems2
                     
                 
                     self.navigationController?.pushViewController(destViewController, animated: true)
@@ -213,41 +220,21 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 //self.performSegue(withIdentifier: "sampleSegue", sender: self)
             
                 }
+                    
+                } else {
+                    print("No apples here – sorry!")
+                }
+                
+                
+                
                 
             }
             
             
             
-            //bCode = messageLabel.text!
-            //print("BarCode = " + bCode)
+            
         }
-        //self.performSegue(withIdentifier: "sampleSegue", sender: self)
         
-        //dismiss(animated: true, completion: nil)
     }
-    
-    
-  //  func foundCode(_ code: String) {
-    //    print(code)
-      //  print(messageLabel.text)
-        //bCode = messageLabel.text!
-        
-    //}
-    
-//    func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-//    
-//        
-//        if segue.identifier == "sampleSegue" {
-//            if let destViewController = segue.destination as?CheckOutView2 {
-//                
-//                destViewController.feedItems = feedItems
-//               
-//                
-//                
-//            }
-//        }
-//    }
-    
-    
 }
 
