@@ -139,9 +139,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         
         feedItems3 = items3
         
-        
-            
-                
             }
     
         

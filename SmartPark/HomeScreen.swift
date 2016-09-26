@@ -8,13 +8,32 @@
 
 import UIKit
 
-class HomeScreen: UIViewController, UITextFieldDelegate {
+class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     
     @IBOutlet weak var ticketCodeField: UITextField!
+    
+    var seguePerformed = false
+    
+    
+    var feedItems: NSArray = NSArray()
+    var feedItems2: NSArray = NSArray()
+    var feedItems3: NSArray = NSArray()
+    
+    var textFieldText = String()
+    
+    
+    var selectedLocation : LocationModel = LocationModel()
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+        
+        
+        seguePerformed = false
         
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
         self.navigationController!.navigationBar.tintColor = UIColor.white
@@ -51,6 +70,64 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        seguePerformed = false
+        ticketCodeField.text = nil
+        
+    }
+    
+    
+    func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
+        
+        feedItems = items
+        print(feedItems)
+        
+        feedItems2 = items2
+        print(feedItems2)
+        
+        feedItems3 = items3
+        print(feedItems3)
+    }
+    
+    
+    @IBAction func ContinueButton(_ sender: AnyObject) {
+        
+        textFieldText = ticketCodeField.text!
+        
+        if feedItems3.contains(textFieldText) {
+            let index = feedItems3.index(of: textFieldText)
+            print("Found ticket Number at index:  \(index)")
+            print("We've got apples!")
+            
+            if !self.seguePerformed {
+                
+                let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
+                
+                destViewController.message = textFieldText
+                destViewController.feedItems = feedItems
+                destViewController.feedItems2 = feedItems2
+                destViewController.bCodeIndex = index
+                
+                
+                
+                self.navigationController?.pushViewController(destViewController, animated: true)
+                
+                self.seguePerformed = true
+                //self.performSegue(withIdentifier: "sampleSegue", sender: self)
+                
+            }
+            
+        } else {
+            print("No apples here – sorry!")
+            print(textFieldText)
+            //messageLabel.text = "Not a valid QRCode - sorry"
+        }
+    }
+    
+
     
     
  
