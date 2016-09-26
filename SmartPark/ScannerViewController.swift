@@ -106,6 +106,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        messageLabel.text = "No barcode/QR code is detected"
+        
         seguePerformed = false
         
         if (captureSession?.isRunning == false) {
@@ -223,6 +225,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                     
                 } else {
                     print("No apples here – sorry!")
+                    messageLabel.text = "Not a valid QRCode - sorry"
                 }
                 
                 
