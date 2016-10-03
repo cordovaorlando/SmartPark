@@ -1,8 +1,8 @@
 //
 //  HomeModel.swift
-//  Xcode7 DB Example
+//  SmartPark
 //
-//  Created by Jose Cordova on 9/18/16.
+//  Created by Jose Cordova on 9/5/16.
 //  Copyright © 2016 Jose Cordova. All rights reserved.
 //
 

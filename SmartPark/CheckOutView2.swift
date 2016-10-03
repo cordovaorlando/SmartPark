@@ -10,7 +10,9 @@ import UIKit
 
 class CheckOutView2: UITableViewController {
     
+    @IBOutlet weak var slider: UISlider!
     
+    @IBOutlet weak var tipAmount: UILabel!
     @IBOutlet weak var restaurantName: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     
@@ -21,6 +23,11 @@ class CheckOutView2: UITableViewController {
     @IBOutlet weak var tip: UILabel!
     
     @IBOutlet weak var finalTotal: UILabel!
+    
+    var initialTip = 0
+    
+    
+    
     
     var totalInt = Float()
     var subtotalInt = Float()
@@ -44,6 +51,7 @@ class CheckOutView2: UITableViewController {
         super.viewDidLoad()
         
         initializeLabels()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -86,16 +94,37 @@ class CheckOutView2: UITableViewController {
         subtotal.text = totalLabel.text
         fee.text = String(format: "%.2f", SERVICE_FEE)
         
-        //yourUILabel.text = String.localizedStringWithFormat("%.2f %@", value, unit)
-        //tip.text = String.localizedStringWithFormat("%.2f %@", "0.00")
-        tip.text = String(format: "%.2f", "0.00")
-        //totalLabel.text = String(0)
+      
+        tip.text = String(format: "%.2f", initialTip)
         
         let variable = (feedItems2[bCodeIndex] as AnyObject).description
         finalTotalInt = (Float(variable!)! + SERVICE_FEE)
         
         finalTotal.text = String(format: "%.2f", finalTotalInt)
+        
+        tipAmount.text = "$\(initialTip)"
+        
     }
+    
+    
+    
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        
+        var currentValue = Int(sender.value)
+        
+        tipAmount.text = "$\(currentValue)"
+        tip.text = "\(currentValue).00"
+        let newTotal = finalTotalInt + Float(currentValue)
+        finalTotal.text = String(format: "%.2f", newTotal)
+    }
+    
+    func totalPrice(){
+        //finalTotal
+    }
+    
+    
+    
+    
     
 
 }

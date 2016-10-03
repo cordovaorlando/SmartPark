@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  QRReaderDemo
+//  SmartPark
 //
-//  Created by Simon Ng on 23/11/14.
-//  Copyright (c) 2014 AppCoda. All rights reserved.
+//  Created by Jose Cordova on 9/5/16.
+//  Copyright © 2016 Jose Cordova. All rights reserved.
 //
 
 import UIKit
