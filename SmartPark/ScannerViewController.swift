@@ -133,7 +133,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
         
         feedItems = items
-        print(feedItems[0])
+        //print(feedItems[0])
         
         feedItems2 = items2
         
@@ -203,8 +203,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 if feedItems3.contains(bCode) {
                     let index = feedItems3.index(of: bCode)
-                    print("Found bCode at index:  \(index)")
-                    print("We've got apples!")
+                    //print("Found bCode at index:  \(index)")
+                    //print("We've got apples!")
                 
                 if !self.seguePerformed {
                 
@@ -225,7 +225,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 }
                     
                 } else {
-                    print("No apples here – sorry!")
+                    //print("No apples here – sorry!")
                     messageLabel.text = "Not a valid QRCode - sorry"
                 }
                 

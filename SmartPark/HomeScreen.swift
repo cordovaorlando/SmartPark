@@ -83,13 +83,13 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
         
         feedItems = items
-        print(feedItems)
+        //print(feedItems)
         
         feedItems2 = items2
-        print(feedItems2)
+        //print(feedItems2)
         
         feedItems3 = items3
-        print(feedItems3)
+        //print(feedItems3)
     }
     
     
@@ -99,8 +99,8 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         
         if feedItems3.contains(textFieldText) {
             let index = feedItems3.index(of: textFieldText)
-            print("Found ticket Number at index:  \(index)")
-            print("We've got apples!")
+            //print("Found ticket Number at index:  \(index)")
+            //print("We've got apples!")
             
             if !self.seguePerformed {
                 
@@ -121,8 +121,8 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
             }
             
         } else {
-            print("No apples here – sorry!")
-            print(textFieldText)
+            //print("No apples here – sorry!")
+            //print(textFieldText)
             //messageLabel.text = "Not a valid QRCode - sorry"
         }
     }

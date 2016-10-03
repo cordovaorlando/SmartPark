@@ -22,11 +22,11 @@ class CheckOutView2: UITableViewController {
     
     @IBOutlet weak var finalTotal: UILabel!
     
-    var totalInt = Int()
-    var subtotalInt = Int()
-    var feeInt = Int()
-    var tipInt = Int()
-    var finalTotalInt = Int()
+    var totalInt = Float()
+    var subtotalInt = Float()
+    var feeInt = Float()
+    var tipInt = Float()
+    var finalTotalInt = Float()
     
     var SERVICE_FEE:Float = 2.00
     
@@ -44,23 +44,6 @@ class CheckOutView2: UITableViewController {
         super.viewDidLoad()
         
         initializeLabels()
-        checkoutDetails()
-        
-        
-        //checkoutDetails()
-        
-        
-        
-        
-        
-
-        
-        
-        //subtotal.text = subtotalInt.description
-        //fee.text = feeInt.description
-        //tip.text = tipInt.description
-        //totalLabel.text = finalTotalInt.description
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -101,73 +84,18 @@ class CheckOutView2: UITableViewController {
         totalLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
         
         subtotal.text = totalLabel.text
-        fee.text = String(SERVICE_FEE)
-        tip.text = String(0.00)
+        fee.text = String(format: "%.2f", SERVICE_FEE)
+        
+        //yourUILabel.text = String.localizedStringWithFormat("%.2f %@", value, unit)
+        //tip.text = String.localizedStringWithFormat("%.2f %@", "0.00")
+        tip.text = String(format: "%.2f", "0.00")
         //totalLabel.text = String(0)
-        finalTotal.text = String()
+        
+        let variable = (feedItems2[bCodeIndex] as AnyObject).description
+        finalTotalInt = (Float(variable!)! + SERVICE_FEE)
+        
+        finalTotal.text = String(format: "%.2f", finalTotalInt)
     }
     
-    func checkoutDetails(){
-        
-        //subtotalInt = convertFloat
-        //feeInt = Int(fee.text!)!
-        //tipInt = Int(tip.text!)!
-        //finalTotalInt = (subtotalInt + feeInt + finalTotalInt)
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
