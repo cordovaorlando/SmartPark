@@ -10,6 +10,7 @@ import UIKit
 
 class CheckOutView2: UITableViewController {
     
+    
     @IBOutlet weak var slider: UISlider!
     
     @IBOutlet weak var tipAmount: UILabel!
@@ -66,6 +67,34 @@ class CheckOutView2: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+   /*func tableView(_tableView: UITableView,
+                            didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        if indexPath.row == 1 {
+            
+            //here you can enter the action you want to start when cell 1 is clicked
+            print("Pressed Cell 1")
+            
+            
+            
+        }
+        
+        
+        
+    }*/
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+        
+        let row = indexPath.row
+        print("Row: \(row)")
+        
+        print("It Works!!!!")
+        
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -106,8 +135,6 @@ class CheckOutView2: UITableViewController {
         
     }
     
-    
-    
     @IBAction func sliderChanged(_ sender: UISlider) {
         
         var currentValue = Int(sender.value)
@@ -118,9 +145,10 @@ class CheckOutView2: UITableViewController {
         finalTotal.text = String(format: "%.2f", newTotal)
     }
     
-    func totalPrice(){
-        //finalTotal
-    }
+    
+    
+  
+
     
     
     

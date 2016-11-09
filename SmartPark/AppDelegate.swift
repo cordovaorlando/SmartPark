@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,9 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.shared.statusBarStyle = .lightContent
+        
+       // Stripe.STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_Nxy4IoZXCoOVppUkWdFH7eOv"
+        
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_Nxy4IoZXCoOVppUkWdFH7eOv"
+    
+
         
         return true
     }

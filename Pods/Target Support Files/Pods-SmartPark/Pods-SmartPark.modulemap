@@ -1,0 +1,6 @@
+framework module Pods_SmartPark {
+  umbrella header "Pods-SmartPark-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -102,11 +102,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartPark/CheckOutView2.swift"
-            timestampString = "497156544.355264"
+            timestampString = "498345149.003334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "initializeLabels()"
             landmarkType = "7">
          </BreakpointContent>

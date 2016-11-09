@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F88CAF6193FBB91367A8B87 /* Pods_SmartPark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */; };
+		9015F6BC1DB41751007769D1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9015F6BB1DB41751007769D1 /* Podfile */; };
 		90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB31D56BBF200AACB59 /* AppDelegate.swift */; };
 		90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB51D56BBF200AACB59 /* HomeScreen.swift */; };
 		90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90348BB71D56BBF200AACB59 /* Main.storyboard */; };
@@ -15,7 +17,9 @@
 		90348BC91D56BBF300AACB59 /* SmartParkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BC81D56BBF300AACB59 /* SmartParkTests.swift */; };
 		90348BD41D56BBF300AACB59 /* SmartParkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */; };
 		90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BE51D582D8000AACB59 /* ScannerViewController.swift */; };
+		903CE8221DD2C75300750751 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903CE8211DD2C75300750751 /* ViewController.swift */; };
 		908D403A1DA1FB72005AD5AC /* CheckOutView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908D40391DA1FB72005AD5AC /* CheckOutView2.swift */; };
+		90C51F871DB426CB004939F2 /* StripeCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C51F861DB426CB004939F2 /* StripeCardVC.swift */; };
 		90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E71C911D90EE0700D1F730 /* HomeModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B3AF20FD1D2DE6156808996 /* Pods-SmartPark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPark/Pods-SmartPark.debug.xcconfig"; sourceTree = "<group>"; };
+		9015F6BB1DB41751007769D1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		90348BB01D56BBF200AACB59 /* SmartPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90348BB31D56BBF200AACB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90348BB51D56BBF200AACB59 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -51,8 +57,12 @@
 		90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartParkUITests.swift; sourceTree = "<group>"; };
 		90348BD51D56BBF300AACB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90348BE51D582D8000AACB59 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		903CE8211DD2C75300750751 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		908D40391DA1FB72005AD5AC /* CheckOutView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutView2.swift; sourceTree = "<group>"; };
+		90C51F861DB426CB004939F2 /* StripeCardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeCardVC.swift; sourceTree = "<group>"; };
 		90E71C911D90EE0700D1F730 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F251ECD0301AF6DE161760DC /* Pods-SmartPark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPark.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPark/Pods-SmartPark.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F88CAF6193FBB91367A8B87 /* Pods_SmartPark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,10 +94,13 @@
 		90348BA71D56BBF100AACB59 = {
 			isa = PBXGroup;
 			children = (
+				9015F6BB1DB41751007769D1 /* Podfile */,
 				90348BB21D56BBF200AACB59 /* SmartPark */,
 				90348BC71D56BBF300AACB59 /* SmartParkTests */,
 				90348BD21D56BBF300AACB59 /* SmartParkUITests */,
 				90348BB11D56BBF200AACB59 /* Products */,
+				D2AA97A82FAE7B9BBE12C449 /* Pods */,
+				C0385A96C9B5D33152AD27BE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +122,8 @@
 				90348BB31D56BBF200AACB59 /* AppDelegate.swift */,
 				90348BB51D56BBF200AACB59 /* HomeScreen.swift */,
 				90348BE51D582D8000AACB59 /* ScannerViewController.swift */,
+				903CE8211DD2C75300750751 /* ViewController.swift */,
+				90C51F861DB426CB004939F2 /* StripeCardVC.swift */,
 				90348BB71D56BBF200AACB59 /* Main.storyboard */,
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
@@ -134,6 +150,23 @@
 			path = SmartParkUITests;
 			sourceTree = "<group>";
 		};
+		C0385A96C9B5D33152AD27BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2AA97A82FAE7B9BBE12C449 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8B3AF20FD1D2DE6156808996 /* Pods-SmartPark.debug.xcconfig */,
+				F251ECD0301AF6DE161760DC /* Pods-SmartPark.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 90348BD81D56BBF300AACB59 /* Build configuration list for PBXNativeTarget "SmartPark" */;
 			buildPhases = (
+				263CD3C101DF750635BDBB89 /* [CP] Check Pods Manifest.lock */,
 				90348BAC1D56BBF200AACB59 /* Sources */,
 				90348BAD1D56BBF200AACB59 /* Frameworks */,
 				90348BAE1D56BBF200AACB59 /* Resources */,
+				173F376EA0A89A671B67FE07 /* [CP] Embed Pods Frameworks */,
+				FE43230855F89AA5A75A5694 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +285,7 @@
 			files = (
 				90348BBE1D56BBF200AACB59 /* LaunchScreen.storyboard in Resources */,
 				90348BBB1D56BBF200AACB59 /* Assets.xcassets in Resources */,
+				9015F6BC1DB41751007769D1 /* Podfile in Resources */,
 				90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,14 +306,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		173F376EA0A89A671B67FE07 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartPark/Pods-SmartPark-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		263CD3C101DF750635BDBB89 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE43230855F89AA5A75A5694 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SmartPark/Pods-SmartPark-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		90348BAC1D56BBF200AACB59 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */,
+				90C51F871DB426CB004939F2 /* StripeCardVC.swift in Sources */,
 				90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */,
 				90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */,
+				903CE8221DD2C75300750751 /* ViewController.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 				908D403A1DA1FB72005AD5AC /* CheckOutView2.swift in Sources */,
 			);
@@ -428,6 +515,7 @@
 		};
 		90348BD91D56BBF300AACB59 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B3AF20FD1D2DE6156808996 /* Pods-SmartPark.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q8Y835U42W;
@@ -443,6 +531,7 @@
 		};
 		90348BDA1D56BBF300AACB59 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F251ECD0301AF6DE161760DC /* Pods-SmartPark.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Q8Y835U42W;
