@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  SOStripe
+//  SmartPark
 //
-//  Created by Hitesh on 10/10/16.
-//  Copyright © 2016 myCompany. All rights reserved.
+//  Created by Jose Cordova on 10/10/16.
+//  Copyright © 2016 Jose Cordova. All rights reserved.
 //
 
 import UIKit
@@ -11,14 +11,14 @@ import Pods_SmartPark
 import Stripe
 
 class ViewController: UIViewController, STPAddCardViewControllerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-
-    @IBAction func actionAddCardDefault(sender: AnyObject) {
+    
+    @IBAction func actionAddCardDefault(_ sender: AnyObject) {
         let addCardViewController = STPAddCardViewController()
         addCardViewController.delegate = self
         // STPAddCardViewController must be shown inside a UINavigationController.
@@ -40,12 +40,12 @@ class ViewController: UIViewController, STPAddCardViewControllerDelegate {
         })
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

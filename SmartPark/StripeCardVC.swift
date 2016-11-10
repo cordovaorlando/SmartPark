@@ -1,8 +1,8 @@
 //
-//  PaymentViewController.swift
+//  StripeCardVC.swift
 //  SmartPark
 //
-//  Created by Jose Cordova on 10/16/16.
+//  Created by Jose Cordova on 10/10/16.
 //  Copyright © 2016 Jose Cordova. All rights reserved.
 //
 
@@ -13,8 +13,6 @@ import Stripe
 class StripeCardVC: UIViewController, STPPaymentCardTextFieldDelegate {
     
     @IBOutlet weak var btnBuy: UIButton!
-    
-    
     
     let cardParams = STPCardParams()
     
@@ -34,8 +32,8 @@ class StripeCardVC: UIViewController, STPPaymentCardTextFieldDelegate {
     
     // MARK: STPPaymentCardTextFieldDelegate
     
-    func paymentCardTextFieldDidChange(textField: STPPaymentCardTextField) {
-        print("Card number: \(textField.cardParams.number) Exp Month: \(textField.cardParams.expMonth) Exp Year: \(textField.cardParams.expYear) CVC: \(textField.cardParams.cvc)")
+    func paymentCardTextFieldDidChange(_ textField: STPPaymentCardTextField) {
+        //print("Card number: \(textField.cardParams.number) Exp Month: \(textField.cardParams.expMonth) Exp Year: \(textField.cardParams.expYear) CVC: \(textField.cardParams.cvc)")
         self.btnBuy.isEnabled = textField.isValid
         
         if btnBuy.isEnabled {
@@ -52,18 +50,18 @@ class StripeCardVC: UIViewController, STPPaymentCardTextFieldDelegate {
             if let error = error {
                 // show the error to the user
                 print(error)
-                self.showAlertButtonTapped(strTitle: "Error", strMessage: error.localizedDescription)
+                self.showAlertButtonTapped("Error", strMessage: error.localizedDescription)
             } else if let token = token {
                 //Send token to backend for process
                 print(token)
-                self.showAlertButtonTapped(strTitle: "Success", strMessage: "Got Token Successfully")
+                self.showAlertButtonTapped("Success", strMessage: "Got Token Successfully")
             }
         }
     }
     
     
     //MARK:- AlerViewController
-    func showAlertButtonTapped(strTitle:String, strMessage:String) {
+    func showAlertButtonTapped(_ strTitle:String, strMessage:String) {
         // create the alert
         let alert = UIAlertController(title: strTitle, message: strMessage, preferredStyle: UIAlertControllerStyle.alert)
         // add an action (button)
@@ -73,9 +71,9 @@ class StripeCardVC: UIViewController, STPPaymentCardTextFieldDelegate {
     }
     
     
-    @IBAction func actionBack(sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
-    }
+   // @IBAction func actionBack(_ sender: AnyObject) {
+     //   self.navigationController?.popViewController(animated: true)
+    //}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
