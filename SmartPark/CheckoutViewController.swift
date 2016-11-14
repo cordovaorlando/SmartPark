@@ -184,14 +184,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func intializeLabels(){
         self.restaurantName.text = (feedItems[bCodeIndex] as AnyObject).description
-        self.totalText.text = (feedItems2[bCodeIndex] as AnyObject).description
+        self.totalText.text = "$" + (feedItems2[bCodeIndex] as AnyObject).description
         self.tipLabel.text = "Tip: $\(initialTip)"
-        
-        
-        
-        //Create Slider
-       // let paybackSlider = UISlider(frame: CGRectMake (45,546,310,31))
-        
         
         
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
@@ -200,7 +194,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
           [NSForegroundColorAttributeName: UIColor.white]
         self.navigationItem.title = "#" + message        
         
-        subtotalRow.detail = "$" + totalText.text!
+        subtotalRow.detail = totalText.text!
         self.serviceFeeRow.detail = "$\(String(format: "%.2f", SERVICE_FEE))"
         self.tipRow.detail = "$\(String(format: "%.2f", initialTip))"
 
@@ -219,9 +213,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         super.viewDidLayoutSubviews()
         let width = self.view.bounds.width
         
-        //self.totalText.sizeToFit()
-        //self.totalText.center = CGPoint(x: width/2.0,
-                                          // y: (self.totalText.bounds.height) + rowHeight)
         self.restaurantName.sizeToFit()
         self.restaurantName.center = CGPoint(x: width/2.0, y: 85)
         
@@ -233,23 +224,11 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                                        width: width, height: rowHeight)
         
         self.tipLabel.sizeToFit()
-        //tipLabel = CGSize(width: 50, height: 20)
         self.tipLabel.frame = CGRect(x: width/2.5, y: self.paymentRow.frame.maxY + rowHeight/2, width: 100, height: 20)
-       // let maxSize = CGSize(width: 150, height: 300)
         
         self.slider.sizeToFit()
         self.slider.frame = CGRect(x: 30, y: self.tipLabel.frame.maxY + rowHeight/4, width: 250, height: 20)
 
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        //let mySlider = UISlider(frame:CGRect(x: 10, y: 100, width: 300, height: 20))
         
         self.subtotalRow.frame = CGRect(x: 0, y: self.slider.frame.maxY + rowHeight,
                                         width: width, height: rowHeight)
@@ -347,9 +326,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         tipRow.detail = "$\(currentValue).00"
         let newTotal = finalTotalInt + Float(currentValue)
         totalRow.detail = "$\(String(format: "%.2f", newTotal))"
-        
-       // let roundedStepValue = round(sender.value / step) * step
-        //sender.value = roundedStepValue
+
         
     }
     

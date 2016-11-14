@@ -12,21 +12,16 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     
     @IBOutlet weak var ticketCodeField: UITextField!
     
-    var seguePerformed = false
-    
     let settingsVC = SettingsViewController()
-
     
-    
+    var seguePerformed = false
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
     var feedItems3: NSArray = NSArray()
-    
     var textFieldText = String()
     
     
-    //var selectedLocation : LocationModel = LocationModel()
-
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -34,7 +29,6 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         let homeModel = HomeModel()
         homeModel.delegate = self
         homeModel.downloadItems()
-        
         
         seguePerformed = false
         

@@ -205,12 +205,9 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 if feedItems3.contains(bCode) {
                     let index = feedItems3.index(of: bCode)
-                    //print("Found bCode at index:  \(index)")
-                    //print("We've got apples!")
                 
                 if !self.seguePerformed {
                 
-                    //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckoutViewController
                     
                     let checkoutViewController = CheckoutViewController(product: "Product Name",
                                                                         price: 100,
