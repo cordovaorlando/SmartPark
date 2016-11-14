@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		6F88CAF6193FBB91367A8B87 /* Pods_SmartPark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */; };
 		9015F6BC1DB41751007769D1 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9015F6BB1DB41751007769D1 /* Podfile */; };
+		9016D3AA1DD7B2D6005492D5 /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A31DD7B2D6005492D5 /* MyAPIClient.swift */; };
+		9016D3AB1DD7B2D6005492D5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A41DD7B2D6005492D5 /* SettingsViewController.swift */; };
+		9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A51DD7B2D6005492D5 /* CheckoutViewController.swift */; };
+		9016D3AD1DD7B2D6005492D5 /* BrowseProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A61DD7B2D6005492D5 /* BrowseProductsViewController.swift */; };
+		9016D3AE1DD7B2D6005492D5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A71DD7B2D6005492D5 /* Networking.swift */; };
+		9016D3AF1DD7B2D6005492D5 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A81DD7B2D6005492D5 /* CheckoutRowView.swift */; };
+		9016D3B01DD7B2D6005492D5 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A91DD7B2D6005492D5 /* Buttons.swift */; };
+		9016D3B31DD7B53E005492D5 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9016D3B21DD7B53E005492D5 /* PassKit.framework */; };
 		90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB31D56BBF200AACB59 /* AppDelegate.swift */; };
 		90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB51D56BBF200AACB59 /* HomeScreen.swift */; };
 		90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90348BB71D56BBF200AACB59 /* Main.storyboard */; };
@@ -43,6 +51,15 @@
 /* Begin PBXFileReference section */
 		8B3AF20FD1D2DE6156808996 /* Pods-SmartPark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPark.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPark/Pods-SmartPark.debug.xcconfig"; sourceTree = "<group>"; };
 		9015F6BB1DB41751007769D1 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9016D3A31DD7B2D6005492D5 /* MyAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
+		9016D3A41DD7B2D6005492D5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9016D3A51DD7B2D6005492D5 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		9016D3A61DD7B2D6005492D5 /* BrowseProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseProductsViewController.swift; sourceTree = "<group>"; };
+		9016D3A71DD7B2D6005492D5 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		9016D3A81DD7B2D6005492D5 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
+		9016D3A91DD7B2D6005492D5 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		9016D3B11DD7B499005492D5 /* SmartPark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartPark.entitlements; sourceTree = "<group>"; };
+		9016D3B21DD7B53E005492D5 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		90348BB01D56BBF200AACB59 /* SmartPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90348BB31D56BBF200AACB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90348BB51D56BBF200AACB59 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -70,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9016D3B31DD7B53E005492D5 /* PassKit.framework in Frameworks */,
 				6F88CAF6193FBB91367A8B87 /* Pods_SmartPark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,13 +135,21 @@
 		90348BB21D56BBF200AACB59 /* SmartPark */ = {
 			isa = PBXGroup;
 			children = (
-				908D40391DA1FB72005AD5AC /* CheckOutView2.swift */,
+				9016D3B11DD7B499005492D5 /* SmartPark.entitlements */,
 				90E71C911D90EE0700D1F730 /* HomeModel.swift */,
 				90348BB31D56BBF200AACB59 /* AppDelegate.swift */,
 				90348BB51D56BBF200AACB59 /* HomeScreen.swift */,
 				90348BE51D582D8000AACB59 /* ScannerViewController.swift */,
 				903CE8211DD2C75300750751 /* ViewController.swift */,
 				90C51F861DB426CB004939F2 /* StripeCardVC.swift */,
+				9016D3A31DD7B2D6005492D5 /* MyAPIClient.swift */,
+				9016D3A41DD7B2D6005492D5 /* SettingsViewController.swift */,
+				9016D3A51DD7B2D6005492D5 /* CheckoutViewController.swift */,
+				908D40391DA1FB72005AD5AC /* CheckOutView2.swift */,
+				9016D3A61DD7B2D6005492D5 /* BrowseProductsViewController.swift */,
+				9016D3A71DD7B2D6005492D5 /* Networking.swift */,
+				9016D3A81DD7B2D6005492D5 /* CheckoutRowView.swift */,
+				9016D3A91DD7B2D6005492D5 /* Buttons.swift */,
 				90348BB71D56BBF200AACB59 /* Main.storyboard */,
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
@@ -153,6 +179,7 @@
 		C0385A96C9B5D33152AD27BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9016D3B21DD7B53E005492D5 /* PassKit.framework */,
 				D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */,
 			);
 			name = Frameworks;
@@ -241,6 +268,14 @@
 						DevelopmentTeam = Q8Y835U42W;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
+								enabled = 1;
+							};
+						};
 					};
 					90348BC31D56BBF300AACB59 = {
 						CreatedOnToolsVersion = 8.0;
@@ -362,10 +397,17 @@
 				90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */,
 				90C51F871DB426CB004939F2 /* StripeCardVC.swift in Sources */,
 				90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */,
+				9016D3AE1DD7B2D6005492D5 /* Networking.swift in Sources */,
+				9016D3AF1DD7B2D6005492D5 /* CheckoutRowView.swift in Sources */,
+				9016D3AD1DD7B2D6005492D5 /* BrowseProductsViewController.swift in Sources */,
+				9016D3AA1DD7B2D6005492D5 /* MyAPIClient.swift in Sources */,
+				9016D3B01DD7B2D6005492D5 /* Buttons.swift in Sources */,
 				90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */,
 				903CE8221DD2C75300750751 /* ViewController.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 				908D403A1DA1FB72005AD5AC /* CheckOutView2.swift in Sources */,
+				9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */,
+				9016D3AB1DD7B2D6005492D5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +560,7 @@
 			baseConfigurationReference = 8B3AF20FD1D2DE6156808996 /* Pods-SmartPark.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartPark/SmartPark.entitlements;
 				DEVELOPMENT_TEAM = Q8Y835U42W;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = SmartPark/Info.plist;
@@ -534,6 +577,7 @@
 			baseConfigurationReference = F251ECD0301AF6DE161760DC /* Pods-SmartPark.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SmartPark/SmartPark.entitlements;
 				DEVELOPMENT_TEAM = Q8Y835U42W;
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = SmartPark/Info.plist;

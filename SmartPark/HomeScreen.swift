@@ -14,6 +14,9 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     
     var seguePerformed = false
     
+    let settingsVC = SettingsViewController()
+
+    
     
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
@@ -104,16 +107,29 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
             
             if !self.seguePerformed {
                 
-                let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
-                
-                destViewController.message = textFieldText
-                destViewController.feedItems = feedItems
-                destViewController.feedItems2 = feedItems2
-                destViewController.bCodeIndex = index
                 
                 
+                let checkoutViewController = CheckoutViewController(product: "Product Name",
+                                                                    price: 100,
+                                                                    settings: self.settingsVC.settings)
                 
-                self.navigationController?.pushViewController(destViewController, animated: true)
+                
+                
+                //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! BrowseProductsViewController
+                
+                let backItem = UIBarButtonItem()
+                backItem.title = "Back"
+                navigationItem.backBarButtonItem = backItem
+                
+                checkoutViewController.message = textFieldText
+                checkoutViewController.feedItems = feedItems
+                checkoutViewController.feedItems2 = feedItems2
+                checkoutViewController.bCodeIndex = index
+                
+                
+                
+                self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                //self.navigationController?.pushViewController(destViewController, animated: true)
                 
                 self.seguePerformed = true
                 //self.performSegue(withIdentifier: "sampleSegue", sender: self)

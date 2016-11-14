@@ -15,6 +15,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     var bCode = String()
     var seguePerformed = false
     
+    let settingsVC = SettingsViewController()
+    
     
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
@@ -208,16 +210,25 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 if !self.seguePerformed {
                 
-                    let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckOutView2
+                    //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! CheckoutViewController
                     
-                    destViewController.message = bCode
-                    destViewController.feedItems = feedItems
-                    destViewController.feedItems2 = feedItems2
-                    destViewController.bCodeIndex = index
+                    let checkoutViewController = CheckoutViewController(product: "Product Name",
+                                                                        price: 100,
+                                                                        settings: self.settingsVC.settings)
+                    
+                    checkoutViewController.message = bCode
+                    checkoutViewController.feedItems = feedItems
+                    checkoutViewController.feedItems2 = feedItems2
+                    checkoutViewController.bCodeIndex = index
+                    
+                    let backItem = UIBarButtonItem()
+                    backItem.title = "Back"
+                    navigationItem.backBarButtonItem = backItem
 
                     
                 
-                    self.navigationController?.pushViewController(destViewController, animated: true)
+                    //self.navigationController?.pushViewController(destViewController, animated: true)
+                    self.navigationController?.pushViewController(checkoutViewController, animated: true)
                     
                     self.seguePerformed = true
                 //self.performSegue(withIdentifier: "sampleSegue", sender: self)
