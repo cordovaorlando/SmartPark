@@ -12,12 +12,15 @@ import Stripe
 class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     
+    let settingsViewC = SettingsViewController()
+    
     var initialTip = 0
     var totalInt = Float()
     var subtotalInt = Float()
     var feeInt = Float()
     var tipInt = Float()
-    var finalTotalInt = Float()
+    var finalTotalInt: Float = 10.00
+    var finalTotalInt2 = Float()
     var SERVICE_FEE:Float = 2.00
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
@@ -25,10 +28,13 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     var message = String()
     
     
+    var num: Int = 500
+    
+    
     
     let companyName = "SmartPark"               // Apple Pay Variables
     let paymentCurrency = "usd"                 // Apple Pay Variables
-    let paymentContext: STPPaymentContext
+    var paymentContext: STPPaymentContext
     let theme: STPTheme
     let paymentRow: CheckoutRowView
     let subtotalRow: CheckoutRowView
@@ -91,29 +97,14 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         self.buyButton = BuyButton(enabled: true, theme: settings.theme)
         MyAPIClient.sharedClient.baseURLString = self.backendBaseURL
-
-        // This code is included here for the sake of readability, but in your application you should set up your configuration and theme earlier, preferably in your App Delegate.
+        
         let config = STPPaymentConfiguration.shared()
-        config.publishableKey = self.stripePublishableKey
-        config.appleMerchantIdentifier = self.appleMerchantID
-        config.companyName = self.companyName
-        config.requiredBillingAddressFields = settings.requiredBillingAddressFields
-        config.additionalPaymentMethods = settings.additionalPaymentMethods
-        config.smsAutofillDisabled = !settings.smsAutofillEnabled
-        
-        let paymentContext = STPPaymentContext(apiAdapter: MyAPIClient.sharedClient,
-                                               configuration: config,
-                                               theme: settings.theme)
-        let userInformation = STPUserInformation()
-        paymentContext.prefilledInformation = userInformation
-        
-        paymentContext.paymentAmount = 2000
-        paymentContext.paymentCurrency = self.paymentCurrency
-        
-        self.paymentContext = paymentContext
+        paymentContext = STPPaymentContext(apiAdapter: MyAPIClient.sharedClient,
+                                           configuration: config,
+                                           theme: settings.theme)
+
         super.init(nibName: nil, bundle: nil)
-        self.paymentContext.delegate = self
-        paymentContext.hostViewController = self
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -154,6 +145,54 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         print(feedItems)
         print(feedItems2)
         print(bCodeIndex)
+        
+        
+        
+        
+        finalTotalInt2 = finalTotalInt
+        
+        // This code is included here for the sake of readability, but in your application you should set up your configuration and theme earlier, preferably in your App Delegate.
+        let config = STPPaymentConfiguration.shared()
+        config.publishableKey = self.stripePublishableKey
+        config.appleMerchantIdentifier = self.appleMerchantID
+        config.companyName = self.companyName
+        config.requiredBillingAddressFields = settingsViewC.settings.requiredBillingAddressFields
+        config.additionalPaymentMethods = settingsViewC.settings.additionalPaymentMethods
+        config.smsAutofillDisabled = !settingsViewC.settings.smsAutofillEnabled
+        
+        var paymentContext = STPPaymentContext(apiAdapter: MyAPIClient.sharedClient,
+                                               configuration: config,
+                                               theme: settingsViewC.settings.theme)
+        let userInformation = STPUserInformation()
+        paymentContext.prefilledInformation = userInformation
+        print("testing Init")
+        
+        // let variable2 = (feedItems2[bCodeIndex] as AnyObject).description
+        //finalTotalInt2 = (Float(variable2!)! + SERVICE_FEE)
+        
+        
+        
+        paymentContext.paymentAmount = Int(finalTotalInt2)*100
+        paymentContext.paymentCurrency = self.paymentCurrency
+        
+        self.paymentContext = paymentContext
+        //super.init(nibName: nil, bundle: nil)
+        self.paymentContext.delegate = self
+        paymentContext.hostViewController = self
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         self.view.backgroundColor = self.theme.primaryBackgroundColor
         var red: CGFloat = 0
@@ -326,6 +365,9 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         tipRow.detail = "$\(currentValue).00"
         let newTotal = finalTotalInt + Float(currentValue)
         totalRow.detail = "$\(String(format: "%.2f", newTotal))"
+        
+        finalTotalInt2 = finalTotalInt + Float(currentValue)
+        paymentContext.paymentAmount = Int(finalTotalInt2)*100
 
         
     }

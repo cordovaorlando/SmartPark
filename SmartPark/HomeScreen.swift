@@ -20,6 +20,8 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     var feedItems3: NSArray = NSArray()
     var textFieldText = String()
     
+    var finalTotalInt = Float()
+    var SERVICE_FEE:Float = 2.00
     
     
     override func viewDidLoad() {
@@ -102,9 +104,12 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
             if !self.seguePerformed {
                 
                 
+                let variable = (feedItems2[index] as AnyObject).description
+                finalTotalInt = (Float(variable!)! + SERVICE_FEE)
+
                 
                 let checkoutViewController = CheckoutViewController(product: "Product Name",
-                                                                    price: 100,
+                                                                    price: Int(finalTotalInt)*100,
                                                                     settings: self.settingsVC.settings)
                 
                 

@@ -2,4 +2,99 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SmartPark/SettingsViewController.swift"
+            timestampString = "500877129.670847"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "SettingsViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartPark.SettingsViewController.(theme in _46226BEAADC7E251F652DFDE81D2F278).getter : SmartPark.SettingsViewController.(Theme in _46226BEAADC7E251F652DFDE81D2F278)"
+                  moduleName = "SmartPark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JCordova/Desktop/SmartPark/SmartPark/SettingsViewController.swift"
+                  timestampString = "500877839.420247"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartPark.SettingsViewController.(theme in _46226BEAADC7E251F652DFDE81D2F278).setter : SmartPark.SettingsViewController.(Theme in _46226BEAADC7E251F652DFDE81D2F278)"
+                  moduleName = "SmartPark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JCordova/Desktop/SmartPark/SmartPark/SettingsViewController.swift"
+                  timestampString = "500877839.423013"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartPark.SettingsViewController.init (style : __C.UITableViewStyle) -&gt; SmartPark.SettingsViewController"
+                  moduleName = "SmartPark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JCordova/Desktop/SmartPark/SmartPark/SettingsViewController.swift"
+                  timestampString = "500877839.425777"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartPark.SettingsViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; SmartPark.SettingsViewController"
+                  moduleName = "SmartPark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JCordova/Desktop/SmartPark/SmartPark/SettingsViewController.swift"
+                  timestampString = "500877839.42866"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SmartPark.SettingsViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;SmartPark.SettingsViewController&gt;"
+                  moduleName = "SmartPark"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/JCordova/Desktop/SmartPark/SmartPark/SettingsViewController.swift"
+                  timestampString = "500877839.431361"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
