@@ -296,28 +296,70 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
         MyAPIClient.sharedClient.completeCharge(paymentResult, amount: self.paymentContext.paymentAmount,
                                                 completion: completion)
+        
+        
+        // Create the alert controller
+        //let alertController = UIAlertController(title: "Thank You", message: "Your car is on its way!", preferredStyle: .alert)
+        
+        // Create the actions
+        
+        
+        //let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+            //UIAlertAction in
+          //  NSLog("OK Pressed")
+            //self.navigationController?.popToRootViewController(animated: true)
+            
+            //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeScreen") as! HomeScreenViewController
+            
+            //self.navigationController?.pushViewController(destViewController, animated: true)
+        //}
+        //let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+        //  UIAlertAction in
+        //  NSLog("Cancel Pressed")
+        //}
+        
+        // Add the actions
+       // alertController.addAction(okAction)
+        //alertController.addAction(cancelAction)
+        
+        // Present the controller
+        //self.present(alertController, animated: true, completion: nil)
+        
+        //print("Payment Sent!!")
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         self.paymentInProgress = false
-        let title: String
-        let message: String
-        switch status {
-        case .error:
-            title = "Error"
-            message = error?.localizedDescription ?? ""
-        case .success:
-            title = "Thank You"
-            message = "Your car is on its way!"
-        case .userCancellation:
-            return
-        }
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(action)
+    
+                let title: String
+                let message: String
+                switch status {
+                case .error:
+                    title = "Error"
+                    message = error?.localizedDescription ?? ""
+                case .success:
+                    title = "Thank You"
+                    message = "Your car is on its way!"
+                    print("Clicked Ok")
+                    
+                    unowned let unownedSelf = self
+                    
+                    let deadlineTime = DispatchTime.now() + .seconds(2)
+                    DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                        unownedSelf.sendToRoot()
+                    })
+                    
+                    
+                case .userCancellation:
+                    return
+                }
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
+        
+        
     }
-
     // MARK: STPPaymentContextDelegate
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
@@ -372,6 +414,10 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
     }
     
+    
+    func sendToRoot(){
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     
   
     

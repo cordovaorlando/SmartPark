@@ -28,6 +28,8 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         
         super.viewDidLoad()
         
+        
+        dismissKeyboard()
         let homeModel = HomeModel()
         homeModel.delegate = self
         homeModel.downloadItems()
@@ -72,7 +74,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
+        dismissKeyboard()
         seguePerformed = false
         ticketCodeField.text = nil
         
@@ -113,7 +115,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
                                                                     settings: self.settingsVC.settings)
                 
                 
-                
+                dismissKeyboard()
                 //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! BrowseProductsViewController
                 
                 let backItem = UIBarButtonItem()
@@ -131,6 +133,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
                 //self.navigationController?.pushViewController(destViewController, animated: true)
                 
                 self.seguePerformed = true
+                
                 //self.performSegue(withIdentifier: "sampleSegue", sender: self)
                 
             }
