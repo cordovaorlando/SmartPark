@@ -11,9 +11,13 @@ import AVFoundation
 
 class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetadataOutputObjectsDelegate{
     
+    @IBOutlet weak var mySwitch: UISwitch!
+  
+
     @IBOutlet weak var messageLabel: UILabel!
     var bCode = String()
     var seguePerformed = false
+    var flashOff = false
     
     let settingsVC = SettingsViewController()
     
@@ -21,10 +25,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
     var feedItems3: NSArray = NSArray()
-    
-    
-    //var selectedLocation : LocationModel = LocationModel()
-    
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -36,51 +36,42 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        mySwitch.tintColor = UIColor.white
+        mySwitch.onTintColor = UIColor.white
+        
         let homeModel = HomeModel()
         homeModel.delegate = self
         homeModel.downloadItems()
-
         
         seguePerformed = false
         
-        toggleTorch(on: true)
-        
-        // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
-        // as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         do {
-            // Get an instance of the AVCaptureDeviceInput class using the previous device object.
+            
             let input = try AVCaptureDeviceInput(device: captureDevice)
             
-            // Initialize the captureSession object.
             captureSession = AVCaptureSession()
-            // Set the input device on the capture session.
             captureSession?.addInput(input)
             
-            // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
             let captureMetadataOutput = AVCaptureMetadataOutput()
             captureSession?.addOutput(captureMetadataOutput)
             
-            // Set delegate and use the default dispatch queue to execute the call back
             captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             
-            // Detect all the supported bar code
             captureMetadataOutput.metadataObjectTypes = supportedBarCodes
             
-            // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
             
-            // Start video capture
             captureSession?.startRunning()
             
-            // Move the message label to the top view
             view.bringSubview(toFront: messageLabel)
             
-            // Initialize QR Code Frame to highlight the QR code
             qrCodeFrameView = UIView()
             
             if let qrCodeFrameView = qrCodeFrameView {
@@ -91,7 +82,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
             }
             
         } catch {
-            // If any error occurs, simply print it out and don't continue any more.
             print(error)
             return
         }
@@ -116,10 +106,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         if (captureSession?.isRunning == false) {
             captureSession?.startRunning();
         }
-        
-        toggleTorch(on: true)
-        
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -128,6 +114,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         if (captureSession?.isRunning == true) {
             captureSession?.stopRunning();
         }
+        
+        mySwitch.setOn(flashOff, animated: flashOff)
       
     }
     
@@ -135,7 +123,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
         
         feedItems = items
-        //print(feedItems[0])
         
         feedItems2 = items2
         
@@ -173,32 +160,24 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
-        // Check if the metadataObjects array is not nil and it contains at least one object.
+
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No barcode/QR code is detected"
             return
         }
         
-        // Get the metadata object.
         let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
         
-        // Here we use filter method to check if the type of metadataObj is supported
-        // Instead of hardcoding the AVMetadataObjectTypeQRCode, we check if the type
-        // can be found in the array of supported bar codes.
-        if supportedBarCodes.contains(metadataObj.type) {
-            //        if metadataObj.type == AVMetadataObjectTypeQRCode {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+            if supportedBarCodes.contains(metadataObj.type) {
+            
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
                 messageLabel.text = metadataObj.stringValue
                 AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-                //print(messageLabel.text)
-                
-                //foundCode(metadataObj.stringValue);
+            
                 bCode = metadataObj.stringValue
                 
                 
@@ -222,31 +201,33 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                     backItem.title = "Back"
                     navigationItem.backBarButtonItem = backItem
 
-                    
-                
-                    //self.navigationController?.pushViewController(destViewController, animated: true)
                     self.navigationController?.pushViewController(checkoutViewController, animated: true)
                     
                     self.seguePerformed = true
-                //self.performSegue(withIdentifier: "sampleSegue", sender: self)
             
                 }
                     
                 } else {
-                    //print("No apples here – sorry!")
                     messageLabel.text = "Not a valid QRCode - sorry"
                 }
-                
-                
-                
-                
             }
-            
-            
-            
-            
         }
         
     }
+    
+    @IBAction func switchTapped(_ sender: UISwitch) {
+        print(sender.isOn ? "on" : "off")
+        
+        if sender.isOn == true{
+            toggleTorch(on: true)
+        }
+        else{
+        toggleTorch(on: false)
+        }
+    }
+
+    
+    
+    
 }
 

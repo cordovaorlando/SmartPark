@@ -58,8 +58,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     let totalText = UILabel()
     let tipLabel = UILabel()
     var slider: UISlider = UISlider()
-    //var slider:UISlider?
-
     
     let stripePublishableKey = "pk_test_Nxy4IoZXCoOVppUkWdFH7eOv"
     let backendBaseURL: String? = "https://lsus-smartpark.herokuapp.com/"
@@ -121,116 +119,15 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    //required init?(coder aDecoder: NSCoder) {
-      //  fatalError("init(coder:) has not been implemented")
-    //}
-    
-    
-    
-    
-    
-    
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        slider.minimumValue = 0
-        slider.maximumValue = 30
-        slider.isContinuous = true
-        slider.tintColor = UIColor.orange
-        slider.value = 0
-        slider.isUserInteractionEnabled = true
-        //slider.addTarget(self, action: Selector(("sliderChanged:")),for: .valueChanged)
-        slider.addTarget(self, action: #selector(CheckoutViewController.valueChanged(_:)), for: .valueChanged)
-
-        
-       // buyButton.tintColor = UIColor.orange
-        
         intializeLabels()
-        
-        print(message)
-        print(feedItems)
-        print(feedItems2)
-        print(bCodeIndex)
-        
-        
-        
-        
-        finalTotalInt2 = finalTotalInt
-        
-        // This code is included here for the sake of readability, but in your application you should set up your configuration and theme earlier, preferably in your App Delegate.
-        let config = STPPaymentConfiguration.shared()
-        config.publishableKey = self.stripePublishableKey
-        config.appleMerchantIdentifier = self.appleMerchantID
-        config.companyName = self.companyName
-        config.requiredBillingAddressFields = settingsViewC.settings.requiredBillingAddressFields
-        config.additionalPaymentMethods = settingsViewC.settings.additionalPaymentMethods
-        config.smsAutofillDisabled = !settingsViewC.settings.smsAutofillEnabled
-        
-        var paymentContext = STPPaymentContext(apiAdapter: MyAPIClient.sharedClient,
-                                               configuration: config,
-                                               theme: settingsViewC.settings.theme)
-        let userInformation = STPUserInformation()
-        paymentContext.prefilledInformation = userInformation
-        print("testing Init")
-        
-        // let variable2 = (feedItems2[bCodeIndex] as AnyObject).description
-        //finalTotalInt2 = (Float(variable2!)! + SERVICE_FEE)
-        
-        
-        
-        paymentContext.paymentAmount = Int(finalTotalInt2)*100
-        paymentContext.paymentCurrency = self.paymentCurrency
-        
-        self.paymentContext = paymentContext
-        //super.init(nibName: nil, bundle: nil)
-        self.paymentContext.delegate = self
-        paymentContext.hostViewController = self
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        self.view.backgroundColor = self.theme.primaryBackgroundColor
-        var red: CGFloat = 0
-        self.theme.primaryBackgroundColor.getRed(&red, green: nil, blue: nil, alpha: nil)
-        self.activityIndicator.activityIndicatorViewStyle = red < 0.5 ? .white : .gray
-        
-        
-        
-        
-       
-        self.restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
-        self.totalText.font = UIFont.boldSystemFont(ofSize: 16.0)
-        self.view.addSubview(self.subtotalRow)
-        self.view.addSubview(self.serviceFeeRow)
-        self.view.addSubview(self.tipRow)
-        self.view.addSubview(self.totalRow)
-        self.view.addSubview(self.paymentRow)
-        self.view.addSubview(self.restaurantName)
-        self.view.addSubview(self.totalText)
-        self.view.addSubview(self.tipLabel)
-        self.view.addSubview(self.slider)
-        self.view.addSubview(self.buyButton)
-        self.view.addSubview(self.activityIndicator)
-        self.activityIndicator.alpha = 0
-        self.buyButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
-        
     }
+    
     
     func intializeLabels(){
         self.restaurantName.text = (feedItems[bCodeIndex] as AnyObject).description
@@ -264,8 +161,67 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         restName = restaurantName.text!
         subtotalEmail = totalText.text!
+        
+        
+        
+        slider.minimumValue = 0
+        slider.maximumValue = 30
+        slider.isContinuous = true
+        slider.tintColor = UIColor.orange
+        slider.value = 0
+        slider.isUserInteractionEnabled = true
+        slider.addTarget(self, action: #selector(CheckoutViewController.valueChanged(_:)), for: .valueChanged)
+        
+        
+        finalTotalInt2 = finalTotalInt
+        
+        let config = STPPaymentConfiguration.shared()
+        config.publishableKey = self.stripePublishableKey
+        config.appleMerchantIdentifier = self.appleMerchantID
+        config.companyName = self.companyName
+        config.requiredBillingAddressFields = settingsViewC.settings.requiredBillingAddressFields
+        config.additionalPaymentMethods = settingsViewC.settings.additionalPaymentMethods
+        config.smsAutofillDisabled = !settingsViewC.settings.smsAutofillEnabled
+        
+        var paymentContext = STPPaymentContext(apiAdapter: MyAPIClient.sharedClient,
+                                               configuration: config,
+                                               theme: settingsViewC.settings.theme)
+        let userInformation = STPUserInformation()
+        paymentContext.prefilledInformation = userInformation
+        
+        paymentContext.paymentAmount = Int(finalTotalInt2)*100
+        paymentContext.paymentCurrency = self.paymentCurrency
+        
+        self.paymentContext = paymentContext
+        self.paymentContext.delegate = self
+        paymentContext.hostViewController = self
+        
+        
+        self.view.backgroundColor = self.theme.primaryBackgroundColor
+        var red: CGFloat = 0
+        self.theme.primaryBackgroundColor.getRed(&red, green: nil, blue: nil, alpha: nil)
+        self.activityIndicator.activityIndicatorViewStyle = red < 0.5 ? .white : .gray
+        
+        
+        self.restaurantName.font = UIFont.boldSystemFont(ofSize: 20.0)
+        self.totalText.font = UIFont.boldSystemFont(ofSize: 16.0)
+        self.view.addSubview(self.subtotalRow)
+        self.view.addSubview(self.serviceFeeRow)
+        self.view.addSubview(self.tipRow)
+        self.view.addSubview(self.totalRow)
+        self.view.addSubview(self.paymentRow)
+        self.view.addSubview(self.restaurantName)
+        self.view.addSubview(self.totalText)
+        self.view.addSubview(self.tipLabel)
+        self.view.addSubview(self.slider)
+        self.view.addSubview(self.buyButton)
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.alpha = 0
+        self.buyButton.addTarget(self, action: #selector(didTapBuy), for: .touchUpInside)
+        
 
     }
+    
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -303,7 +259,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                                          width: width, height: rowHeight)
         
         self.buyButton.frame = CGRect(x: 0, y: 0, width: 88, height: 44)
-        self.buyButton.center = CGPoint(x: width/2.0, y: self.totalRow.frame.maxY+30)
+        self.buyButton.center = CGPoint(x: width/2.0, y: self.totalRow.frame.maxY+45)
         self.activityIndicator.center = self.buyButton.center
     }
 
@@ -315,37 +271,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
         MyAPIClient.sharedClient.completeCharge(paymentResult, amount: self.paymentContext.paymentAmount,
                                                 completion: completion)
-        
-        
-        // Create the alert controller
-        //let alertController = UIAlertController(title: "Thank You", message: "Your car is on its way!", preferredStyle: .alert)
-        
-        // Create the actions
-        
-        
-        //let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
-            //UIAlertAction in
-          //  NSLog("OK Pressed")
-            //self.navigationController?.popToRootViewController(animated: true)
-            
-            //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "homeScreen") as! HomeScreenViewController
-            
-            //self.navigationController?.pushViewController(destViewController, animated: true)
-        //}
-        //let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
-        //  UIAlertAction in
-        //  NSLog("Cancel Pressed")
-        //}
-        
-        // Add the actions
-       // alertController.addAction(okAction)
-        //alertController.addAction(cancelAction)
-        
-        // Present the controller
-        //self.present(alertController, animated: true, completion: nil)
-        
-        //print("Payment Sent!!")
-    }
+
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         self.paymentInProgress = false
@@ -381,7 +307,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         
     }
-    // MARK: STPPaymentContextDelegate
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
         self.paymentRow.loading = paymentContext.loading
@@ -448,20 +373,9 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func sendCustomerEmail(){
         
-        //variables that hold the subtotal data
-        //var subtotal = Float()
-       // var stringSubtotal = String()
-        
-        //creating a subtotal based on the current values. Basically subtracting the tax and convenience fee from the total price.
-       // subtotal = (priceOfItems - (taxOfFood + convenienceFee))
-        //stringSubtotal = convertFloatToString(subtotal)
-        
-        
         var rowData = String()
-        //for var index = 0; index < itemsInCart.count; ++index{
-            
+        
             rowData = "<tr style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\"><td style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;\" valign=\"top\">Valet Parking Service</td><td class=\"alignright\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 1px; border-top-color: #eee; border-top-style: solid; margin: 0; padding: 5px 0;\" align=\"right\" valign=\"top\">" + subtotalEmail + "</td></tr>"
-        //}
         
         //email header
         emailHeader = "from=SmartPark <sales@smartpark.com>&to=John Doe <cordovaorlando@hotmail.com>&subject=We've received your order! Order #12345&text= Thanks for your order!"
@@ -490,7 +404,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         //Sends Emails after transaction Approved.
         let myUrl = NSURL(string: "https://api.mailgun.net/v3/sandboxfbe7b5adbc2947908d2e347a2eeae168.mailgun.org/messages");
         let requestEmail = NSMutableURLRequest(url:myUrl! as URL);
-        //        let request: NSMutableURLRequest = NSMutableURLRequest(URL: NSURL(string: "https://api.mailgun.net/v3/sandboxcfe66167019a455aa52e6d456a203246.mailgun.org/messages")!)
+
         requestEmail.httpMethod = "POST"
         
         // Basic Authentication
@@ -501,21 +415,12 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         let base64LoginString = loginData.base64EncodedString(options: [])
         requestEmail.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
-        // appending the data
         requestEmail.httpBody = (self.emailHeader + self.emailBody).data(using: String.Encoding.utf8);
         
         let task = URLSession.shared.dataTask(with: requestEmail as URLRequest, completionHandler: { (data, response, error) -> Void in
-            // ... do other stuff here
         })
         
-        task.resume()
-        print("testing...")
-        
+        task.resume()        
     }
-    
-  
-    
-   
-    
 
 }

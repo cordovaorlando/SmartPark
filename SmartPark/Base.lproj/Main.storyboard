@@ -367,12 +367,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="emD-lF-PME" firstAttribute="centerX" secondItem="1Qg-jh-Kwy" secondAttribute="centerX" id="h2z-Q8-Ibf"/>
-                            <constraint firstItem="m8k-tL-E6M" firstAttribute="top" secondItem="emD-lF-PME" secondAttribute="bottom" constant="8" id="xBH-IB-iQ8"/>
+                            <constraint firstItem="m8k-tL-E6M" firstAttribute="top" secondItem="emD-lF-PME" secondAttribute="bottom" id="mb3-V5-ORc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="O3I-B3-F62"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="O3I-B3-F62">
+                        <barButtonItem key="rightBarButtonItem" id="sWk-vD-FdT">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="vFc-lJ-wcP">
+                                <rect key="frame" x="310" y="6" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="switchTapped:" destination="jtA-9B-K8X" eventType="valueChanged" id="Wez-dy-l9u"/>
+                                </connections>
+                            </switch>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="messageLabel" destination="emD-lF-PME" id="Kyn-gM-QAG"/>
+                        <outlet property="mySwitch" destination="vFc-lJ-wcP" id="p2S-8O-pyC"/>
                         <segue destination="xos-Pz-Ed9" kind="push" identifier="sampleSegue" id="HwE-lS-DrD"/>
                     </connections>
                 </viewController>

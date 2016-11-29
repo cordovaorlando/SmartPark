@@ -46,8 +46,6 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeScreen.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -84,13 +82,10 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
     func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
         
         feedItems = items
-        //print(feedItems)
         
         feedItems2 = items2
-        //print(feedItems2)
         
         feedItems3 = items3
-        //print(feedItems3)
     }
     
     
@@ -100,8 +95,6 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         
         if feedItems3.contains(textFieldText) {
             let index = feedItems3.index(of: textFieldText)
-            //print("Found ticket Number at index:  \(index)")
-            //print("We've got apples!")
             
             if !self.seguePerformed {
                 
@@ -116,8 +109,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
                 
                 
                 dismissKeyboard()
-                //let destViewController = self.storyboard?.instantiateViewController(withIdentifier: "destView") as! BrowseProductsViewController
-                
+
                 let backItem = UIBarButtonItem()
                 backItem.title = "Back"
                 navigationItem.backBarButtonItem = backItem
@@ -130,18 +122,14 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
                 
                 
                 self.navigationController?.pushViewController(checkoutViewController, animated: true)
-                //self.navigationController?.pushViewController(destViewController, animated: true)
-                
+
                 self.seguePerformed = true
                 
-                //self.performSegue(withIdentifier: "sampleSegue", sender: self)
                 
             }
             
         } else {
-            //print("No apples here – sorry!")
-            //print(textFieldText)
-            //messageLabel.text = "Not a valid QRCode - sorry"
+
         }
     }
     
