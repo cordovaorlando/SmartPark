@@ -272,6 +272,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         MyAPIClient.sharedClient.completeCharge(paymentResult, amount: self.paymentContext.paymentAmount,
                                                 completion: completion)
 
+    }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         self.paymentInProgress = false
@@ -307,6 +308,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         
     }
+    // MARK: STPPaymentContextDelegate
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
         self.paymentRow.loading = paymentContext.loading
