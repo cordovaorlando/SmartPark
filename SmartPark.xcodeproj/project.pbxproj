@@ -16,6 +16,7 @@
 		9016D3AF1DD7B2D6005492D5 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A81DD7B2D6005492D5 /* CheckoutRowView.swift */; };
 		9016D3B01DD7B2D6005492D5 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A91DD7B2D6005492D5 /* Buttons.swift */; };
 		9016D3B31DD7B53E005492D5 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9016D3B21DD7B53E005492D5 /* PassKit.framework */; };
+		901816011DED5A8400F8EFBF /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901816001DED5A8400F8EFBF /* TimerViewController.swift */; };
 		90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB31D56BBF200AACB59 /* AppDelegate.swift */; };
 		90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB51D56BBF200AACB59 /* HomeScreen.swift */; };
 		90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90348BB71D56BBF200AACB59 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		9016D3A91DD7B2D6005492D5 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		9016D3B11DD7B499005492D5 /* SmartPark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartPark.entitlements; sourceTree = "<group>"; };
 		9016D3B21DD7B53E005492D5 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		901816001DED5A8400F8EFBF /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		90348BB01D56BBF200AACB59 /* SmartPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90348BB31D56BBF200AACB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90348BB51D56BBF200AACB59 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
 				90348BBF1D56BBF300AACB59 /* Info.plist */,
+				901816001DED5A8400F8EFBF /* TimerViewController.swift */,
 			);
 			path = SmartPark;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 				9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */,
+				901816011DED5A8400F8EFBF /* TimerViewController.swift in Sources */,
 				9016D3AB1DD7B2D6005492D5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

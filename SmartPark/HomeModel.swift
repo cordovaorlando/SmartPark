@@ -21,8 +21,7 @@ class HomeModel: NSObject, URLSessionDataDelegate {
     
     var data : NSMutableData = NSMutableData()
     
-    let urlPath: String = "http://kemodata.com/service.php" //this will be changed to the path where service.php lives
-    
+    let urlPath: String = "http://spvalet.com/service.php"    
     var restaurantNamesArray = [String]()
     var restaurantPricesArray = [String]()
     var qrCodeArray = [String]()
