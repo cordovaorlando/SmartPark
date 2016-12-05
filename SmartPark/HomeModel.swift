@@ -50,7 +50,6 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         if error != nil {
             print("Failed to download data")
         }else {
-            //print("Data downloaded")
             self.parseJSON()
         }
     }
@@ -76,19 +75,13 @@ class HomeModel: NSObject, URLSessionDataDelegate {
             
             jsonElement = jsonResult[i] as! NSDictionary
             
-            //let location = LocationModel()
             
-            //the following insures none of the JsonElement values are nil through optional binding
             if let id = jsonElement["ID"] as? String,
                 let restaurantName = jsonElement["RestaurantName"] as? String,
                 let qrCode = jsonElement["QRCode"] as? String,
                 let price = jsonElement["Price"] as? String
             {
-                
-                //location.id = id
-                //location.restaurantName = restaurantName
-                //location.qrCode = qrCode
-                //location.price = price
+
                 
                 restaurantNamesArray.append(restaurantName)
                 restaurantPricesArray.append(price)
@@ -96,13 +89,10 @@ class HomeModel: NSObject, URLSessionDataDelegate {
                 
             }
             
-            //locations.add(location)
-            
         }
         
         DispatchQueue.main.async(execute: { () -> Void in
             
-            //self.delegate.itemsDownloaded(locations)
             self.delegate.itemsDownloaded(self.restaurantNamesArray as NSArray, self.restaurantPricesArray as NSArray, self.qrCodeArray as NSArray)
           
         })

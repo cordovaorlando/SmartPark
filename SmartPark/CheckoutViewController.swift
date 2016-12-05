@@ -406,7 +406,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         
         
-        //Sends Emails after transaction Approved.
         let myUrl = NSURL(string: "https://api.mailgun.net/v3/sandboxfbe7b5adbc2947908d2e347a2eeae168.mailgun.org/messages");
         let requestEmail = NSMutableURLRequest(url:myUrl! as URL);
 
