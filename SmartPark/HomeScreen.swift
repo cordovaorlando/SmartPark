@@ -28,6 +28,12 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         
         super.viewDidLoad()
         
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        
+        let notificationCenter2 = NotificationCenter.default
+        notificationCenter2.addObserver(self, selector: #selector(appMovedToForeGround), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+        
         
         dismissKeyboard()
         let homeModel = HomeModel()
@@ -47,6 +53,24 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         view.addGestureRecognizer(tap)
         
     }
+    
+    func appMovedToBackground() {
+        print("App moved to background!")
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+
+    }
+    
+    func appMovedToForeGround() {
+        print("App moved to foreground!")
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+        
+    }
+
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -75,6 +99,26 @@ class HomeScreen: UIViewController, UITextFieldDelegate, HomeModelProtocal {
         seguePerformed = false
         ticketCodeField.text = nil
         
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+        
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+    }
+    
+     func applicationWillEnterForeground(_ application: UIApplication) {
+        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        let homeModel = HomeModel()
+        homeModel.delegate = self
+        homeModel.downloadItems()
+
     }
     
     

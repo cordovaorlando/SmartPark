@@ -371,7 +371,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func sendToTimer(){
         
-        let destView = TimeViewController()
+        let destView = UIViewController()
         self.navigationController?.pushViewController(destView, animated: true)
     }
     
