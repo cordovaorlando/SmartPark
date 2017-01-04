@@ -24,7 +24,10 @@
 		90348BC91D56BBF300AACB59 /* SmartParkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BC81D56BBF300AACB59 /* SmartParkTests.swift */; };
 		90348BD41D56BBF300AACB59 /* SmartParkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */; };
 		90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BE51D582D8000AACB59 /* ScannerViewController.swift */; };
-		90B716F41E138DC4000B29C1 /* Item1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B716F31E138DC4000B29C1 /* Item1.swift */; };
+		90A1AE661E1C951200EF77D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90A1AE651E1C951200EF77D8 /* GoogleService-Info.plist */; };
+		90A1AE681E1C9AD500EF77D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */; };
+		90A1AE6A1E1CA14D00EF77D8 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */; };
+		90A1AE6E1E1CA31A00EF77D8 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE6D1E1CA31A00EF77D8 /* AccountSettingsViewController.swift */; };
 		90B716F61E14CB89000B29C1 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B716F51E14CB89000B29C1 /* ReportViewController.swift */; };
 		90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E71C911D90EE0700D1F730 /* HomeModel.swift */; };
 /* End PBXBuildFile section */
@@ -71,7 +74,10 @@
 		90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartParkUITests.swift; sourceTree = "<group>"; };
 		90348BD51D56BBF300AACB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90348BE51D582D8000AACB59 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
-		90B716F31E138DC4000B29C1 /* Item1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item1.swift; sourceTree = "<group>"; };
+		90A1AE651E1C951200EF77D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		90A1AE6D1E1CA31A00EF77D8 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		90B716F51E14CB89000B29C1 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		90E71C911D90EE0700D1F730 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,8 +149,11 @@
 				9016D3A81DD7B2D6005492D5 /* CheckoutRowView.swift */,
 				90E71C911D90EE0700D1F730 /* HomeModel.swift */,
 				90348BB71D56BBF200AACB59 /* Main.storyboard */,
+				90A1AE6D1E1CA31A00EF77D8 /* AccountSettingsViewController.swift */,
+				90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */,
+				90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */,
 				90B716F51E14CB89000B29C1 /* ReportViewController.swift */,
-				90B716F31E138DC4000B29C1 /* Item1.swift */,
+				90A1AE651E1C951200EF77D8 /* GoogleService-Info.plist */,
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
 				90348BBF1D56BBF300AACB59 /* Info.plist */,
@@ -317,6 +326,7 @@
 			files = (
 				90348BBE1D56BBF200AACB59 /* LaunchScreen.storyboard in Resources */,
 				90348BBB1D56BBF200AACB59 /* Assets.xcassets in Resources */,
+				90A1AE661E1C951200EF77D8 /* GoogleService-Info.plist in Resources */,
 				9015F6BC1DB41751007769D1 /* Podfile in Resources */,
 				90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */,
 			);
@@ -391,17 +401,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90A1AE6A1E1CA14D00EF77D8 /* RequestsViewController.swift in Sources */,
+				90A1AE6E1E1CA31A00EF77D8 /* AccountSettingsViewController.swift in Sources */,
 				90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */,
 				90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */,
 				9016D3AE1DD7B2D6005492D5 /* Networking.swift in Sources */,
 				9016D3AF1DD7B2D6005492D5 /* CheckoutRowView.swift in Sources */,
-				90B716F41E138DC4000B29C1 /* Item1.swift in Sources */,
 				9016D3AA1DD7B2D6005492D5 /* MyAPIClient.swift in Sources */,
 				9016D3B01DD7B2D6005492D5 /* Buttons.swift in Sources */,
 				90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */,
 				90B716F61E14CB89000B29C1 /* ReportViewController.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 				9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */,
+				90A1AE681E1C9AD500EF77D8 /* LoginViewController.swift in Sources */,
 				9016D3AB1DD7B2D6005492D5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

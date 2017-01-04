@@ -15,11 +15,11 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.navigationController!.navigationBar.tintColor = UIColor.white
-        self.navigationController!.navigationBar.titleTextAttributes =
-            [NSForegroundColorAttributeName: UIColor.white]
-        self.navigationItem.title = "Reports"
-        
+        //self.navigationController!.navigationBar.tintColor = UIColor.white
+        //self.navigationController!.navigationBar.titleTextAttributes =
+          //  [NSForegroundColorAttributeName: UIColor.white]
+        //self.navigationItem.title = "Reports"
+        UIApplication.shared.statusBarStyle = .default
     }
     
     override func didReceiveMemoryWarning() {

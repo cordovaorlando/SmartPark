@@ -12,7 +12,7 @@
         <!--Home Screen-->
         <scene sceneID="wkZ-Td-m8O">
             <objects>
-                <viewController storyboardIdentifier="VC2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9BH-t7-get" customClass="HomeScreen" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VC2" id="9BH-t7-get" customClass="HomeScreen" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VPG-gZ-ntJ"/>
                         <viewControllerLayoutGuide type="bottom" id="0Nr-01-ci1"/>
@@ -74,7 +74,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="37h-JP-gXR" kind="push" id="rAr-YW-z8O"/>
+                                    <segue destination="37h-JP-gXR" kind="modal" id="Z16-BA-z2u"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="-154.5" y="994.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="nhd-Rb-9tw">
             <objects>
-                <viewController id="37h-JP-gXR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogIn" useStoryboardIdentifierAsRestorationIdentifier="YES" id="37h-JP-gXR" customClass="LoginViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2OP-Kh-sMu"/>
                         <viewControllerLayoutGuide type="bottom" id="V1U-U6-5hW"/>
@@ -146,7 +146,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3l-U3-mGV">
                                 <rect key="frame" x="139" y="356" width="98" height="30"/>
@@ -156,13 +156,19 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="KOC-x7-1pH" kind="push" id="JhB-xM-k1k"/>
+                                    <action selector="loginAction:" destination="37h-JP-gXR" eventType="touchUpInside" id="Ore-08-kEb"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="x1C-0l-2SP"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="7Ar-nc-eXj" id="djZ-Pk-0R6"/>
+                        <outlet property="loginButton" destination="O3l-U3-mGV" id="rjH-rq-dUV"/>
+                        <outlet property="passwordTextField" destination="4iM-fu-YhF" id="2K6-Wi-zZj"/>
+                        <segue destination="KOC-x7-1pH" kind="modal" id="uUp-jS-xf7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72o-ao-S2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -283,16 +289,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="125" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-uw-8Se">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-uw-8Se">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reports" id="Tlw-cK-GJT">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="125"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reports" rowHeight="140" id="Tlw-cK-GJT">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tlw-cK-GJT" id="nOF-4I-l8N">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="124"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -309,12 +315,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyD-in-BN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.5" y="2810.5"/>
+            <point key="canvasLocation" x="1152" y="2847"/>
         </scene>
         <!--Requests-->
         <scene sceneID="9WX-ot-lyw">
             <objects>
-                <viewController id="c9G-hj-WbP" customClass="Item1" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="c9G-hj-WbP" customClass="RequestsViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tac-Ix-EbY"/>
                         <viewControllerLayoutGuide type="bottom" id="4hr-Mi-6OX"/>
@@ -328,12 +334,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aan-Vd-mRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="1996"/>
+            <point key="canvasLocation" x="1384" y="2015"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fbi-7B-DEo">
             <objects>
-                <tabBarController id="KOC-x7-1pH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" id="KOC-x7-1pH" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aLc-rc-sbK"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Tzy-ca-6WS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -348,7 +354,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RfZ-at-Gzv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="1866"/>
+            <point key="canvasLocation" x="708" y="1866"/>
         </scene>
         <!--Time View Controller-->
         <scene sceneID="kVx-tO-rUl">
@@ -391,7 +397,7 @@
         <!--Settings-->
         <scene sceneID="cD7-DK-Z4u">
             <objects>
-                <viewController id="4zp-iJ-PcU" sceneMemberID="viewController">
+                <viewController id="4zp-iJ-PcU" customClass="AccountSettingsViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="85e-6m-QhT"/>
                         <viewControllerLayoutGuide type="bottom" id="Zyr-XG-K0R"/>
@@ -400,19 +406,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8n1-EU-le5">
-                                <rect key="frame" x="52" y="71" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKu-5a-3Iy">
+                                <rect key="frame" x="149" y="580" width="76" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IZ3-GJ-osb"/>
+                                    <constraint firstAttribute="width" constant="76" id="iGV-1L-6Tc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logOutAction:" destination="4zp-iJ-PcU" eventType="touchUpInside" id="iJ6-D1-tVb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zyr-XG-K0R" firstAttribute="top" secondItem="HKu-5a-3Iy" secondAttribute="bottom" constant="8" id="ZaT-hK-Q2E"/>
+                            <constraint firstItem="HKu-5a-3Iy" firstAttribute="centerX" secondItem="gea-Mr-91N" secondAttribute="centerX" id="ux7-N3-c72"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="l9l-ge-HRW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4I-MW-iMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="2832"/>
+            <point key="canvasLocation" x="625.5" y="2831.5"/>
         </scene>
     </scenes>
     <resources>
