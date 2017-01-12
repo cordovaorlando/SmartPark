@@ -18,7 +18,7 @@ class AccountSettingsViewController: UIViewController{
     }
     
     @IBAction func logOutAction(_ sender: Any) {
-        if FIRAuth.auth()?.currentUser != nil {
+       /* if FIRAuth.auth()?.currentUser != nil {
             do {
                 try FIRAuth.auth()?.signOut()
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogIn")
@@ -31,7 +31,11 @@ class AccountSettingsViewController: UIViewController{
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
-        }
+        }*/
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogIn")
+        present(vc, animated: true, completion: nil)
+
     }
     
     

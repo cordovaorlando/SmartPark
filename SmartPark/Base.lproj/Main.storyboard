@@ -339,7 +339,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="fbi-7B-DEo">
             <objects>
-                <tabBarController storyboardIdentifier="Home" id="KOC-x7-1pH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KOC-x7-1pH" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="aLc-rc-sbK"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Tzy-ca-6WS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
