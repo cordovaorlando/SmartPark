@@ -7,11 +7,14 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
+
 
 class LoginViewController: UIViewController {
     
+    var locationID = String()
+    var resultValue3 = String()
+    
+    var destController = RequestsViewController()
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -22,7 +25,7 @@ class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         UIApplication.shared.statusBarStyle = .default
-
+        destController.locationID = "Lady Gaga"
     }
     
     
@@ -69,9 +72,13 @@ class LoginViewController: UIViewController {
                         // Now we can access value of First Name by its key
                         let resultValue = parseJSON["status"] as? String
                         let resultValue2 = parseJSON["message"] as? String
+                        self.resultValue3 = (parseJSON["locationId"] as?
+                            String)!
+                        self.locationID = self.resultValue3
                         //let resultValue2 = parseJSON["user_password"] as? String
                         print("Status: \(resultValue!)")
                         print("Message: \(resultValue2!)")
+                        print("Location ID: \(self.resultValue3)")
                         //print("firstNameValue: \(resultValue2)")
                         if(resultValue == "Success"){
                         print("It Works yes, go in!")
@@ -81,17 +88,22 @@ class LoginViewController: UIViewController {
                             
                             //let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
                             //self.present(vc, animated: true, completion: nil)
+                            
+                           /* let viewControllerB = RequestsViewController()
+                            viewControllerB.locationID = "Taylor Swift"
+                            self.navigationController?.pushViewController(viewControllerB, animated: true)*/
+                            
    
                             OperationQueue.main.addOperation {
-                                //self.presentViewController(vc, animated: true, completion: nil)
-                                //Above line was generating same exception in my scenario
-                                // I got it resolved by using NSOperationQueue.mainQueue().addOperationWithBlock {
-                            
+                                                               
                                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                                //self.present(vc!, animated: true, completion: nil)
                                 self.present(vc!, animated: true, completion: nil)
+
+                                
+
                             }
                             
-                       
                         }                    }
                 } catch {
                     print(error)
@@ -102,5 +114,26 @@ class LoginViewController: UIViewController {
             
             }
     }
+    
+    
+   /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let tabVc = segue.destinationViewController as! UITabBarController
+        let navVc = tabVc.viewControllers!.first as! UINavigationController
+        let chatVc = navVc.viewControllers.first as! ChatViewController
+        chatVc.senderId = userID
+        chatVc.senderDisplayName = ""
+    }*/
+    
+    
+    
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toRequest" {
+                let controller = segue.destination as! RequestsViewController
+                controller.locationID = "Hello"
+                controller.locationID2 = resultValue3
+            
+        }
+    }*/
     
 }

@@ -14,7 +14,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     let settingsViewC = SettingsViewController()
     
-    var initialTip = 0
+    var initialTip = 2
     var totalInt = Float()
     var subtotalInt = Float()
     var feeInt = Float()
@@ -22,8 +22,11 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     var finalTotalInt: Float = 10.00
     var finalTotalInt2 = Float()
     var SERVICE_FEE:Float = 2.00
-    var feedItems: NSArray = NSArray()
-    var feedItems2: NSArray = NSArray()
+    //var feedItems: NSArray = NSArray()
+    //var feedItems2: NSArray = NSArray()
+    var feedItems = String()
+    var feedItems2 = String()
+    
     var bCodeIndex = Int()
     var message = String()
     
@@ -126,12 +129,15 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         super.viewDidLoad()
         
         intializeLabels()
+        
+        tipRow.detail = "$\(initialTip).00"
+        tipEmail = Float(initialTip)
     }
     
     
     func intializeLabels(){
-        self.restaurantName.text = (feedItems[bCodeIndex] as AnyObject).description
-        self.totalText.text = "$" + (feedItems2[bCodeIndex] as AnyObject).description
+        self.restaurantName.text = feedItems
+        self.totalText.text = "$" + (feedItems2)
         self.tipLabel.text = "Tip: $\(initialTip)"
         
         
@@ -142,14 +148,15 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         self.navigationItem.title = "#" + message        
         
         subtotalRow.detail = totalText.text!
+        
         self.serviceFeeRow.detail = "$\(String(format: "%.2f", SERVICE_FEE))"
         self.tipRow.detail = "$\(String(format: "%.2f", initialTip))"
-
         
-        let variable = (feedItems2[bCodeIndex] as AnyObject).description
-        finalTotalInt = (Float(variable!)! + SERVICE_FEE)
+        let variable = (feedItems2)
+        finalTotalInt = (Float(variable)! + SERVICE_FEE + Float(initialTip))
         
         self.totalRow.detail = "$\(String(format: "%.2f", finalTotalInt))"
+        finalEmailTotal = finalTotalInt
         self.paymentRow.onTap = { [weak self] _ in
             self?.paymentContext.pushPaymentMethodsViewController()
         }
@@ -168,7 +175,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         slider.maximumValue = 30
         slider.isContinuous = true
         slider.tintColor = UIColor.orange
-        slider.value = 0
+        slider.value = 2
         slider.isUserInteractionEnabled = true
         slider.addTarget(self, action: #selector(CheckoutViewController.valueChanged(_:)), for: .valueChanged)
         
@@ -343,6 +350,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func valueChanged(_ sender: UISlider)
     {
+        
+        
         let roundedStepValue = round(sender.value / 1) * 1
         sender.value = roundedStepValue
     
@@ -350,7 +359,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         tipLabel.text = "Tip: $\(currentValue)"
         tipRow.detail = "$\(currentValue).00"
-        let newTotal = finalTotalInt + Float(currentValue)
+        let newTotal = (finalTotalInt -  Float(initialTip)) + Float(currentValue)
         totalRow.detail = "$\(String(format: "%.2f", newTotal))"
         
         finalTotalInt2 = finalTotalInt + Float(currentValue)

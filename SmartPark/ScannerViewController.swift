@@ -17,9 +17,23 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     @IBOutlet weak var messageLabel: UILabel!
     var bCode = String()
     var seguePerformed = false
+    var seguePerformed2 = false
+
     var flashOff = false
     
     let settingsVC = SettingsViewController()
+    
+    var finalTotalInt = Float()
+    var SERVICE_FEE:Float = 2.00
+
+
+    var LocationNamesString = String()
+    var LocationPricesString = String()
+    var qrCodeString = String()
+    var LocationIDString = String()
+    
+    var scanText = String()
+
     
     
     var feedItems: NSArray = NSArray()
@@ -46,6 +60,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         homeModel.downloadItems()
         
         seguePerformed = false
+        seguePerformed2 = false
         
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -102,6 +117,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         messageLabel.text = "No barcode/QR code is detected"
         
         seguePerformed = false
+        seguePerformed2 = false
+
         
         if (captureSession?.isRunning == false) {
             captureSession?.startRunning();
@@ -161,6 +178,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
 
+        
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No barcode/QR code is detected"
@@ -180,38 +198,103 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
             
                 bCode = metadataObj.stringValue
                 
+                if self.seguePerformed == false {
                 
+                var jsonElement: NSDictionary = NSDictionary()
                 
-                if feedItems3.contains(bCode) {
-                    let index = feedItems3.index(of: bCode)
-                
-                if !self.seguePerformed {
-                
+                scanText = bCode
                     
-                    let checkoutViewController = CheckoutViewController(product: "Product Name",
-                                                                        price: 100,
-                                                                        settings: self.settingsVC.settings)
+                let index = scanText.index(scanText.startIndex, offsetBy: 1)
+                var locationID = scanText.substring(to: index)
+                
+                
+                let index2 = scanText.index(scanText.startIndex, offsetBy: 1)
+                var ticketNumber = scanText.substring(from: index2)
+                
+                
+                
+                let myUrl = URL(string: "http://spvalet.com/Locations.php");
+                var request = URLRequest(url:myUrl!)
+                request.httpMethod = "POST"// Compose a query string
+                let postString = "firstName=\(locationID)&lastName=\(ticketNumber)";
+                request.httpBody = postString.data(using: String.Encoding.utf8);
+                let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
                     
-                    checkoutViewController.message = bCode
-                    checkoutViewController.feedItems = feedItems
-                    checkoutViewController.feedItems2 = feedItems2
-                    checkoutViewController.bCodeIndex = index
-                    
-                    let backItem = UIBarButtonItem()
-                    backItem.title = "Back"
-                    navigationItem.backBarButtonItem = backItem
+                    if error != nil
+                    {
+                        print("error=\(error)")
+                        return
+                    }// You can print out response object
+                    // print("response = \(response!)")
+                    //Let's convert response sent from a server side script to a NSDictionary object:
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
+                        
+                        jsonElement = json?[0] as! NSDictionary
+                        
+                        if let id = jsonElement["LocationID"] as? String,
+                            let restaurantName = jsonElement["LocationName"] as? String,
+                            let qrCode = jsonElement["TicketNumber"] as? String,
+                            let price = jsonElement["Price"] as? String
+                            
+                        {
+                            self.LocationNamesString = restaurantName
+                            self.LocationPricesString = price
+                            self.qrCodeString = qrCode
+                            self.LocationIDString = id
+                        }
+                        
+                        print("Location Name:\(self.LocationNamesString)")
+                        print("Location Price: \(self.LocationPricesString)")
+                        print("Ticket Number: \(self.qrCodeString)")
+                        print("Location ID: \(self.LocationIDString)")
+                        print()
 
-                    self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                        DispatchQueue.main.async(execute: { () -> Void in
+
+                            if self.seguePerformed2 == false {
+
+                        
+                         self.finalTotalInt = (Float(self.LocationPricesString)! + self.SERVICE_FEE)
+                            
+                            
+                         
+                         let checkoutViewController = CheckoutViewController(product: "SmartPark",
+                         price: Int(self.finalTotalInt)*100,
+                         settings: self.settingsVC.settings)
+                        
+                         print("Test inside the if statement")
+                         
+                         checkoutViewController.message = self.qrCodeString
+                         checkoutViewController.feedItems = self.LocationNamesString
+                         checkoutViewController.feedItems2 = self.LocationPricesString
+
+                        self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                                
+                                self.seguePerformed2 = true;
+                            }
+                            self.seguePerformed = true;
+                        
+                         })
+                   
+                    } catch {
+                        print(error)
+                        print("Something's bad!")
+                    }
                     
-                    self.seguePerformed = true
-            
-                }
                     
-                } else {
-                    messageLabel.text = "Not a valid QRCode - sorry"
                 }
+                task.resume()
+                
+                }
+                
+                
             }
+                
+                //downloadData()
         }
+        
+     //Good so far   downloadData()
         
     }
     
@@ -225,6 +308,164 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         toggleTorch(on: false)
         }
     }
+    
+    
+    func downloadData(){
+        
+        /*  textFieldText = ticketCodeField.text!
+         
+         if feedItems3.contains(textFieldText) {
+         let index = feedItems3.index(of: textFieldText)
+         
+         if !self.seguePerformed {
+         
+         
+         let variable = (feedItems2[index] as AnyObject).description
+         finalTotalInt = (Float(variable!)! + SERVICE_FEE)
+         
+         
+         let checkoutViewController = CheckoutViewController(product: "Product Name",
+         price: Int(finalTotalInt)*100,
+         settings: self.settingsVC.settings)
+         
+         
+         dismissKeyboard()
+         
+         let backItem = UIBarButtonItem()
+         backItem.title = "Back"
+         navigationItem.backBarButtonItem = backItem
+         
+         checkoutViewController.message = textFieldText
+         checkoutViewController.feedItems = feedItems
+         checkoutViewController.feedItems2 = feedItems2
+         checkoutViewController.bCodeIndex = index
+         
+         
+         
+         self.navigationController?.pushViewController(checkoutViewController, animated: true)
+         
+         self.seguePerformed = true
+         
+         
+         }
+         
+         } else {
+         
+         }*/
+        
+        var jsonElement: NSDictionary = NSDictionary()
+        
+        scanText = bCode
+        
+        let index = scanText.index(scanText.startIndex, offsetBy: 1)
+        var locationID = scanText.substring(to: index)
+        
+        
+        let index2 = scanText.index(scanText.startIndex, offsetBy: 1)
+        var ticketNumber = scanText.substring(from: index2)
+        
+        
+        
+        let myUrl = URL(string: "http://spvalet.com/Locations.php");
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "POST"// Compose a query string
+        let postString = "firstName=\(locationID)&lastName=\(ticketNumber)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }// You can print out response object
+            // print("response = \(response!)")
+            //Let's convert response sent from a server side script to a NSDictionary object:
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
+                
+                jsonElement = json?[0] as! NSDictionary
+                
+                if let id = jsonElement["LocationID"] as? String,
+                    let restaurantName = jsonElement["LocationName"] as? String,
+                    let qrCode = jsonElement["TicketNumber"] as? String,
+                    let price = jsonElement["Price"] as? String
+                    
+                {
+                    //  self.LocationNamesArray.append(restaurantName)
+                    //  self.LocationPricesArray.append(price)
+                    //  self.qrCodeArray.append(qrCode)
+                    //  self.LocationIDArray.append(id)
+                    
+                    self.LocationNamesString = restaurantName
+                    self.LocationPricesString = price
+                    self.qrCodeString = qrCode
+                    self.LocationIDString = id
+                    
+                    
+                    
+                    
+                    //  self.pushToCheckOut()
+                    
+                    
+                }
+                
+                print("Location Name:\(self.LocationNamesString)")
+                print("Location Price: \(self.LocationPricesString)")
+                print("Ticket Number: \(self.qrCodeString)")
+                print("Location ID: \(self.LocationIDString)")
+                print()
+                
+                //                self.performSegue(withIdentifier: "continueButton", sender: self)
+                
+                
+                
+             /*   if !self.seguePerformed {
+                
+                //DispatchQueue.main.async(execute: { () -> Void in
+                    
+                    //let variable = (feedItems2[index] as AnyObject).description
+                    self.finalTotalInt = (Float(self.LocationPricesString)! + self.SERVICE_FEE)
+                    
+                    let checkoutViewController = CheckoutViewController(product: "SmartPark",
+                                                                        price: Int(self.finalTotalInt)*100,
+                                                                        settings: self.settingsVC.settings)
+                    
+                    //self.dismissKeyboard()
+                    
+                    print("Test inside the if statement")
+                    
+                    checkoutViewController.message = self.qrCodeString
+                    checkoutViewController.feedItems = self.LocationNamesString
+                    checkoutViewController.feedItems2 = self.LocationPricesString
+                    //checkoutViewController.bCodeIndex = index
+                    
+                    
+                    
+                    self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                    
+                    self.seguePerformed = true;
+                    
+                //})
+                
+                }*/
+                
+                
+                
+            } catch {
+                print(error)
+                print("Something's bad!")
+            }
+            
+            
+        }
+        task.resume()
+        
+        
+        
+        
+        
+    }
+
 
     
     

@@ -70,8 +70,7 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         var jsonElement: NSDictionary = NSDictionary()
         //let locations: NSMutableArray = NSMutableArray()
         
-        for i in (0..<jsonResult.count)
-        {
+        for i in (0..<jsonResult.count){
             
             jsonElement = jsonResult[i] as! NSDictionary
             
