@@ -26,6 +26,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     //var feedItems2: NSArray = NSArray()
     var feedItems = String()
     var feedItems2 = String()
+    var locationId = String()
     
     var bCodeIndex = Int()
     var message = String()
@@ -295,6 +296,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                     message = "Your car is on its way!"
                     
                     sendCustomerEmail()
+                    downloadData()
                     
                     unowned let unownedSelf = self
                     
@@ -362,10 +364,10 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         let newTotal = (finalTotalInt -  Float(initialTip)) + Float(currentValue)
         totalRow.detail = "$\(String(format: "%.2f", newTotal))"
         
-        finalTotalInt2 = finalTotalInt + Float(currentValue)
+        finalTotalInt2 = finalTotalInt + Float(currentValue) - SERVICE_FEE
         paymentContext.paymentAmount = Int(finalTotalInt2)*100
         
-        finalEmailTotal = finalTotalInt + Float(currentValue)
+        finalEmailTotal = finalTotalInt + Float(currentValue) - SERVICE_FEE
         
         tipEmail = Float(currentValue)
         
@@ -435,5 +437,38 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         task.resume()        
     }
+    
+    
+    
+    
+    func downloadData(){
+        
+        var newTotal = finalEmailTotal - tipEmail - SERVICE_FEE
+        
+        //var jsonElement: NSDictionary = NSDictionary()
+
+        let myUrl = URL(string: "http://spvalet.com/OrderCompleted.php");
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "POST"// Compose a query string
+        let postString = "LocationID=\(locationId)&TicketNumber=\(message)&Tip=\(tipEmail)&Price=\(newTotal)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+        }
+        task.resume()
+        
+        
+        
+        
+        
+    }
+
+    
 
 }

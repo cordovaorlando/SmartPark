@@ -119,11 +119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartPark/LoginViewController.swift"
-            timestampString = "508149562.133951"
+            timestampString = "508551725.380305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "loginAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -135,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartPark/HomeScreen.swift"
-            timestampString = "506879802.733771"
+            timestampString = "508535349.958614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "ContinueButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -151,11 +151,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartPark/HomeScreen.swift"
-            timestampString = "506879802.733771"
+            timestampString = "508535349.958614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "ContinueButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,11 +183,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartPark/CheckoutViewController.swift"
-            timestampString = "507882148.086269"
+            timestampString = "508535349.958614"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
             landmarkName = "sendToRoot()"
             landmarkType = "7">
          </BreakpointContent>
@@ -199,45 +199,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartPark/LoginViewController.swift"
-            timestampString = "508149562.133951"
+            timestampString = "508551912.936524"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "loginAction(_:)"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SmartPark.LoginViewController.(loginAction (Any) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "SmartPark"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/JCordova/Desktop/SmartPark/SmartPark/LoginViewController.swift"
-                  timestampString = "508148124.385959"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "280">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SmartPark.LoginViewController.(loginAction (Any) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "SmartPark"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/JCordova/Desktop/SmartPark/SmartPark/LoginViewController.swift"
-                  timestampString = "508148124.388659"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "1128">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

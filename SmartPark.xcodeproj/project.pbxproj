@@ -24,6 +24,11 @@
 		90348BC91D56BBF300AACB59 /* SmartParkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BC81D56BBF300AACB59 /* SmartParkTests.swift */; };
 		90348BD41D56BBF300AACB59 /* SmartParkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */; };
 		90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BE51D582D8000AACB59 /* ScannerViewController.swift */; };
+		9045BB531E4EFC9200C7E8BC /* DailyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045BB521E4EFC9200C7E8BC /* DailyReportViewController.swift */; };
+		9045BB551E4EFCA100C7E8BC /* DetailReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045BB541E4EFCA100C7E8BC /* DetailReportViewController.swift */; };
+		9045BB571E4EFCAF00C7E8BC /* MonthlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045BB561E4EFCAF00C7E8BC /* MonthlyReportViewController.swift */; };
+		9045BB591E4EFCBE00C7E8BC /* YearlyReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045BB581E4EFCBE00C7E8BC /* YearlyReportViewController.swift */; };
+		9045BB5B1E4EFE3B00C7E8BC /* ReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9045BB5A1E4EFE3B00C7E8BC /* ReportTableViewController.swift */; };
 		90A1AE661E1C951200EF77D8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90A1AE651E1C951200EF77D8 /* GoogleService-Info.plist */; };
 		90A1AE681E1C9AD500EF77D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */; };
 		90A1AE6A1E1CA14D00EF77D8 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */; };
@@ -74,6 +79,11 @@
 		90348BD31D56BBF300AACB59 /* SmartParkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartParkUITests.swift; sourceTree = "<group>"; };
 		90348BD51D56BBF300AACB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90348BE51D582D8000AACB59 /* ScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		9045BB521E4EFC9200C7E8BC /* DailyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyReportViewController.swift; sourceTree = "<group>"; };
+		9045BB541E4EFCA100C7E8BC /* DetailReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReportViewController.swift; sourceTree = "<group>"; };
+		9045BB561E4EFCAF00C7E8BC /* MonthlyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyReportViewController.swift; sourceTree = "<group>"; };
+		9045BB581E4EFCBE00C7E8BC /* YearlyReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearlyReportViewController.swift; sourceTree = "<group>"; };
+		9045BB5A1E4EFE3B00C7E8BC /* ReportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportTableViewController.swift; sourceTree = "<group>"; };
 		90A1AE651E1C951200EF77D8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +167,11 @@
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
 				90348BBF1D56BBF300AACB59 /* Info.plist */,
+				9045BB521E4EFC9200C7E8BC /* DailyReportViewController.swift */,
+				9045BB541E4EFCA100C7E8BC /* DetailReportViewController.swift */,
+				9045BB561E4EFCAF00C7E8BC /* MonthlyReportViewController.swift */,
+				9045BB581E4EFCBE00C7E8BC /* YearlyReportViewController.swift */,
+				9045BB5A1E4EFE3B00C7E8BC /* ReportTableViewController.swift */,
 			);
 			path = SmartPark;
 			sourceTree = "<group>";
@@ -403,17 +418,22 @@
 			files = (
 				90A1AE6A1E1CA14D00EF77D8 /* RequestsViewController.swift in Sources */,
 				90A1AE6E1E1CA31A00EF77D8 /* AccountSettingsViewController.swift in Sources */,
+				9045BB5B1E4EFE3B00C7E8BC /* ReportTableViewController.swift in Sources */,
+				9045BB551E4EFCA100C7E8BC /* DetailReportViewController.swift in Sources */,
 				90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */,
 				90348BE61D582D8000AACB59 /* ScannerViewController.swift in Sources */,
 				9016D3AE1DD7B2D6005492D5 /* Networking.swift in Sources */,
 				9016D3AF1DD7B2D6005492D5 /* CheckoutRowView.swift in Sources */,
 				9016D3AA1DD7B2D6005492D5 /* MyAPIClient.swift in Sources */,
 				9016D3B01DD7B2D6005492D5 /* Buttons.swift in Sources */,
+				9045BB531E4EFC9200C7E8BC /* DailyReportViewController.swift in Sources */,
 				90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */,
+				9045BB571E4EFCAF00C7E8BC /* MonthlyReportViewController.swift in Sources */,
 				90B716F61E14CB89000B29C1 /* ReportViewController.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 				9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */,
 				90A1AE681E1C9AD500EF77D8 /* LoginViewController.swift in Sources */,
+				9045BB591E4EFCBE00C7E8BC /* YearlyReportViewController.swift in Sources */,
 				9016D3AB1DD7B2D6005492D5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

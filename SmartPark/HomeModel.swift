@@ -21,10 +21,10 @@ class HomeModel: NSObject, URLSessionDataDelegate {
     
     var data : NSMutableData = NSMutableData()
     
-    let urlPath: String = "http://spvalet.com/service.php"    
-    var restaurantNamesArray = [String]()
-    var restaurantPricesArray = [String]()
-    var qrCodeArray = [String]()
+    let urlPath: String = "http://spvalet.com/DailyReport.php"
+    var tipsTotalArray = [String]()
+    var pricesTotalArray = [String]()
+    var idArrays = [String]()
     
     func downloadItems() {
         
@@ -75,16 +75,15 @@ class HomeModel: NSObject, URLSessionDataDelegate {
             jsonElement = jsonResult[i] as! NSDictionary
             
             
-            if let id = jsonElement["ID"] as? String,
-                let restaurantName = jsonElement["RestaurantName"] as? String,
-                let qrCode = jsonElement["QRCode"] as? String,
-                let price = jsonElement["Price"] as? String
+            if let id = jsonElement["orderId"] as? String,
+                let totalTips = jsonElement["Tip"] as? String,
+                let totalPrices = jsonElement["Price"] as? String
+                //let price = jsonElement["Price"] as? String
             {
-
                 
-                restaurantNamesArray.append(restaurantName)
-                restaurantPricesArray.append(price)
-                qrCodeArray.append(qrCode)
+                tipsTotalArray.append(totalTips)
+                pricesTotalArray.append(totalPrices)
+                idArrays.append(id)
                 
             }
             
@@ -92,7 +91,7 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         
         DispatchQueue.main.async(execute: { () -> Void in
             
-            self.delegate.itemsDownloaded(self.restaurantNamesArray as NSArray, self.restaurantPricesArray as NSArray, self.qrCodeArray as NSArray)
+            self.delegate.itemsDownloaded(self.tipsTotalArray as NSArray, self.pricesTotalArray as NSArray, self.idArrays as NSArray)
           
         })
     }

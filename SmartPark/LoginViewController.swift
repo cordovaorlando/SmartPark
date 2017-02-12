@@ -9,12 +9,12 @@
 import UIKit
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate  {
     
     var locationID = String()
     var resultValue3 = String()
     
-    var destController = RequestsViewController()
+    //var destController = RequestsViewController()
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -25,7 +25,34 @@ class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         UIApplication.shared.statusBarStyle = .default
-        destController.locationID = "Lady Gaga"
+        
+        dismissKeyboard()
+        
+        self.emailTextField.delegate = self;
+        self.passwordTextField.delegate = self;
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        //destController.locationID = "Lady Gaga"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTextField.text = nil
+        passwordTextField.text = nil
+        dismissKeyboard()
+        
+    }
+
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
     }
     
     
@@ -64,7 +91,7 @@ class LoginViewController: UIViewController {
                     print("error=\(error)")
                     return
                 }// You can print out response object
-                print("response = \(response!)")
+                //print("response = \(response!)")
                 //Let's convert response sent from a server side script to a NSDictionary object:
                 do {
                     let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
@@ -93,15 +120,20 @@ class LoginViewController: UIViewController {
                             viewControllerB.locationID = "Taylor Swift"
                             self.navigationController?.pushViewController(viewControllerB, animated: true)*/
                             
+                            
+                            
    
                             OperationQueue.main.addOperation {
-                                                               
-                                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                                //self.present(vc!, animated: true, completion: nil)
-                                self.present(vc!, animated: true, completion: nil)
-
                                 
-
+                                /* let viewControllerB = RequestsViewController()
+                                 viewControllerB.locationID = "Taylor Swift"
+                                 self.navigationController?.pushViewController(viewControllerB, animated: true)*/
+                                
+                               /* let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                                //self.present(vc!, animated: true, completion: nil)
+                                self.present(vc!, animated: true, completion: nil)*/
+                                self.dismissKeyboard()
+                                self.performSegue(withIdentifier: "finally", sender: self)
                             }
                             
                         }                    }
@@ -116,7 +148,38 @@ class LoginViewController: UIViewController {
     }
     
     
-   /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  /*  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+    {
+    if ([[segue identifier] isEqualToString:@"logged"])
+    {
+    UITabBarController *tabar=segue.destinationViewController;
+    UINavigationController *navController = [tabbar.viewControllers objectAtIndex:1];
+    SecondViewController *svc=[navController.viewControllers objectAtIndex:0];
+    svc.groupArray = [(NSArray*)sender objectAtIndex:0];
+    svc.userArray = [(NSArray*)sender objectAtIndex:1];
+    svc.taskArray = [(NSMutableArray*)sender objectAtIndex:2];
+    svc.selfArray = [(NSMutableArray*)sender objectAtIndex:3];
+    [tabar setSelectedIndex:1];
+    }
+    }*/
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "finally" {
+            let tabCtrl = segue.destination as! UITabBarController
+            let navVc = tabCtrl.viewControllers!.first as! UINavigationController
+            let destinationVC = navVc.viewControllers.first as! RequestsViewController // Assuming home view controller is in the first tab, else update the array index
+            destinationVC.locationID = "Helloooo!"
+            destinationVC.locationID2 = resultValue3
+
+        }
+    }
+    
+    
+
+    
+    
+      /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let tabVc = segue.destinationViewController as! UITabBarController
         let navVc = tabVc.viewControllers!.first as! UINavigationController
@@ -127,13 +190,6 @@ class LoginViewController: UIViewController {
     
     
     
-   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toRequest" {
-                let controller = segue.destination as! RequestsViewController
-                controller.locationID = "Hello"
-                controller.locationID2 = resultValue3
-            
-        }
-    }*/
+    
     
 }

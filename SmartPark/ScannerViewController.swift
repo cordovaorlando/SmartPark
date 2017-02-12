@@ -268,6 +268,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                          checkoutViewController.message = self.qrCodeString
                          checkoutViewController.feedItems = self.LocationNamesString
                          checkoutViewController.feedItems2 = self.LocationPricesString
+                         checkoutViewController.locationId = self.LocationIDString
 
                         self.navigationController?.pushViewController(checkoutViewController, animated: true)
                                 

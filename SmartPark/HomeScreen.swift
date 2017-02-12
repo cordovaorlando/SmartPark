@@ -274,6 +274,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
                     checkoutViewController.message = self.qrCodeString
                     checkoutViewController.feedItems = self.LocationNamesString
                     checkoutViewController.feedItems2 = self.LocationPricesString
+                    checkoutViewController.locationId = self.LocationIDString
                     //checkoutViewController.bCodeIndex = index
                     
                     
