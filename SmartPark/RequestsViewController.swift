@@ -33,6 +33,7 @@ class RequestsViewController: UIViewController, HomeModelProtocal{
     }
     
     func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
+        var emptyArray: [Int] = []
         
         feedItems = items
         
@@ -40,7 +41,12 @@ class RequestsViewController: UIViewController, HomeModelProtocal{
         
         feedItems3 = items3
         
-        //print(feedItems2[0])
+     
+        
+        print(feedItems3)
+
+        
+       
         
     }
     

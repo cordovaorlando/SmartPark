@@ -216,7 +216,8 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
             {
                 print("error=\(error)")
                 return
-            }// You can print out response object
+            }
+            // You can print out response object
             // print("response = \(response!)")
             //Let's convert response sent from a server side script to a NSDictionary object:
             do {

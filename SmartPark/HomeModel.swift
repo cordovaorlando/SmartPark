@@ -57,6 +57,8 @@ class HomeModel: NSObject, URLSessionDataDelegate {
     
     func parseJSON() {
         
+        
+        
         var jsonResult: NSArray = NSArray()
         
         do{

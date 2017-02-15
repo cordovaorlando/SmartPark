@@ -12,7 +12,7 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate  {
     
     var locationID = String()
-    var resultValue3 = String()
+    //var resultValue3 = String()
     
     //var destController = RequestsViewController()
     
@@ -99,19 +99,20 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
                         // Now we can access value of First Name by its key
                         let resultValue = parseJSON["status"] as? String
                         let resultValue2 = parseJSON["message"] as? String
-                        self.resultValue3 = (parseJSON["locationId"] as?
-                            String)!
-                        self.locationID = self.resultValue3
+                        let resultValue3 = parseJSON["locationId"] as? String
+                        //self.locationID = self.resultValue3
                         //let resultValue2 = parseJSON["user_password"] as? String
                         print("Status: \(resultValue!)")
                         print("Message: \(resultValue2!)")
-                        print("Location ID: \(self.resultValue3)")
+                        print("Location ID: \(resultValue3!)")
+                        self.locationID = resultValue3!
                         //print("firstNameValue: \(resultValue2)")
                         if(resultValue == "Success"){
                         print("It Works yes, go in!")
                        // self.dismiss(animated: true, completion:nil)
-                            UserDefaults.standard.set(true, forKey:"isUserLoggedIn")
-                            UserDefaults.standard.synchronize()
+                            
+                            //UserDefaults.standard.set(true, forKey:"isUserLoggedIn")
+                            //UserDefaults.standard.synchronize()
                             
                             //let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Home")
                             //self.present(vc, animated: true, completion: nil)
@@ -148,21 +149,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
     }
     
     
-  /*  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-    {
-    if ([[segue identifier] isEqualToString:@"logged"])
-    {
-    UITabBarController *tabar=segue.destinationViewController;
-    UINavigationController *navController = [tabbar.viewControllers objectAtIndex:1];
-    SecondViewController *svc=[navController.viewControllers objectAtIndex:0];
-    svc.groupArray = [(NSArray*)sender objectAtIndex:0];
-    svc.userArray = [(NSArray*)sender objectAtIndex:1];
-    svc.taskArray = [(NSMutableArray*)sender objectAtIndex:2];
-    svc.selfArray = [(NSMutableArray*)sender objectAtIndex:3];
-    [tabar setSelectedIndex:1];
-    }
-    }*/
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "finally" {
@@ -170,26 +156,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
             let navVc = tabCtrl.viewControllers!.first as! UINavigationController
             let destinationVC = navVc.viewControllers.first as! RequestsViewController // Assuming home view controller is in the first tab, else update the array index
             destinationVC.locationID = "Helloooo!"
-            destinationVC.locationID2 = resultValue3
+            destinationVC.locationID2 = locationID
 
         }
     }
-    
-    
 
-    
-    
-      /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        let tabVc = segue.destinationViewController as! UITabBarController
-        let navVc = tabVc.viewControllers!.first as! UINavigationController
-        let chatVc = navVc.viewControllers.first as! ChatViewController
-        chatVc.senderId = userID
-        chatVc.senderDisplayName = ""
-    }*/
-    
-    
-    
-    
     
 }
