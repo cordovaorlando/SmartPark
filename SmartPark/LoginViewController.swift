@@ -149,10 +149,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "finally" {
-            let tabCtrl = segue.destination as! UITabBarController
-            let navVc = tabCtrl.viewControllers!.first as! UINavigationController
-            let destinationVC = navVc.viewControllers.first as! RequestsViewController // Assuming home view controller is in the first tab, else update the array index
+            //let tabCtrl = segue.destination as! UITabBarController
+            //let navVc = tabCtrl.viewControllers!.first as! UINavigationController
+            //let destinationVC = navVc.viewControllers.first as! RequestsViewController // Assuming home view controller is in the first tab, else update the array index
             //destinationVC.locationID = "Helloooo!"
+            
+            let tabCtrl = segue.destination as! UITabBarController
+            let destinationVC = tabCtrl.viewControllers![1] as! ReportTableViewController
             destinationVC.locationID = locationID
 
         }

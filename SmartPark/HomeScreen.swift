@@ -298,7 +298,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
                 
             } catch {
                 print(error)
-                print("Something's bad!")
+                print("Home Screen Something's bad!")
             }
             
             

@@ -280,7 +280,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                    
                     } catch {
                         print(error)
-                        print("Something's bad!")
+                        print("Scanner Something's bad!")
                     }
                     
                     
@@ -454,7 +454,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
             } catch {
                 print(error)
-                print("Something's bad!")
+                print("Scanner Something's bad!")
             }
             
             
