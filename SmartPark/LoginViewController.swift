@@ -12,9 +12,6 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate  {
     
     var locationID = String()
-    //var resultValue3 = String()
-    
-    //var destController = RequestsViewController()
     
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -155,8 +152,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
             let tabCtrl = segue.destination as! UITabBarController
             let navVc = tabCtrl.viewControllers!.first as! UINavigationController
             let destinationVC = navVc.viewControllers.first as! RequestsViewController // Assuming home view controller is in the first tab, else update the array index
-            destinationVC.locationID = "Helloooo!"
-            destinationVC.locationID2 = locationID
+            //destinationVC.locationID = "Helloooo!"
+            destinationVC.locationID = locationID
 
         }
     }
