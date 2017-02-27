@@ -15,8 +15,11 @@ class ReportTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(locationID)
-        downloadData()
+        //downloadData()
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
+        
+        self.navigationItem.title = "Reports"
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -100,78 +103,19 @@ class ReportTableViewController: UITableViewController {
     
     
     
-    
-    func downloadData(){
-        
-        
-        
-        var jsonElement: NSDictionary = NSDictionary()
-        
-        
-        let myUrl = URL(string: "http://spvalet.com/DailyReport.php");
-        var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
-        let postString = "locationID=\(locationID)";
-        request.httpBody = postString.data(using: String.Encoding.utf8);
-        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "daily" {
+            //let tabCtrl = segue.destination as! UITabBarController
+            //let navVc = tabCtrl.viewControllers!.first as! UINavigationController
+            //let destinationVC = navVc.viewControllers.first as! RequestsViewController // Assuming home view controller is in the first tab, else update the array index
+            //destinationVC.locationID = "Helloooo!"
             
-            if error != nil
-            {
-                print("error=\(error)")
-                return
-            }
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
-                
-                
-                var tipsTotalArray = [String]()
-                var pricesTotalArray = [String]()
-                var idArrays = [String]()
-                var locIdArray = [String]()
-                
-                for i in (0..<json!.count){
-                    
-                    jsonElement = json![i] as! NSDictionary
-                    
-                    
-                    if let id = jsonElement["orderId"] as? String,
-                        let totalTips = jsonElement["Tip"] as? String,
-                        let totalPrices = jsonElement["Price"] as? String,
-                        let locID = jsonElement["LocationID"] as? String
-                    {
-                        tipsTotalArray.append(totalTips)
-                        pricesTotalArray.append(totalPrices)
-                        locIdArray.append(locID)
-                        idArrays.append(id)
-                        
-                    }
-                }
-                
-                
-                print("Tips Total Array: " + tipsTotalArray.description)
-                print("Restaurant Total Array: " + pricesTotalArray.description)
-                print("Location Ids: " + locIdArray.description)
-                print("Order Ids: " + idArrays.description)
-                
-                
-            } catch {
-                print(error)
-                print("Requests Something's bad!")
-            }
-            
+            //let tabCtrl = segue.destination as! UITabBarController
+            let destinationVC = segue.destination as! DailyReportViewController
+            destinationVC.locationID = locationID
             
         }
-        task.resume()
-        
-        
-        
-        
     }
-
-    
-    
-    
-    
     
 
 }
