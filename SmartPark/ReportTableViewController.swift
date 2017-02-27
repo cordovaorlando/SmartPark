@@ -105,16 +105,25 @@ class ReportTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "daily" {
-            //let tabCtrl = segue.destination as! UITabBarController
-            //let navVc = tabCtrl.viewControllers!.first as! UINavigationController
-            //let destinationVC = navVc.viewControllers.first as! RequestsViewController // Assuming home view controller is in the first tab, else update the array index
-            //destinationVC.locationID = "Helloooo!"
-            
-            //let tabCtrl = segue.destination as! UITabBarController
             let destinationVC = segue.destination as! DailyReportViewController
             destinationVC.locationID = locationID
             
+        }else if segue.identifier == "detail" {
+            let destinationVC = segue.destination as! DetailReportViewController
+            destinationVC.locationID = locationID
+            
+        }else if segue.identifier == "monthly" {
+            let destinationVC = segue.destination as! MonthlyReportViewController
+            destinationVC.locationID = locationID
+            
+        }else if segue.identifier == "yearly" {
+            let destinationVC = segue.destination as! YearlyReportViewController
+            destinationVC.locationID = locationID
+            
         }
+
+
+
     }
     
 
