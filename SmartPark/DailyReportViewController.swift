@@ -38,7 +38,7 @@ class DailyReportViewController : UIViewController{
         
         date = formatter.string(from: currentDate)
         
-        print(date)
+        //print("'" + date + "'")
 
         downloadData()
         
@@ -59,7 +59,7 @@ class DailyReportViewController : UIViewController{
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
       //let postString = "email=\(userEmail)&password=\(userPassword)";
-        let postString = "locationID=\(locationID)";
+        let postString = "date=\(date)&locationID=\(locationID)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
@@ -103,13 +103,13 @@ class DailyReportViewController : UIViewController{
                     //sumOfTips += 2
                     sumOfTips  += (tipsTotalArray[i] as NSString).integerValue
                     sumOfSales += (pricesTotalArray[i] as NSString).integerValue
-                    finalTotal += (sumOfTips + sumOfSales)
+                    
                 }
                 
             
                 
                
-                
+                finalTotal = (sumOfTips + sumOfSales)
                 //self.tipsLabel.text = sumOfTips.description
                 print("Tips: " + sumOfTips.description + ".00")
                 print("Sales: " + sumOfSales.description + ".00")
@@ -134,7 +134,7 @@ class DailyReportViewController : UIViewController{
                 
             } catch {
                 print(error)
-                print("Requests Something's bad!")
+                print("DailyReport Something's bad!")
             }
             
             
@@ -150,10 +150,14 @@ class DailyReportViewController : UIViewController{
     
     
     @IBAction func datePicker(_ sender: UIDatePicker) {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd"
-        let dateValue = dateformatter.string(from: sender.date)
-        print(dateValue)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        date = formatter.string(from: sender.date)
+
+        print(date)
+        
+        
+        downloadData()
 
     }
     
