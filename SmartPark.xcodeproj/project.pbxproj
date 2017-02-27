@@ -33,7 +33,6 @@
 		90A1AE681E1C9AD500EF77D8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */; };
 		90A1AE6A1E1CA14D00EF77D8 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */; };
 		90A1AE6E1E1CA31A00EF77D8 /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A1AE6D1E1CA31A00EF77D8 /* AccountSettingsViewController.swift */; };
-		90B716F61E14CB89000B29C1 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B716F51E14CB89000B29C1 /* ReportViewController.swift */; };
 		90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E71C911D90EE0700D1F730 /* HomeModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,7 +87,6 @@
 		90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
 		90A1AE6D1E1CA31A00EF77D8 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
-		90B716F51E14CB89000B29C1 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		90E71C911D90EE0700D1F730 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F251ECD0301AF6DE161760DC /* Pods-SmartPark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPark.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPark/Pods-SmartPark.release.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				90A1AE6D1E1CA31A00EF77D8 /* AccountSettingsViewController.swift */,
 				90A1AE691E1CA14D00EF77D8 /* RequestsViewController.swift */,
 				90A1AE671E1C9AD500EF77D8 /* LoginViewController.swift */,
-				90B716F51E14CB89000B29C1 /* ReportViewController.swift */,
 				90A1AE651E1C951200EF77D8 /* GoogleService-Info.plist */,
 				90348BBA1D56BBF200AACB59 /* Assets.xcassets */,
 				90348BBC1D56BBF200AACB59 /* LaunchScreen.storyboard */,
@@ -429,7 +426,6 @@
 				9045BB531E4EFC9200C7E8BC /* DailyReportViewController.swift in Sources */,
 				90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */,
 				9045BB571E4EFCAF00C7E8BC /* MonthlyReportViewController.swift in Sources */,
-				90B716F61E14CB89000B29C1 /* ReportViewController.swift in Sources */,
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 				9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */,
 				90A1AE681E1C9AD500EF77D8 /* LoginViewController.swift in Sources */,
