@@ -457,6 +457,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="509928902.006015">
                                     <!--2017-02-27 22:55:02 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="monthly:" destination="jrY-d7-N3f" eventType="valueChanged" id="3dE-PU-JyH"/>
+                                </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Month:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vO8-Ge-dNr">
                                 <rect key="frame" x="127" y="97" width="120" height="21"/>
