@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 
 class HomeScreen: UIViewController, UITextFieldDelegate {
     
@@ -350,6 +353,21 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         }
 
     }
+    
+    @IBAction func handleLogTokenTouch(_ sender: UIButton) {
+        // [START get_iid_token]
+        let token = FIRInstanceID.instanceID().token()
+        print("InstanceID token: \(token!)")
+        // [END get_iid_token]
+    }
+    
+    @IBAction func handleSubscribeTouch(_ sender: UIButton) {
+        // [START subscribe_topic]
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
+        print("Subscribed to news topic")
+        // [END subscribe_topic]
+    }
+
     
     
     
