@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>582849773751-56t0e0617kqniag81rprh7vhjg14kheo.apps.googleusercontent.com</string>
+	<string>947776762914-gasj3vqoblafqci47336qetkdngcg94l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.582849773751-56t0e0617kqniag81rprh7vhjg14kheo</string>
+	<string>com.googleusercontent.apps.947776762914-gasj3vqoblafqci47336qetkdngcg94l</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAxqRxX31FxKoKNVRL_KaOHVrVGioSwij4</string>
+	<string>AIzaSyAF5SqqxX4_qAA1xLLvznPQYD8GcE-F8fo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>582849773751</string>
+	<string>947776762914</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.JCordova.SmartPark</string>
 	<key>PROJECT_ID</key>
-	<string>smartpark-dd795</string>
+	<string>smartpark-8a101</string>
 	<key>STORAGE_BUCKET</key>
-	<string>smartpark-dd795.appspot.com</string>
+	<string>smartpark-8a101.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:582849773751:ios:e1d702ed6e69f4d5</string>
+	<string>1:947776762914:ios:e1d702ed6e69f4d5</string>
 	<key>DATABASE_URL</key>
-	<string>https://smartpark-dd795.firebaseio.com</string>
+	<string>https://smartpark-8a101.firebaseio.com</string>
 </dict>
 </plist>

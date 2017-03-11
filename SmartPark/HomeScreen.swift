@@ -358,6 +358,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         // [START get_iid_token]
         let token = FIRInstanceID.instanceID().token()
         print("InstanceID token: \(token!)")
+        ticketCodeField.text = token
         // [END get_iid_token]
     }
     
