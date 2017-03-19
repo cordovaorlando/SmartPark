@@ -216,7 +216,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 let myUrl = URL(string: "http://spvalet.com/Locations.php");
                 var request = URLRequest(url:myUrl!)
                 request.httpMethod = "POST"// Compose a query string
-                let postString = "firstName=\(locationID)&lastName=\(ticketNumber)";
+                //let postString = "firstName=\(locationID)&lastName=\(ticketNumber)";
+                let postString = "id=\(locationID)&ticket=\(ticketNumber)";
                 request.httpBody = postString.data(using: String.Encoding.utf8);
                 let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
                     

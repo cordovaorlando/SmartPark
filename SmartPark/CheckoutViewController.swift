@@ -8,6 +8,9 @@
 
 import UIKit
 import Stripe
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 
 class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
@@ -44,6 +47,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     var subtotalEmail = String()
     
     var num: Int = 500
+    
+    var token = String()
     
     
     
@@ -130,9 +135,11 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         super.viewDidLoad()
         
         intializeLabels()
+        token = FIRInstanceID.instanceID().token()!
         
         tipRow.detail = "$\(initialTip).00"
         tipEmail = Float(initialTip)
+        postToken()
     }
     
     
@@ -315,6 +322,11 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         self.present(alertController, animated: true, completion: nil)
         
         
+        postData()
+        
+        
+        
+        
     }
     // MARK: STPPaymentContextDelegate
 
@@ -436,6 +448,53 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         })
         
         task.resume()        
+    }
+    
+    
+    
+    func postData(){
+        
+        //var newTotal = finalEmailTotal - tipEmail - SERVICE_FEE
+        
+        //var jsonElement: NSDictionary = NSDictionary()
+        
+        let myUrl = URL(string: "http://spvalet.com/push.php");
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "POST"// Compose a query string
+        let postString = "locationID=\(locationId)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+        }
+        task.resume()
+  
+    }
+    
+    func postToken(){
+
+        
+        let myUrl = URL(string: "http://spvalet.com/customerToken.php");
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "POST"// Compose a query string
+        let postString = "token=\(token)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+        }
+        task.resume()
+        
     }
     
     

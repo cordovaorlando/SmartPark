@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class LoginViewController: UIViewController,UITextFieldDelegate  {
     
     var locationID = String()
@@ -157,6 +158,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
             let tabCtrl = segue.destination as! UITabBarController
             let destinationVC = tabCtrl.viewControllers![1] as! ReportTableViewController
             destinationVC.locationID = locationID
+            
+            
+            let navVc = tabCtrl.viewControllers!.first as! UINavigationController
+            let destinationVC2 = navVc.viewControllers[0] as! RequestsViewController
+            destinationVC2.locationID = locationID
 
         }
     }

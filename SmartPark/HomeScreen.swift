@@ -35,15 +35,15 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
     var LocationPricesString = String()
     var qrCodeString = String()
     var LocationIDString = String()
-
-    @IBAction func testButton(_ sender: Any) {
-        
-    }
     
+    var token = String()
+
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+
         
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
@@ -68,6 +68,9 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         self.ticketCodeField.delegate = self;
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeScreen.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        //FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
+        //token = FIRInstanceID.instanceID().token()!
+        //postToken()
         
     }
     
@@ -367,6 +370,28 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
         print("Subscribed to news topic")
         // [END subscribe_topic]
+    }
+    
+    
+    func postToken(){
+        
+        
+        let myUrl = URL(string: "http://spvalet.com/customerToken.php");
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "POST"// Compose a query string
+        let postString = "token=\(token)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+        }
+        task.resume()
+        
     }
 
     

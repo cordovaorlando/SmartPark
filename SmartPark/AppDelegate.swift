@@ -186,6 +186,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 10, *)
     extension AppDelegate : UNUserNotificationCenterDelegate {
         
+        // This method will be called when app received push notifications in foreground
+   /*     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+        {
+            completionHandler(
+                [UNNotificationPresentationOptions.alert,
+                 UNNotificationPresentationOptions.sound,
+                 UNNotificationPresentationOptions.badge])
+        }*/
+        
         // Receive displayed notifications for iOS 10 devices.
         func userNotificationCenter(_ center: UNUserNotificationCenter,
                                     willPresent notification: UNNotification,
@@ -200,7 +209,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(userInfo)
             
             // Change this to your preferred presentation option
-            completionHandler([])
+            //completionHandler([])
+            completionHandler(
+                [UNNotificationPresentationOptions.alert,
+                 UNNotificationPresentationOptions.sound,
+                 UNNotificationPresentationOptions.badge])
+            
         }
         
         func userNotificationCenter(_ center: UNUserNotificationCenter,

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,33 +76,6 @@
                                     <segue destination="37h-JP-gXR" kind="push" id="Z16-BA-z2u"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCX-Q8-Msc">
-                                <rect key="frame" x="92" y="478" width="192" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.56078431370000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="192" id="289-Mz-mkX"/>
-                                    <constraint firstAttribute="height" constant="44" id="kSi-Kw-dEs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <state key="normal" title="Subscribe To News">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="handleSubscribeTouch:" destination="9BH-t7-get" eventType="touchUpInside" id="rfo-Cg-yLT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gHM-kw-1hY">
-                                <rect key="frame" x="108" y="530" width="160" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="bxv-BS-arw"/>
-                                    <constraint firstAttribute="height" constant="44" id="ltx-ks-nzf"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Log Token"/>
-                                <connections>
-                                    <action selector="handleLogTokenTouch:" destination="9BH-t7-get" eventType="touchUpInside" id="pzX-dB-7x3"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -113,12 +85,8 @@
                             <constraint firstItem="e1x-hB-7Jj" firstAttribute="centerX" secondItem="XGP-wK-OV9" secondAttribute="centerX" id="7YC-Hj-gek"/>
                             <constraint firstItem="0Nr-01-ci1" firstAttribute="top" secondItem="gkg-sW-LDv" secondAttribute="bottom" id="AEo-NG-z2g"/>
                             <constraint firstItem="PpX-KO-mo6" firstAttribute="centerX" secondItem="XGP-wK-OV9" secondAttribute="centerX" id="F53-ey-EqX"/>
-                            <constraint firstItem="ZCX-Q8-Msc" firstAttribute="top" secondItem="x66-Js-ksS" secondAttribute="bottom" constant="61" id="Nov-aQ-D9A"/>
                             <constraint firstItem="kqc-Gj-skM" firstAttribute="top" secondItem="PpX-KO-mo6" secondAttribute="bottom" constant="8" id="fHD-3w-bVv"/>
-                            <constraint firstItem="ZCX-Q8-Msc" firstAttribute="centerX" secondItem="gHM-kw-1hY" secondAttribute="centerX" id="i11-83-9B2"/>
-                            <constraint firstItem="gHM-kw-1hY" firstAttribute="top" secondItem="ZCX-Q8-Msc" secondAttribute="bottom" constant="8" id="iEN-lQ-Xvh"/>
                             <constraint firstItem="e1x-hB-7Jj" firstAttribute="top" secondItem="kqc-Gj-skM" secondAttribute="bottom" constant="46" id="nud-To-PS3"/>
-                            <constraint firstItem="ZCX-Q8-Msc" firstAttribute="centerX" secondItem="x66-Js-ksS" secondAttribute="centerX" id="nxX-M4-aR1"/>
                             <constraint firstAttribute="trailing" secondItem="gkg-sW-LDv" secondAttribute="trailing" id="p5d-4P-FRm"/>
                             <constraint firstItem="PpX-KO-mo6" firstAttribute="top" secondItem="VPG-gZ-ntJ" secondAttribute="bottom" constant="135" id="pSl-SW-UoD"/>
                         </constraints>
@@ -190,11 +158,6 @@
                                 <connections>
                                     <action selector="loginAction:" destination="37h-JP-gXR" eventType="touchUpInside" id="Ore-08-kEb"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udu-lp-lqY">
-                                <rect key="frame" x="142" y="490" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -337,6 +300,7 @@
         <scene sceneID="fbi-7B-DEo">
             <objects>
                 <tabBarController storyboardIdentifier="Home" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KOC-x7-1pH" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="aLc-rc-sbK"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Tzy-ca-6WS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -368,11 +332,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JuL-4j-4H8" id="c0c-qy-H18">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="135.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Daily" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JqC-H3-xoP">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="135"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="135.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -388,11 +352,11 @@
                                         <rect key="frame" x="0.0" y="136" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="maY-0g-qhE" id="CPB-xJ-Q8d">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="140.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yra-Qt-Abg">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="140"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="140.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -408,11 +372,11 @@
                                         <rect key="frame" x="0.0" y="277" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bhd-hE-12F" id="zFg-Tv-Hkj">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="140.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Monthly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="c0X-UV-DcT">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="140"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="140.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -428,11 +392,11 @@
                                         <rect key="frame" x="0.0" y="418" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o0e-UW-xMv" id="nUh-tc-Uxa">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="140.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Yearly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YGR-vT-y67">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="140"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="140.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
