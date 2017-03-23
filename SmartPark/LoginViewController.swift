@@ -160,8 +160,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
             destinationVC.locationID = locationID
             
             
-            let navVc = tabCtrl.viewControllers!.first as! UINavigationController
-            let destinationVC2 = navVc.viewControllers[0] as! RequestsViewController
+            //let navVc = tabCtrl.viewControllers!.first as! UINavigationController
+            let destinationVC2 = tabCtrl.viewControllers?[0] as! RequestTableViewController
+            
             destinationVC2.locationID = locationID
 
         }

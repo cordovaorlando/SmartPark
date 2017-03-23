@@ -509,7 +509,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         let myUrl = URL(string: "http://spvalet.com/OrderCompleted.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
-        let postString = "LocationID=\(locationId)&TicketNumber=\(message)&Tip=\(tipEmail)&Price=\(newTotal)";
+        let postString = "LocationID=\(locationId)&TicketNumber=\(message)&Tip=\(tipEmail)&Price=\(newTotal)&tokenID=\(token)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
