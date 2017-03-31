@@ -200,8 +200,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 if self.seguePerformed == false {
                 
-                var jsonElement: NSDictionary = NSDictionary()
-                
+                    
                 scanText = bCode
                     
                 let index = scanText.index(scanText.startIndex, offsetBy: 1)
@@ -213,80 +212,76 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 
                 
-                let myUrl = URL(string: "http://spvalet.com/Locations.php");
-                var request = URLRequest(url:myUrl!)
-                request.httpMethod = "POST"// Compose a query string
-                //let postString = "firstName=\(locationID)&lastName=\(ticketNumber)";
-                let postString = "id=\(locationID)&ticket=\(ticketNumber)";
-                request.httpBody = postString.data(using: String.Encoding.utf8);
-                let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
-                    
-                    if error != nil
-                    {
-                        print("error=\(error)")
-                        return
-                    }// You can print out response object
-                    // print("response = \(response!)")
-                    //Let's convert response sent from a server side script to a NSDictionary object:
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
-                        
-                        jsonElement = json?[0] as! NSDictionary
-                        
-                        if let id = jsonElement["LocationID"] as? String,
-                            let restaurantName = jsonElement["LocationName"] as? String,
-                            let qrCode = jsonElement["TicketNumber"] as? String,
-                            let price = jsonElement["Price"] as? String
-                            
+                    let myUrl = URL(string: "http://spvalet.com/locs.php");
+                    var request = URLRequest(url:myUrl!)
+                    request.httpMethod = "POST"// Compose a query string
+                    let postString = "id=\(locationID)&ticket=\(ticketNumber)";
+                    request.httpBody = postString.data(using: String.Encoding.utf8);
+                    let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                        if error != nil
                         {
-                            self.LocationNamesString = restaurantName
-                            self.LocationPricesString = price
-                            self.qrCodeString = qrCode
-                            self.LocationIDString = id
+                            print("error=\(error)")
+                            return
                         }
-                        
-                        print("Location Name:\(self.LocationNamesString)")
-                        print("Location Price: \(self.LocationPricesString)")
-                        print("Ticket Number: \(self.qrCodeString)")
-                        print("Location ID: \(self.LocationIDString)")
-                        print()
-
-                        DispatchQueue.main.async(execute: { () -> Void in
-
-                            if self.seguePerformed2 == false {
-
-                        
-                         self.finalTotalInt = (Float(self.LocationPricesString)! + self.SERVICE_FEE)
-                            
-                            
-                         
-                         let checkoutViewController = CheckoutViewController(product: "SmartPark",
-                         price: Int(self.finalTotalInt)*100,
-                         settings: self.settingsVC.settings)
-                        
-                         print("Test inside the if statement")
-                         
-                         checkoutViewController.message = self.qrCodeString
-                         checkoutViewController.feedItems = self.LocationNamesString
-                         checkoutViewController.feedItems2 = self.LocationPricesString
-                         checkoutViewController.locationId = self.LocationIDString
-
-                        self.navigationController?.pushViewController(checkoutViewController, animated: true)
-                                
-                                self.seguePerformed2 = true;
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                            if let parseJSON = json {
+                                let resultValue = parseJSON["status"] as? String
+                                let id = parseJSON["LocationID"] as? String
+                                let restaurantName = parseJSON["LocationName"] as? String
+                                let qrCode = parseJSON["TicketNumber"] as? String
+                                let price = parseJSON["Price"] as? String
+                                //print("Status: \(resultValue!)")
+                                if(resultValue == "Success"){
+                                    //self.locationID = resultValue3!
+                                    print("It Works yes, go in!")
+                                    self.LocationNamesString = restaurantName!
+                                    self.LocationPricesString = price!
+                                    self.qrCodeString = qrCode!
+                                    self.LocationIDString = id!
+                                     DispatchQueue.main.async(execute: { () -> Void in
+                                        if self.seguePerformed2 == false {
+                                            
+                                            
+                                            self.finalTotalInt = (Float(self.LocationPricesString)! + self.SERVICE_FEE)
+                                            
+                                            
+                                            
+                                            let checkoutViewController = CheckoutViewController(product: "SmartPark",
+                                                                                                price: Int(self.finalTotalInt)*100,
+                                                                                                settings: self.settingsVC.settings)
+                                            
+                                            print("Test inside the if statement")
+                                            
+                                            checkoutViewController.message = self.qrCodeString
+                                            checkoutViewController.feedItems = self.LocationNamesString
+                                            checkoutViewController.feedItems2 = self.LocationPricesString
+                                            checkoutViewController.locationId = self.LocationIDString
+                                            
+                                            self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                                            
+                                            self.seguePerformed2 = true;
+                                        }
+                                        self.seguePerformed = true;
+                                    })
+                                }else{
+                                    
+                                  /*  OperationQueue.main.addOperation {
+                                        let alertController = UIAlertController(title: "Error", message: "Invalid Ticket Number.", preferredStyle: .alert)
+                                        
+                                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                        alertController.addAction(defaultAction)
+                                        
+                                        self.present(alertController, animated: true, completion: nil)
+                                    }*/
+                                }
                             }
-                            self.seguePerformed = true;
-                        
-                         })
-                   
-                    } catch {
-                        print(error)
-                        print("Scanner Something's bad!")
+                        } catch {
+                            print(error)
+                            print("Sorry, you need to register first!")
+                        }
                     }
-                    
-                    
-                }
-                task.resume()
+                    task.resume()
                 
                 }
                 

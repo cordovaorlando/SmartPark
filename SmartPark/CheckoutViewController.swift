@@ -341,7 +341,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
-        let alertController = UIAlertController(
+       /* let alertController = UIAlertController(
             title: "Error",
             message: error.localizedDescription,
             preferredStyle: .alert
@@ -356,7 +356,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         })
         alertController.addAction(cancel)
         alertController.addAction(retry)
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)*/
     }
     
     

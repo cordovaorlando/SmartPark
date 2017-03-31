@@ -58,6 +58,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
     @IBAction func loginAction(_ sender: Any) {
         
         
+        
+        
+        
         let userEmail = emailTextField.text!
         let userPassword = passwordTextField.text!
         
@@ -102,10 +105,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
                         //let resultValue2 = parseJSON["user_password"] as? String
                         print("Status: \(resultValue!)")
                         print("Message: \(resultValue2!)")
-                        print("Location ID: \(resultValue3!)")
+                        //print("Location ID: \(resultValue3!)")
+                        if(resultValue == "Success"){
                         self.locationID = resultValue3!
                         //print("firstNameValue: \(resultValue2)")
-                        if(resultValue == "Success"){
+                        //if(resultValue == "Success"){
                         print("It Works yes, go in!")
                        // self.dismiss(animated: true, completion:nil)
                             
@@ -135,7 +139,20 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
                                 self.performSegue(withIdentifier: "finally", sender: self)
                             }
                             
-                        }                    }
+                        }else{
+                            
+                            OperationQueue.main.addOperation {
+                            let alertController = UIAlertController(title: "Error", message: "Incorrect Credentials", preferredStyle: .alert)
+                            
+                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            
+                            self.present(alertController, animated: true, completion: nil)
+                            }
+                        }
+                        
+                        
+                    }
                 } catch {
                     print(error)
                     print("Sorry, you need to register first!")

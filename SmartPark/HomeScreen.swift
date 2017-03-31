@@ -157,160 +157,78 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
     
     func downloadData(){
         
-        /*  textFieldText = ticketCodeField.text!
-         
-         if feedItems3.contains(textFieldText) {
-         let index = feedItems3.index(of: textFieldText)
-         
-         if !self.seguePerformed {
-         
-         
-         let variable = (feedItems2[index] as AnyObject).description
-         finalTotalInt = (Float(variable!)! + SERVICE_FEE)
-         
-         
-         let checkoutViewController = CheckoutViewController(product: "Product Name",
-         price: Int(finalTotalInt)*100,
-         settings: self.settingsVC.settings)
-         
-         
-         dismissKeyboard()
-         
-         let backItem = UIBarButtonItem()
-         backItem.title = "Back"
-         navigationItem.backBarButtonItem = backItem
-         
-         checkoutViewController.message = textFieldText
-         checkoutViewController.feedItems = feedItems
-         checkoutViewController.feedItems2 = feedItems2
-         checkoutViewController.bCodeIndex = index
-         
-         
-         
-         self.navigationController?.pushViewController(checkoutViewController, animated: true)
-         
-         self.seguePerformed = true
-         
-         
-         }
-         
-         } else {
-         
-         }*/
-        
-        var jsonElement: NSDictionary = NSDictionary()
-        
-        textFieldText = ticketCodeField.text!
-        
-        let index = textFieldText.index(textFieldText.startIndex, offsetBy: 1)
-        var locationID = textFieldText.substring(to: index)
-        
-        
-        let index2 = textFieldText.index(textFieldText.startIndex, offsetBy: 1)
-        var ticketNumber = textFieldText.substring(from: index2)
-        
-        
-        
-        let myUrl = URL(string: "http://spvalet.com/Locations.php");
-        var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
-        let postString = "id=\(locationID)&ticket=\(ticketNumber)";
-        request.httpBody = postString.data(using: String.Encoding.utf8);
-        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        if self.ticketCodeField.text == "" {
+            let alertController = UIAlertController(title: "Error", message: "Please enter your ticket number.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            self.present(alertController, animated: true, completion: nil)
             
-            if error != nil
-            {
-                print("error=\(error)")
-                return
-            }
-            // You can print out response object
-            // print("response = \(response!)")
-            //Let's convert response sent from a server side script to a NSDictionary object:
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
-                
-                jsonElement = json?[0] as! NSDictionary
-                
-                if let id = jsonElement["LocationID"] as? String,
-                    let restaurantName = jsonElement["LocationName"] as? String,
-                    let qrCode = jsonElement["TicketNumber"] as? String,
-                    let price = jsonElement["Price"] as? String
-                    
+        }else{
+            textFieldText = ticketCodeField.text!
+            let index = textFieldText.index(textFieldText.startIndex, offsetBy: 1)
+            var locationID = textFieldText.substring(to: index)
+            let index2 = textFieldText.index(textFieldText.startIndex, offsetBy: 1)
+            var ticketNumber = textFieldText.substring(from: index2)
+            let myUrl = URL(string: "http://spvalet.com/locs.php");
+            var request = URLRequest(url:myUrl!)
+            request.httpMethod = "POST"// Compose a query string
+            let postString = "id=\(locationID)&ticket=\(ticketNumber)";
+            request.httpBody = postString.data(using: String.Encoding.utf8);
+            let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                if error != nil
                 {
-                    //  self.LocationNamesArray.append(restaurantName)
-                    //  self.LocationPricesArray.append(price)
-                    //  self.qrCodeArray.append(qrCode)
-                    //  self.LocationIDArray.append(id)
-                    
-                    self.LocationNamesString = restaurantName
-                    self.LocationPricesString = price
-                    self.qrCodeString = qrCode
-                    self.LocationIDString = id
-                    
-                    
-                    
-                    
-                    //  self.pushToCheckOut()
-                    
-                    
+                    print("error=\(error)")
+                    return
                 }
-                
-                print("Location Name:\(self.LocationNamesString)")
-                print("Location Price: \(self.LocationPricesString)")
-                print("Ticket Number: \(self.qrCodeString)")
-                print("Location ID: \(self.LocationIDString)")
-                print()
-                
-//                self.performSegue(withIdentifier: "continueButton", sender: self)
-                
-                
-                
-                DispatchQueue.main.async(execute: { () -> Void in
-                    
-                    //let variable = (feedItems2[index] as AnyObject).description
-                    self.finalTotalInt = (Float(self.LocationPricesString)! + self.SERVICE_FEE)
-                    
-                    let checkoutViewController = CheckoutViewController(product: "SmartPark",
-                                                                        price: Int(self.finalTotalInt)*100,
-                                                                        settings: self.settingsVC.settings)
-                    
-                    self.dismissKeyboard()
-                    
-                    print("Test inside the if statement")
-                    
-                    checkoutViewController.message = self.qrCodeString
-                    checkoutViewController.feedItems = self.LocationNamesString
-                    checkoutViewController.feedItems2 = self.LocationPricesString
-                    checkoutViewController.locationId = self.LocationIDString
-                    //checkoutViewController.bCodeIndex = index
-                    
-                    
-                    
-                    self.navigationController?.pushViewController(checkoutViewController, animated: true)
-                    
-                    //seguePerformed = true;
-                    
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSDictionary
+                    if let parseJSON = json {
+                        let resultValue = parseJSON["status"] as? String
+                        let id = parseJSON["LocationID"] as? String
+                        let restaurantName = parseJSON["LocationName"] as? String
+                        let qrCode = parseJSON["TicketNumber"] as? String
+                        let price = parseJSON["Price"] as? String
+                        print("Status: \(resultValue!)")
+                        if(resultValue == "Success"){
+                            //self.locationID = resultValue3!
+                            print("It Works yes, go in!")
+                            self.LocationNamesString = restaurantName!
+                            self.LocationPricesString = price!
+                            self.qrCodeString = qrCode!
+                            self.LocationIDString = id!
+                            DispatchQueue.main.async(execute: { () -> Void in
 
-                    
-                 
-                    
-                })
-              
-                
-                
-                
-
-                
-                
-            } catch {
-                print(error)
-                print("Home Screen Something's bad!")
+                                self.finalTotalInt = (Float(self.LocationPricesString)! + self.SERVICE_FEE)
+                                
+                                let checkoutViewController = CheckoutViewController(product: "SmartPark",
+                                                                                    price: Int(self.finalTotalInt)*100,
+                                                                                    settings: self.settingsVC.settings)
+                                self.dismissKeyboard()
+                                checkoutViewController.message = self.qrCodeString
+                                checkoutViewController.feedItems = self.LocationNamesString
+                                checkoutViewController.feedItems2 = self.LocationPricesString
+                                checkoutViewController.locationId = self.LocationIDString
+                                self.navigationController?.pushViewController(checkoutViewController, animated: true)
+                            })
+                        }else{
+                            
+                            OperationQueue.main.addOperation {
+                                let alertController = UIAlertController(title: "Error", message: "Invalid Ticket Number.", preferredStyle: .alert)
+                                
+                                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                alertController.addAction(defaultAction)
+                                
+                                self.present(alertController, animated: true, completion: nil)
+                            }
+                        }
+                    }
+                } catch {
+                    print(error)
+                    print("Sorry, you need to register first!")
+                }
             }
-            
-            
+            task.resume()
         }
-        task.resume()
-        
         
         
         
