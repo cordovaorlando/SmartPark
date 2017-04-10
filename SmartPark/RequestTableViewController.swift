@@ -17,24 +17,12 @@ class RequestTableViewController: UITableViewController {
     var token = String()
     weak var timer: Timer?
     
-    //var firstNameArray = [String]()
-    /*var lastNameArray = [String]()
-    var phoneNumberArray = [String]()
-    var licensePlateArray = [String]()
-    var makeArray = [String]()
-    var modelArray = [String]()
-    var colorArray = [String]()
-    var priceArray = [String]()
-    var tipArray = [String]()
-    var ticketNumberArray = [String]()*/
-    
-    
-    var firstNameArray = [String]() {
+    var orderIDArray = [String]() {
         didSet {
             tableView.reloadData()
         }
     }
-    var lastNameArray = [String]() {
+    var ticketIDArray = [String]() {
         didSet {
             tableView.reloadData()
         }
@@ -88,78 +76,60 @@ class RequestTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         token = FIRInstanceID.instanceID().token()!
-        downloadData()
         super.viewDidLoad()
-        // var token = FIRInstanceID.instanceID().token()
-        print(locationID)
-        
-        print(token)
-        postData()
-        
 
-        
+        postData()
+        print("View Did Load")
+
+
         
     }
     
     
     
     override func viewWillAppear(_ animated: Bool) {
+        self.downloadData()
         super.viewWillAppear(animated)
+        print("View Will Appear")
+
         
-        //DispatchQueue.main.async(execute: { () -> Void in
-            //self.downloadData()
-          //  print("View Did Load")
         
-        //print("View will Appear")
-        //downloadData()
-        //self.tableView.reloadData()
-        //timer?.invalidate()
-        
-        //})
+
+
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
         super.viewDidAppear(animated)
-        //DispatchQueue.main.async(execute: { () -> Void in
-        //    self.downloadData()
+        print("View Did Appear")
+        
+    }
+    
+    
+    func reloadData(){
+        DispatchQueue.main.async(execute: { () -> Void in
             
-       // })
-       // self.tableView.reloadData()
-        //startTimer()
+            self.tableView.reloadData()
+            print("reloadData function called")
+        })
         
-    
     }
     
-        
+    
+    
 
-        
-        //
-        
-    
-    
-    func startTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(RequestTableViewController.downloadData), userInfo: nil, repeats: true)
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
     func postData(){
         
         
-        
-        // var jsonElement: NSDictionary = NSDictionary()
-        
-        
         let myUrl = URL(string: "http://spvalet.com/tokens.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
-        //let postString = "email=\(userEmail)&password=\(userPassword)";
         let postString = "token=\(token)&locationID=\(locationID)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -170,24 +140,17 @@ class RequestTableViewController: UITableViewController {
                 return
             }
             
-            
-            
         }
         task.resume()
-        
-        
-        
         
     }
     
     
-    
     func downloadData(){
+    
         
-        
-        
-        self.firstNameArray.removeAll()
-        self.lastNameArray.removeAll()
+        self.orderIDArray.removeAll()
+        self.ticketIDArray.removeAll()
         self.phoneNumberArray.removeAll()
         self.licensePlateArray.removeAll()
         self.makeArray.removeAll()
@@ -196,13 +159,9 @@ class RequestTableViewController: UITableViewController {
         self.priceArray.removeAll()
         self.tipArray.removeAll()
         self.ticketNumberArray.removeAll()
+
         
-        
-        
-        
-        
-        
-        
+
         var jsonElement: NSDictionary = NSDictionary()
         
         
@@ -210,7 +169,6 @@ class RequestTableViewController: UITableViewController {
         let myUrl = URL(string: "http://spvalet.com/request.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
-        //let postString = "email=\(userEmail)&password=\(userPassword)";
         let postString = "locationID=\(locationID)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -222,17 +180,13 @@ class RequestTableViewController: UITableViewController {
             }
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
-                
-                
 
-                
-                
                 for i in (0..<json!.count){
                     
                     jsonElement = json![i] as! NSDictionary
                     
                     
-                    if let firstName = jsonElement["FirstName"] as? String,
+                 /*   if let firstName = jsonElement["FirstName"] as? String,
                         let lastName = jsonElement["LastName"] as? String,
                         let phoneNumber = jsonElement["PhoneNumber"] as? String,
                         let licensePlate = jsonElement["LicensePlate"] as? String,
@@ -244,34 +198,38 @@ class RequestTableViewController: UITableViewController {
                         let ticketNumber = jsonElement["TicketNumber"] as? String,
                         let tokenID = jsonElement["tokenID"] as? String
                     {
-
+                */
+                    
+                    if let orderID = jsonElement["orderId"] as? String,
+                        let price = jsonElement["Price"] as? String,
+                        let tip = jsonElement["Tip"] as? String,
+                        let ticketNumber = jsonElement["TicketNumber"] as? String,
+                        let tokenID = jsonElement["tokenID"] as? String,
+                        let ticketID = jsonElement["TicketID"] as? String
+                    {
                         
                         
                         
-                        self.firstNameArray.append(firstName)
-                        self.lastNameArray.append(lastName)
-                        self.phoneNumberArray.append(phoneNumber)
-                        self.licensePlateArray.append(licensePlate)
-                        self.makeArray.append(make)
-                        self.modelArray.append(model)
-                        self.colorArray.append(color)
+                        self.orderIDArray.append(orderID)
+                        self.ticketIDArray.append(ticketID)
+                        //self.phoneNumberArray.append(phoneNumber)
+                        //self.licensePlateArray.append(licensePlate)
+                        //self.makeArray.append(make)
+                        //self.modelArray.append(model)
+                        //self.colorArray.append(color)
                         self.priceArray.append(price)
                         self.tipArray.append(tip)
                         self.ticketNumberArray.append(ticketNumber)
                         self.tokensArray.append(tokenID)
+                        self.reloadData()
+                        
                     
                     }
                 }
                 
-                
-                
-                
-                
-                
-                //finalTotal = (sumOfTips + sumOfSales)
-                //self.tipsLabel.text = sumOfTips.description
+                /*
                 print("First Name: " + self.firstNameArray.description)
-                print("Last Name : " + self.lastNameArray.description)
+                print("Last Name : " + self.ticketIDArray.description)
                 print("Phone Number: " + self.phoneNumberArray.description)
                 print("License Plate: " + self.licensePlateArray.description)
                 print("Make: " + self.makeArray.description)
@@ -281,42 +239,18 @@ class RequestTableViewController: UITableViewController {
                 print("Tip: " + self.tipArray.description)
                 print("Ticket Number: " + self.ticketNumberArray.description)
                 print("TokenID: " + self.tokensArray.description)
-                
-                DispatchQueue.main.async(execute: { () -> Void in
-                    
-                    
-                })
-                
-                /*     print("")
-                 print("Tips Total Array: " + tipsTotalArray.description)
-                 print("Restaurant Total Array: " + pricesTotalArray.description)
-                 print("Location Ids: " + locIdArray.description)
-                 print("Order Ids: " + idArrays.description)
-                 */
+                */
+
 
             } catch {
                 print(error)
-                print("Requests View Something's bad!")
-            }
+        }
             
             
         }
         task.resume()
-        
-        
-        
-        
+
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -333,79 +267,22 @@ class RequestTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.firstNameArray.count
+        return self.orderIDArray.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "id", for: indexPath)
-        
 
-        //cell = UITableViewCell(style: UITableViewCellStyle.subtitle,
-                              // reuseIdentifier: "id")
-        cell.textLabel?.text = self.ticketNumberArray[indexPath.row]
-        cell.detailTextLabel?.text = self.colorArray[indexPath.row] + " " + self.makeArray[indexPath.row] + " " +  self.modelArray[indexPath.row]
+        cell.textLabel?.text = "#" + self.ticketNumberArray[indexPath.row]
+        //cell.detailTextLabel?.text = self.priceArray[indexPath.row] + " " + self.tipArray[indexPath.row] + " " +  self.firstNameArray[indexPath.row]
         
-        //cell.backgroundColor = UIColor.red
-        //cell.backgroundColor = color(red: 135, green: 223, blue: 238, alpha: 0)
-        //cell.textLabel?.font = UIFont(name: "Georgia-BoldItalic", size: 18.0)
+        cell.detailTextLabel?.text = ""
         
         return cell
 
     }
-    
-
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-    
-    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -414,17 +291,19 @@ class RequestTableViewController: UITableViewController {
 
         if segue.identifier == "detail" {
             let destinationVC = segue.destination as! DetailViewController
-            destinationVC.firstName = firstNameArray[index!]
-            destinationVC.lastName = lastNameArray[index!]
-            destinationVC.phoneNumber = phoneNumberArray[index!]
-            destinationVC.licensePlate = licensePlateArray[index!]
-            destinationVC.make = makeArray[index!]
-            destinationVC.model = modelArray[index!]
-            destinationVC.color = colorArray[index!]
+            destinationVC.orderID = orderIDArray[index!]
+            //destinationVC.lastName = ticketIDArray[index!]
+            //destinationVC.phoneNumber = phoneNumberArray[index!]
+            //destinationVC.licensePlate = licensePlateArray[index!]
+            //destinationVC.make = makeArray[index!]
+            //destinationVC.model = modelArray[index!]
+            //destinationVC.color = colorArray[index!]
             destinationVC.price = priceArray[index!]
             destinationVC.tip = tipArray[index!]
             destinationVC.ticketNumber = ticketNumberArray[index!]
             destinationVC.token = tokensArray[index!]
+            destinationVC.ticketID = ticketIDArray[index!]
+           
             
             
             

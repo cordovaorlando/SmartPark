@@ -17,19 +17,12 @@ class DetailReportViewController : UIViewController{
     var startDate = String()
     var endDate = String()
     
-    
-    
-    
     @IBOutlet weak var salesLabel: UILabel!
     @IBOutlet weak var tipsLabel: UILabel!
     @IBOutlet weak var totalsLabel: UILabel!
     
-    
     @IBOutlet weak var startDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
-    
-    
-    
     
     
     override func viewDidLoad() {
@@ -40,27 +33,20 @@ class DetailReportViewController : UIViewController{
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        
         startDate = formatter.string(from: currentDate)
         endDate = formatter.string(from: currentDate)
-        
         downloadData()
 
     }
     
-    
-    
     func downloadData(){
-        
-        
-        
+    
         var jsonElement: NSDictionary = NSDictionary()
         
         
         let myUrl = URL(string: "http://spvalet.com/DetailReport.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
-        //let postString = "email=\(userEmail)&password=\(userPassword)";
         let postString = "startDate=\(startDate)&endDate=\(endDate)&locationID=\(locationID)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -108,23 +94,20 @@ class DetailReportViewController : UIViewController{
                 
                 
                 for i in (0..<tipsTotalArray.count){
-                    //sumOfTips += 2
                     sumOfTips  += (tipsTotalArray[i] as NSString).integerValue
                     sumOfSales += (pricesTotalArray[i] as NSString).integerValue
                     
                 }
                 
-                
-                
-                
                 finalTotal = (sumOfTips + sumOfSales)
-                //self.tipsLabel.text = sumOfTips.description
+                
+                /*
                 print("Tickets Number: " + ticketsNumber.description)
                 print("Orders Date: " + orderDates.description)
                 print("Tips: " + sumOfTips.description + ".00")
                 print("Sales: " + sumOfSales.description + ".00")
                 print("Total: " + finalTotal.description + ".00")
-                
+                */
                 
                 DispatchQueue.main.async(execute: { () -> Void in                   
                     
@@ -135,24 +118,20 @@ class DetailReportViewController : UIViewController{
                     
                 })
                 
+                /*
                 print("")
                 print("Tips Total Array: " + tipsTotalArray.description)
                 print("Restaurant Total Array: " + pricesTotalArray.description)
                 print("Location Ids: " + locIdArray.description)
                 print("Order Ids: " + idArrays.description)
-                
+                */
                 
             } catch {
                 print(error)
-                print("DailyReport Something's bad!")
             }
-            
             
         }
         task.resume()
-        
-        
-        
         
     }
     
@@ -163,10 +142,6 @@ class DetailReportViewController : UIViewController{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         startDate = formatter.string(from: sender.date)
-        
-        print(startDate)
-        
-        
         downloadData()
 
     }
@@ -177,10 +152,6 @@ class DetailReportViewController : UIViewController{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         endDate = formatter.string(from: sender.date)
-        
-        print(endDate)
-        
-        
         downloadData()
     }
     

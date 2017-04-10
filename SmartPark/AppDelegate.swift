@@ -76,11 +76,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            //print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
+        //print(userInfo)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -91,11 +91,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            //print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
+        //print(userInfo)
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -124,16 +124,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRMessaging.messaging().connect { (error) in
             if error != nil {
-                print("Unable to connect with FCM. \(error)")
+                //print("Unable to connect with FCM. \(error)")
             } else {
-                print("Connected to FCM.")
+                //print("Connected to FCM.")
             }
         }
     }
     // [END connect_to_fcm]
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Unable to register for remote notifications: \(error.localizedDescription)")
+        //print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
     
     // This function is added here only for debugging purposes, and can be removed if swizzling is enabled.
@@ -155,7 +155,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [START disconnect_from_fcm]
     func applicationDidEnterBackground(_ application: UIApplication) {
         FIRMessaging.messaging().disconnect()
-        print("Disconnected from FCM.")
+        //print("Disconnected from FCM.")
     }
     // [END disconnect_from_fcm]
     
@@ -202,11 +202,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let userInfo = notification.request.content.userInfo
             // Print message ID.
             if let messageID = userInfo[gcmMessageIDKey] {
-                print("Message ID: \(messageID)")
+                //print("Message ID: \(messageID)")
             }
             
             // Print full message.
-            print(userInfo)
+           // print(userInfo)
             
             // Change this to your preferred presentation option
             //completionHandler([])
@@ -223,11 +223,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let userInfo = response.notification.request.content.userInfo
             // Print message ID.
             if let messageID = userInfo[gcmMessageIDKey] {
-                print("Message ID: \(messageID)")
+                //print("Message ID: \(messageID)")
             }
             
             // Print full message.
-            print(userInfo)
+            //print(userInfo)
             
             completionHandler()
         }
@@ -238,7 +238,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     extension AppDelegate : FIRMessagingDelegate {
         // Receive data message on iOS 10 devices while app is in the foreground.
         func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
-            print(remoteMessage.appData)
+            //print(remoteMessage.appData)
         }
     }
     // [END ios_10_data_message_handling]

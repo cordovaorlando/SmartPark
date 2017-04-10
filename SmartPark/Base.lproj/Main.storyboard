@@ -121,14 +121,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHQ-N8-luu">
-                                <rect key="frame" x="80" y="218" width="108" height="21"/>
+                                <rect key="frame" x="80" y="218" width="183" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjv-Vm-p20">
-                                <rect key="frame" x="80" y="297" width="74" height="21"/>
+                                <rect key="frame" x="80" y="297" width="183" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72o-ao-S2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-181" y="1866"/>
+            <point key="canvasLocation" x="-181.5" y="1865.5"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="ekS-cm-sNk">
@@ -447,7 +447,7 @@
                             <outlet property="delegate" destination="dmw-XE-XCR" id="w2E-RJ-aXl"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Swk-EQ-TSR" userLabel="Requests"/>
+                    <tabBarItem key="tabBarItem" title="Requests" id="Swk-EQ-TSR" userLabel="Requests"/>
                     <navigationItem key="navigationItem" title="Requests" id="r1h-WV-edO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67l-RU-L56" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -582,6 +582,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="ReadyButton:" destination="WpA-Su-UAL" eventType="touchUpInside" id="9N0-bG-nsE"/>
                                     <action selector="loginAction:" destination="37h-JP-gXR" eventType="touchUpInside" id="Dc0-ik-5Qm"/>
                                 </connections>
                             </button>
@@ -641,7 +642,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptp-Vn-oZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276.5" y="4780.5"/>
+            <point key="canvasLocation" x="298" y="4049"/>
         </scene>
         <!--Monthly Report View Controller-->
         <scene sceneID="xSY-eQ-Jyw">
@@ -1143,7 +1144,7 @@
             </objects>
             <point key="canvasLocation" x="1758.5" y="1236.5"/>
         </scene>
-        <!--Item-->
+        <!--Settings-->
         <scene sceneID="cD7-DK-Z4u">
             <objects>
                 <viewController id="4zp-iJ-PcU" customClass="AccountSettingsViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
@@ -1176,7 +1177,7 @@
                             <constraint firstItem="HKu-5a-3Iy" firstAttribute="centerX" secondItem="gea-Mr-91N" secondAttribute="centerX" id="ux7-N3-c72"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="eTK-BE-q58" userLabel="Settings"/>
+                    <tabBarItem key="tabBarItem" title="Settings" id="eTK-BE-q58" userLabel="Settings"/>
                     <navigationItem key="navigationItem" id="wgZ-hq-tah"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4I-MW-iMb" userLabel="First Responder" sceneMemberID="firstResponder"/>

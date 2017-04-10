@@ -22,43 +22,27 @@ class YearlyReportViewController : UIViewController{
     
     
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
         
         self.navigationItem.title = "Yearly Reports"
-        
-        
+    
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
-        
         year = formatter.string(from: currentDate)
-        
-        print(year)
-
         downloadData()
     }
     
     
     
-    
-    
-    
     func downloadData(){
         
-        
-        
         var jsonElement: NSDictionary = NSDictionary()
-        
         
         let myUrl = URL(string: "http://spvalet.com/YearlyReport.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
-        //let postString = "email=\(userEmail)&password=\(userPassword)";
         let postString = "year=\(year)&locationID=\(locationID)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -106,22 +90,20 @@ class YearlyReportViewController : UIViewController{
                 
                 
                 for i in (0..<tipsTotalArray.count){
-                    //sumOfTips += 2
                     sumOfTips  += (tipsTotalArray[i] as NSString).integerValue
                     sumOfSales += (pricesTotalArray[i] as NSString).integerValue
                     
                 }
                 
                 
-                
-                
                 finalTotal = (sumOfTips + sumOfSales)
-                //self.tipsLabel.text = sumOfTips.description
+                /*
                 print("Tickets Number: " + ticketsNumber.description)
                 print("Orders Date: " + orderDates.description)
                 print("Tips: " + sumOfTips.description + ".00")
                 print("Sales: " + sumOfSales.description + ".00")
                 print("Total: " + finalTotal.description + ".00")
+                */
                 
                 
                 DispatchQueue.main.async(execute: { () -> Void in
@@ -133,23 +115,21 @@ class YearlyReportViewController : UIViewController{
                     
                 })
                 
+                /*
                 print("")
                 print("Tips Total Array: " + tipsTotalArray.description)
                 print("Restaurant Total Array: " + pricesTotalArray.description)
                 print("Location Ids: " + locIdArray.description)
                 print("Order Ids: " + idArrays.description)
-                
+                */
                 
             } catch {
                 print(error)
-                print("DailyReport Something's bad!")
             }
             
         }
         task.resume()
-
     }
-    
     
     
     
@@ -158,17 +138,8 @@ class YearlyReportViewController : UIViewController{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         year = formatter.string(from: sender.date)
-        
-        print(year)
-        
-        
         downloadData()
         
     }
-    
-    
-    
-    
 
-    
 }

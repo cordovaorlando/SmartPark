@@ -25,8 +25,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     var finalTotalInt: Float = 10.00
     var finalTotalInt2 = Float()
     var SERVICE_FEE:Float = 2.00
-    //var feedItems: NSArray = NSArray()
-    //var feedItems2: NSArray = NSArray()
     var feedItems = String()
     var feedItems2 = String()
     var locationId = String()
@@ -38,7 +36,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     var emailBody = String()
     var restName = String()
     
-    //hold date data for the emails sent
     var currentDate = NSDate()
     let dateFormatter = DateFormatter()
     var convertedDate = String()
@@ -324,10 +321,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         postData()
         
-        
-        
-        
     }
+    
     // MARK: STPPaymentContextDelegate
 
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
@@ -341,22 +336,23 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     }
 
     func paymentContext(_ paymentContext: STPPaymentContext, didFailToLoadWithError error: Error) {
-       /* let alertController = UIAlertController(
-            title: "Error",
-            message: error.localizedDescription,
-            preferredStyle: .alert
-        )
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-            // Need to assign to _ because optional binding loses @discardableResult value
-            // https://bugs.swift.org/browse/SR-1681
-            _ = self.navigationController?.popViewController(animated: true)
-        })
-        let retry = UIAlertAction(title: "Retry", style: .default, handler: { action in
-            self.paymentContext.retryLoading()
-        })
-        alertController.addAction(cancel)
-        alertController.addAction(retry)
-        self.present(alertController, animated: true, completion: nil)*/
+         let alertController = UIAlertController(
+         title: "Error",
+         message: error.localizedDescription,
+         preferredStyle: .alert
+         )
+         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+         // Need to assign to _ because optional binding loses @discardableResult value
+         // https://bugs.swift.org/browse/SR-1681
+         _ = self.navigationController?.popViewController(animated: true)
+         })
+         let retry = UIAlertAction(title: "Retry", style: .default, handler: { action in
+         self.paymentContext.retryLoading()
+         })
+         alertController.addAction(cancel)
+         alertController.addAction(retry)
+         self.present(alertController, animated: true, completion: nil)
+
     }
     
     
@@ -364,7 +360,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func valueChanged(_ sender: UISlider)
     {
-        
         
         let roundedStepValue = round(sender.value / 1) * 1
         sender.value = roundedStepValue
@@ -382,8 +377,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         finalEmailTotal = finalTotalInt + Float(currentValue) - SERVICE_FEE
         
         tipEmail = Float(currentValue)
-        
-
         
     }
     
@@ -428,7 +421,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         "</table></td></tr></table></td></tr><tr style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\"><td class=\"content-block aligncenter\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;\" align=\"center\" valign=\"top\"><a href=\"http://www.spvalet.com\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #348eda; text-decoration: underline; margin: 0;\">View in browser</a></td></tr><tr style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\"><td class=\"content-block aligncenter\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;\" align=\"center\" valign=\"top\">SmartPark Inc. 1 University Pl, Shreveport, LA 71115</td></tr></table></td></tr></table><div class=\"footer\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; clear: both; color: #999; margin: 0; padding: 20px;\"><table width=\"100%\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\"><tr style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\"><td class=\"aligncenter content-block\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; vertical-align: top; color: #999; text-align: center; margin: 0; padding: 0 0 20px;\" align=\"center\" valign=\"top\">Questions? Email <a href=\"mailto:\" style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 12px; color: #999; text-decoration: underline; margin: 0;\">support@spvalet.com</a></td></tr></table></div></div></td><td style=\"font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0;\" valign=\"top\"></td></tr></table></body></html>"
         
         
-        
         let myUrl = NSURL(string: "https://api.mailgun.net/v3/sandboxfbe7b5adbc2947908d2e347a2eeae168.mailgun.org/messages");
         let requestEmail = NSMutableURLRequest(url:myUrl! as URL);
 
@@ -454,14 +446,10 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func postData(){
         
-        //var newTotal = finalEmailTotal - tipEmail - SERVICE_FEE
-        
-        //var jsonElement: NSDictionary = NSDictionary()
-        
         let myUrl = URL(string: "http://spvalet.com/push.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
-        let postString = "locationID=\(locationId)";
+        let postString = "locationID=\(locationId)&TicketNumber=\(message)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
             
@@ -478,7 +466,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
     
     func postToken(){
 
-        
         let myUrl = URL(string: "http://spvalet.com/customerToken.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
@@ -496,7 +483,6 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         task.resume()
         
     }
-    
     
     
     
@@ -521,13 +507,5 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             
         }
         task.resume()
-        
-        
-        
-        
-        
     }
-
-    
-
 }

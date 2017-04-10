@@ -42,10 +42,4 @@ class AccountSettingsViewController: UIViewController{
 
     }
     
-    
-    
-    
-    
-    
-    
 }

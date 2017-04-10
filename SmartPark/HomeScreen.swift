@@ -18,9 +18,6 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
     let settingsVC = SettingsViewController()
     
     var seguePerformed = false
-    //var feedItems: NSArray = NSArray()
-    //var feedItems2: NSArray = NSArray()
-    //var feedItems3: NSArray = NSArray()
     var textFieldText = String()
     
     var finalTotalInt = Float()
@@ -43,20 +40,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         
-
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
-        
-        let notificationCenter2 = NotificationCenter.default
-        notificationCenter2.addObserver(self, selector: #selector(appMovedToForeGround), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
-        
-        
         dismissKeyboard()
-      //  let homeModel = HomeModel()
-      //  homeModel.delegate = self
-      //  homeModel.downloadItems()
-        
         seguePerformed = false
         
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
@@ -68,36 +52,16 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         self.ticketCodeField.delegate = self;
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeScreen.dismissKeyboard))
         view.addGestureRecognizer(tap)
-        //FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
-        //token = FIRInstanceID.instanceID().token()!
-        //postToken()
         
-    }
-    
-    func appMovedToBackground() {
-        print("App moved to background!")
+        let token = FIRInstanceID.instanceID().token()
         
-      //  let homeModel = HomeModel()
-     //   homeModel.delegate = self
-     //   homeModel.downloadItems()
-
-    }
-    
-    func appMovedToForeGround() {
-        print("App moved to foreground!")
-     //   let homeModel = HomeModel()
-   //     homeModel.delegate = self
-   //     homeModel.downloadItems()
+        print("Token: " + token!);
         
     }
     
     
-
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     
@@ -121,39 +85,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         dismissKeyboard()
         seguePerformed = false
         ticketCodeField.text = nil
-        
-     //   let homeModel = HomeModel()
-    //    homeModel.delegate = self
-    //    homeModel.downloadItems()
-        
     }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     //   let homeModel = HomeModel()
-     //   homeModel.delegate = self
-     //   homeModel.downloadItems()
-    }
-    
-     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-     //   let homeModel = HomeModel()
-     //   homeModel.delegate = self
-     //   homeModel.downloadItems()
-
-    }
-    
-    
-   /* func itemsDownloaded(_ items: NSArray, _ items2: NSArray, _ items3: NSArray) {
-        
-        feedItems = items
-        
-        feedItems2 = items2
-        
-        feedItems3 = items3
-    }*/
-    
     
     func downloadData(){
         
@@ -171,7 +103,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
             var ticketNumber = textFieldText.substring(from: index2)
             let myUrl = URL(string: "http://spvalet.com/locs.php");
             var request = URLRequest(url:myUrl!)
-            request.httpMethod = "POST"// Compose a query string
+            request.httpMethod = "POST"
             let postString = "id=\(locationID)&ticket=\(ticketNumber)";
             request.httpBody = postString.data(using: String.Encoding.utf8);
             let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -188,10 +120,8 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
                         let restaurantName = parseJSON["LocationName"] as? String
                         let qrCode = parseJSON["TicketNumber"] as? String
                         let price = parseJSON["Price"] as? String
-                        print("Status: \(resultValue!)")
+
                         if(resultValue == "Success"){
-                            //self.locationID = resultValue3!
-                            print("It Works yes, go in!")
                             self.LocationNamesString = restaurantName!
                             self.LocationPricesString = price!
                             self.qrCodeString = qrCode!
@@ -224,15 +154,10 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
                     }
                 } catch {
                     print(error)
-                    print("Sorry, you need to register first!")
                 }
             }
             task.resume()
         }
-        
-        
-        
-        
     }
 
     
@@ -240,63 +165,14 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
     @IBAction func ContinueButton(_ sender: AnyObject) {
         
         downloadData()
-        
-        
     }
-    
-    
-    
-    
-    
-    func pushToCheckOut(){
-        
-        
-        if !self.seguePerformed {
-            
-        let checkoutViewController = CheckoutViewController(product: "SmartPark",
-                                                            price: 100,
-                                                            settings: self.settingsVC.settings)
-        
-        
-        print("Test inside the if statement")
-        
-        checkoutViewController.message = self.qrCodeString
-        checkoutViewController.feedItems = self.LocationNamesString
-        checkoutViewController.feedItems2 = self.LocationPricesString
-        //checkoutViewController.bCodeIndex = index
-        
-        
-        
-        self.navigationController?.pushViewController(checkoutViewController, animated: true)
-         
-            seguePerformed = true;
-            
-        }
-
-    }
-    
-    @IBAction func handleLogTokenTouch(_ sender: UIButton) {
-        // [START get_iid_token]
-        let token = FIRInstanceID.instanceID().token()
-        print("InstanceID token: \(token!)")
-        ticketCodeField.text = token
-        // [END get_iid_token]
-    }
-    
-    @IBAction func handleSubscribeTouch(_ sender: UIButton) {
-        // [START subscribe_topic]
-        FIRMessaging.messaging().subscribe(toTopic: "/topics/news")
-        print("Subscribed to news topic")
-        // [END subscribe_topic]
-    }
-    
     
     func postToken(){
         
         
         let myUrl = URL(string: "http://spvalet.com/customerToken.php");
         var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
+        request.httpMethod = "POST"
         let postString = "token=\(token)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -306,14 +182,9 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
                 print("error=\(error)")
                 return
             }
-            
         }
         task.resume()
         
     }
-
-    
-    
-    
 }
 

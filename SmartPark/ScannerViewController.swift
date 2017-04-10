@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ScannerViewController.swift
 //  SmartPark
 //
 //  Created by Jose Cordova on 9/5/16.
@@ -26,15 +26,12 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     var finalTotalInt = Float()
     var SERVICE_FEE:Float = 2.00
 
-
     var LocationNamesString = String()
     var LocationPricesString = String()
     var qrCodeString = String()
     var LocationIDString = String()
     
     var scanText = String()
-
-    
     
     var feedItems: NSArray = NSArray()
     var feedItems2: NSArray = NSArray()
@@ -44,13 +41,10 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
-    // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         mySwitch.tintColor = UIColor.white
         mySwitch.onTintColor = UIColor.white
@@ -107,7 +101,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -146,12 +139,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         feedItems3 = items3
         
             }
-    
-        
 
-
-    
-    
     
     func toggleTorch(on: Bool) {
         guard let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else { return }
@@ -168,10 +156,10 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 device.unlockForConfiguration()
             } catch {
-                print("Torch could not be used")
+                
             }
         } else {
-            print("Torch is not available")
+
         }
     }
     
@@ -199,8 +187,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 bCode = metadataObj.stringValue
                 
                 if self.seguePerformed == false {
-                
-                    
+            
                 scanText = bCode
                     
                 let index = scanText.index(scanText.startIndex, offsetBy: 1)
@@ -209,7 +196,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                 
                 let index2 = scanText.index(scanText.startIndex, offsetBy: 1)
                 var ticketNumber = scanText.substring(from: index2)
-                
                 
                 
                     let myUrl = URL(string: "http://spvalet.com/locs.php");
@@ -231,10 +217,8 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                                 let restaurantName = parseJSON["LocationName"] as? String
                                 let qrCode = parseJSON["TicketNumber"] as? String
                                 let price = parseJSON["Price"] as? String
-                                //print("Status: \(resultValue!)")
+                                
                                 if(resultValue == "Success"){
-                                    //self.locationID = resultValue3!
-                                    print("It Works yes, go in!")
                                     self.LocationNamesString = restaurantName!
                                     self.LocationPricesString = price!
                                     self.qrCodeString = qrCode!
@@ -251,8 +235,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                                                                                                 price: Int(self.finalTotalInt)*100,
                                                                                                 settings: self.settingsVC.settings)
                                             
-                                            print("Test inside the if statement")
-                                            
                                             checkoutViewController.message = self.qrCodeString
                                             checkoutViewController.feedItems = self.LocationNamesString
                                             checkoutViewController.feedItems2 = self.LocationPricesString
@@ -266,37 +248,19 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                                     })
                                 }else{
                                     
-                                  /*  OperationQueue.main.addOperation {
-                                        let alertController = UIAlertController(title: "Error", message: "Invalid Ticket Number.", preferredStyle: .alert)
-                                        
-                                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                                        alertController.addAction(defaultAction)
-                                        
-                                        self.present(alertController, animated: true, completion: nil)
-                                    }*/
                                 }
                             }
                         } catch {
                             print(error)
-                            print("Sorry, you need to register first!")
                         }
                     }
                     task.resume()
-                
                 }
-                
-                
             }
-                
-                //downloadData()
         }
-        
-     //Good so far   downloadData()
-        
     }
     
     @IBAction func switchTapped(_ sender: UISwitch) {
-        print(sender.isOn ? "on" : "off")
         
         if sender.isOn == true{
             toggleTorch(on: true)
@@ -308,47 +272,6 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
     
     
     func downloadData(){
-        
-        /*  textFieldText = ticketCodeField.text!
-         
-         if feedItems3.contains(textFieldText) {
-         let index = feedItems3.index(of: textFieldText)
-         
-         if !self.seguePerformed {
-         
-         
-         let variable = (feedItems2[index] as AnyObject).description
-         finalTotalInt = (Float(variable!)! + SERVICE_FEE)
-         
-         
-         let checkoutViewController = CheckoutViewController(product: "Product Name",
-         price: Int(finalTotalInt)*100,
-         settings: self.settingsVC.settings)
-         
-         
-         dismissKeyboard()
-         
-         let backItem = UIBarButtonItem()
-         backItem.title = "Back"
-         navigationItem.backBarButtonItem = backItem
-         
-         checkoutViewController.message = textFieldText
-         checkoutViewController.feedItems = feedItems
-         checkoutViewController.feedItems2 = feedItems2
-         checkoutViewController.bCodeIndex = index
-         
-         
-         
-         self.navigationController?.pushViewController(checkoutViewController, animated: true)
-         
-         self.seguePerformed = true
-         
-         
-         }
-         
-         } else {
-         
-         }*/
         
         var jsonElement: NSDictionary = NSDictionary()
         
@@ -365,7 +288,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
         
         let myUrl = URL(string: "http://spvalet.com/Locations.php");
         var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
+        request.httpMethod = "POST"
         let postString = "firstName=\(locationID)&lastName=\(ticketNumber)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -374,9 +297,7 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
             {
                 print("error=\(error)")
                 return
-            }// You can print out response object
-            // print("response = \(response!)")
-            //Let's convert response sent from a server side script to a NSDictionary object:
+            }
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
                 
@@ -388,84 +309,21 @@ class ScannerViewController: UIViewController, HomeModelProtocal, AVCaptureMetad
                     let price = jsonElement["Price"] as? String
                     
                 {
-                    //  self.LocationNamesArray.append(restaurantName)
-                    //  self.LocationPricesArray.append(price)
-                    //  self.qrCodeArray.append(qrCode)
-                    //  self.LocationIDArray.append(id)
-                    
                     self.LocationNamesString = restaurantName
                     self.LocationPricesString = price
                     self.qrCodeString = qrCode
                     self.LocationIDString = id
-                    
-                    
-                    
-                    
-                    //  self.pushToCheckOut()
-                    
-                    
                 }
-                
-                print("Location Name:\(self.LocationNamesString)")
-                print("Location Price: \(self.LocationPricesString)")
-                print("Ticket Number: \(self.qrCodeString)")
-                print("Location ID: \(self.LocationIDString)")
-                print()
-                
-                //                self.performSegue(withIdentifier: "continueButton", sender: self)
-                
-                
-                
-             /*   if !self.seguePerformed {
-                
-                //DispatchQueue.main.async(execute: { () -> Void in
-                    
-                    //let variable = (feedItems2[index] as AnyObject).description
-                    self.finalTotalInt = (Float(self.LocationPricesString)! + self.SERVICE_FEE)
-                    
-                    let checkoutViewController = CheckoutViewController(product: "SmartPark",
-                                                                        price: Int(self.finalTotalInt)*100,
-                                                                        settings: self.settingsVC.settings)
-                    
-                    //self.dismissKeyboard()
-                    
-                    print("Test inside the if statement")
-                    
-                    checkoutViewController.message = self.qrCodeString
-                    checkoutViewController.feedItems = self.LocationNamesString
-                    checkoutViewController.feedItems2 = self.LocationPricesString
-                    //checkoutViewController.bCodeIndex = index
-                    
-                    
-                    
-                    self.navigationController?.pushViewController(checkoutViewController, animated: true)
-                    
-                    self.seguePerformed = true;
-                    
-                //})
-                
-                }*/
-                
-                
                 
             } catch {
                 print(error)
-                print("Scanner Something's bad!")
             }
             
             
         }
         task.resume()
         
-        
-        
-        
-        
     }
-
-
-    
-    
     
 }
 

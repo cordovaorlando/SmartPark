@@ -15,8 +15,6 @@ protocol HomeModelProtocal: class {
 
 class HomeModel: NSObject, URLSessionDataDelegate {
     
-    //properties
-    
     weak var delegate: HomeModelProtocal!
     
     var data : NSMutableData = NSMutableData()
@@ -70,7 +68,6 @@ class HomeModel: NSObject, URLSessionDataDelegate {
         }
         
         var jsonElement: NSDictionary = NSDictionary()
-        //let locations: NSMutableArray = NSMutableArray()
         
         for i in (0..<jsonResult.count){
             
@@ -80,7 +77,6 @@ class HomeModel: NSObject, URLSessionDataDelegate {
             if let id = jsonElement["orderId"] as? String,
                 let totalTips = jsonElement["Tip"] as? String,
                 let totalPrices = jsonElement["Price"] as? String
-                //let price = jsonElement["Price"] as? String
             {
                 
                 tipsTotalArray.append(totalTips)

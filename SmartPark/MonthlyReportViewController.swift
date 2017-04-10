@@ -37,9 +37,6 @@ class MonthlyReportViewController : UIViewController{
         year = formatter.string(from: currentDate)
         month = formatter2.string(from: currentDate)
         
-        print(year)
-        print(month)
-        
         downloadData()
 
 
@@ -47,16 +44,12 @@ class MonthlyReportViewController : UIViewController{
     
     
     func downloadData(){
-        
-        
-        
+    
         var jsonElement: NSDictionary = NSDictionary()
-        
         
         let myUrl = URL(string: "http://spvalet.com/MonthlyReport.php");
         var request = URLRequest(url:myUrl!)
         request.httpMethod = "POST"// Compose a query string
-        //let postString = "email=\(userEmail)&password=\(userPassword)";
         let postString = "month=\(month)&year=\(year)&locationID=\(locationID)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -104,23 +97,19 @@ class MonthlyReportViewController : UIViewController{
                 
                 
                 for i in (0..<tipsTotalArray.count){
-                    //sumOfTips += 2
                     sumOfTips  += (tipsTotalArray[i] as NSString).integerValue
                     sumOfSales += (pricesTotalArray[i] as NSString).integerValue
                     
                 }
                 
-                
-                
-                
                 finalTotal = (sumOfTips + sumOfSales)
-                //self.tipsLabel.text = sumOfTips.description
+                /*
                 print("Tickets Number: " + ticketsNumber.description)
                 print("Orders Date: " + orderDates.description)
                 print("Tips: " + sumOfTips.description + ".00")
                 print("Sales: " + sumOfSales.description + ".00")
                 print("Total: " + finalTotal.description + ".00")
-                
+                */
                 
                 DispatchQueue.main.async(execute: { () -> Void in
                     

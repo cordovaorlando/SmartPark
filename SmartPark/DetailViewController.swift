@@ -4,14 +4,6 @@
 //
 //  Created by Jose Cordova on 3/23/17.
 //  Copyright © 2017 Jose Cordova. All rights reserved.
-//
-//
-//  AccountSettingsViewController.swift
-//  SmartPark
-//
-//  Created by Jose Cordova on 1/3/17.
-//  Copyright © 2017 Jose Cordova. All rights reserved.
-//
 
 import UIKit
 
@@ -19,7 +11,7 @@ import UIKit
 
 class DetailViewController: UIViewController{
     
-    var firstName = String()
+    var orderID = String()
     var lastName = String()
     var phoneNumber = String()
     var licensePlate = String()
@@ -30,6 +22,7 @@ class DetailViewController: UIViewController{
     var tip = String()
     var ticketNumber = String()
     var token = String()
+    var ticketID = String()
     
     
     
@@ -56,16 +49,57 @@ class DetailViewController: UIViewController{
         modelLabel.text = model
         colorLabel.text = color
         platesLabel.text = licensePlate
-        nameLabel.text = firstName + " " + lastName
+        nameLabel.text = orderID + " " + lastName
         phoneLabel.text = phoneNumber
         print(token)
-        
-        
-        
-        
-        
+        print("Ticket ID: " + ticketID)
+
     }
     
-
     
+
+    func downloadData(){
+        
+        //var newTotal = finalEmailTotal - tipEmail - SERVICE_FEE
+        
+        //var jsonElement: NSDictionary = NSDictionary()
+        
+        let myUrl = URL(string: "http://spvalet.com/pushCustomer.php");
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "POST"// Compose a query string
+        let postString = "TicketID=\(ticketID)&TokenID=\(token)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+        }
+        task.resume()
+    }
+    
+    
+    
+    
+    @IBAction func ReadyButton(_ sender: UIButton) {
+        
+        let  vc  = RequestTableViewController()
+        
+        vc.reloadData()
+        downloadData()
+        
+        if let navigationController = self.navigationController
+        {
+            navigationController.popViewController(animated: true)
+            
+        }
+       // _ = navigationController?.popToRootViewController(animated: true)
+       // _ = navigationController?.
+
+     
+    }
+
 }

@@ -14,8 +14,6 @@
 		9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A51DD7B2D6005492D5 /* CheckoutViewController.swift */; };
 		9016D3AE1DD7B2D6005492D5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A71DD7B2D6005492D5 /* Networking.swift */; };
 		9016D3AF1DD7B2D6005492D5 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A81DD7B2D6005492D5 /* CheckoutRowView.swift */; };
-		9016D3B01DD7B2D6005492D5 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9016D3A91DD7B2D6005492D5 /* Buttons.swift */; };
-		9016D3B31DD7B53E005492D5 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9016D3B21DD7B53E005492D5 /* PassKit.framework */; };
 		90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB31D56BBF200AACB59 /* AppDelegate.swift */; };
 		90348BB61D56BBF200AACB59 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90348BB51D56BBF200AACB59 /* HomeScreen.swift */; };
 		90348BB91D56BBF200AACB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90348BB71D56BBF200AACB59 /* Main.storyboard */; };
@@ -37,6 +35,7 @@
 		90AAB2321E73F10800063658 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90AAB2301E73F10800063658 /* GoogleService-Info.plist */; };
 		90AAB2331E73F10800063658 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 90AAB2301E73F10800063658 /* GoogleService-Info.plist */; };
 		90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E71C911D90EE0700D1F730 /* HomeModel.swift */; };
+		90EE43C91E8EB61100F7AD96 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EE43C81E8EB61100F7AD96 /* Buttons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +63,7 @@
 		9016D3A51DD7B2D6005492D5 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		9016D3A71DD7B2D6005492D5 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		9016D3A81DD7B2D6005492D5 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
-		9016D3A91DD7B2D6005492D5 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		9016D3B11DD7B499005492D5 /* SmartPark.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartPark.entitlements; sourceTree = "<group>"; };
-		9016D3B21DD7B53E005492D5 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		90348BB01D56BBF200AACB59 /* SmartPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90348BB31D56BBF200AACB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90348BB51D56BBF200AACB59 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -92,6 +89,7 @@
 		90A1AE6D1E1CA31A00EF77D8 /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		90AAB2301E73F10800063658 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		90E71C911D90EE0700D1F730 /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		90EE43C81E8EB61100F7AD96 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartPark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F251ECD0301AF6DE161760DC /* Pods-SmartPark.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartPark.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmartPark/Pods-SmartPark.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9016D3B31DD7B53E005492D5 /* PassKit.framework in Frameworks */,
 				6F88CAF6193FBB91367A8B87 /* Pods_SmartPark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,12 +146,12 @@
 		90348BB21D56BBF200AACB59 /* SmartPark */ = {
 			isa = PBXGroup;
 			children = (
+				90EE43C81E8EB61100F7AD96 /* Buttons.swift */,
 				90AAB2301E73F10800063658 /* GoogleService-Info.plist */,
 				9016D3B11DD7B499005492D5 /* SmartPark.entitlements */,
 				90348BB51D56BBF200AACB59 /* HomeScreen.swift */,
 				90348BE51D582D8000AACB59 /* ScannerViewController.swift */,
 				9016D3A51DD7B2D6005492D5 /* CheckoutViewController.swift */,
-				9016D3A91DD7B2D6005492D5 /* Buttons.swift */,
 				90348BB31D56BBF200AACB59 /* AppDelegate.swift */,
 				9016D3A31DD7B2D6005492D5 /* MyAPIClient.swift */,
 				9016D3A41DD7B2D6005492D5 /* SettingsViewController.swift */,
@@ -199,7 +196,6 @@
 		C0385A96C9B5D33152AD27BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9016D3B21DD7B53E005492D5 /* PassKit.framework */,
 				D451E3EF521028305DA72C5D /* Pods_SmartPark.framework */,
 			);
 			name = Frameworks;
@@ -295,11 +291,14 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
 							com.apple.Wallet = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -431,7 +430,6 @@
 				9016D3AE1DD7B2D6005492D5 /* Networking.swift in Sources */,
 				9016D3AF1DD7B2D6005492D5 /* CheckoutRowView.swift in Sources */,
 				9016D3AA1DD7B2D6005492D5 /* MyAPIClient.swift in Sources */,
-				9016D3B01DD7B2D6005492D5 /* Buttons.swift in Sources */,
 				906FEE551E8459AC00ADD6E0 /* DetailViewController.swift in Sources */,
 				9045BB531E4EFC9200C7E8BC /* DailyReportViewController.swift in Sources */,
 				90E71C921D90EE0700D1F730 /* HomeModel.swift in Sources */,
@@ -439,6 +437,7 @@
 				90348BB41D56BBF200AACB59 /* AppDelegate.swift in Sources */,
 				9016D3AC1DD7B2D6005492D5 /* CheckoutViewController.swift in Sources */,
 				90A1AE681E1C9AD500EF77D8 /* LoginViewController.swift in Sources */,
+				90EE43C91E8EB61100F7AD96 /* Buttons.swift in Sources */,
 				9045BB591E4EFCBE00C7E8BC /* YearlyReportViewController.swift in Sources */,
 				9016D3AB1DD7B2D6005492D5 /* SettingsViewController.swift in Sources */,
 			);
@@ -609,7 +608,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -631,7 +630,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
