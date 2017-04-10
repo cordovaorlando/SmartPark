@@ -37,8 +37,10 @@ class AccountSettingsViewController: UIViewController{
             }
         }*/
         
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogIn")
-        present(vc, animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+        
+        //let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogIn")
+        //present(vc, animated: true, completion: nil)
 
     }
     

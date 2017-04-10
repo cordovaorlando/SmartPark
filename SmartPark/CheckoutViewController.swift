@@ -304,17 +304,22 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
                     
                     unowned let unownedSelf = self
                     
-                    let deadlineTime = DispatchTime.now() + .seconds(2)
+                    /*let deadlineTime = DispatchTime.now() + .seconds(2)
                     DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
                         unownedSelf.sendToRoot()
                     })
+                    */
                     
                     
                 case .userCancellation:
                     return
                 }
                 let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            // Need to assign to _ because optional binding loses @discardableResult value
+            // https://bugs.swift.org/browse/SR-1681
+            _ = self.navigationController?.popViewController(animated: true)
+        })
                 alertController.addAction(action)
         self.present(alertController, animated: true, completion: nil)
         
@@ -343,8 +348,8 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
          )
          let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
          // Need to assign to _ because optional binding loses @discardableResult value
-         // https://bugs.swift.org/browse/SR-1681
-         _ = self.navigationController?.popViewController(animated: true)
+         // https://bugs.swift.org/browse/SR-1681 
+            _ = self.navigationController?.popViewController(animated: true)
          })
          let retry = UIAlertAction(title: "Retry", style: .default, handler: { action in
          self.paymentContext.retryLoading()
