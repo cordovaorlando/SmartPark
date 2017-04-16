@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SmartPark.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1AF32DC5CA9EC7E9FFA9285A32881317</key>
+		<key>64EFF154CBF3E077C7E71876A151EBBB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5A4685F5D49E08062AAFE14A482556E</key>
+		<key>B1E9C10F8B2422E96D74743DCAC30047</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E02F86D948FFD2215E4ECF4E81FAEBCF</key>
+		<key>BBE1AB084A4520AE6814E231A38C0759</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E84ADFF2794666010319BAEC6316781F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

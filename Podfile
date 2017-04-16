@@ -5,5 +5,6 @@ target 'SmartPark' do
 	
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Charts', '3.0.0'
 
 end

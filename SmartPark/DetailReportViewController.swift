@@ -59,7 +59,6 @@ class DetailReportViewController : UIViewController{
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
                 
-                
                 var tipsTotalArray = [String]()
                 var pricesTotalArray = [String]()
                 var idArrays = [String]()
@@ -101,31 +100,14 @@ class DetailReportViewController : UIViewController{
                 
                 finalTotal = (sumOfTips + sumOfSales)
                 
-                /*
-                print("Tickets Number: " + ticketsNumber.description)
-                print("Orders Date: " + orderDates.description)
-                print("Tips: " + sumOfTips.description + ".00")
-                print("Sales: " + sumOfSales.description + ".00")
-                print("Total: " + finalTotal.description + ".00")
-                */
-                
-                DispatchQueue.main.async(execute: { () -> Void in                   
-                    
+                DispatchQueue.main.async(execute: { () -> Void in
                     
                     self.salesLabel.text  = "$" + sumOfSales.description + ".00"
                     self.tipsLabel.text   = "$" + sumOfTips.description + ".00"
                     self.totalsLabel.text = "$" + finalTotal.description + ".00"
                     
                 })
-                
-                /*
-                print("")
-                print("Tips Total Array: " + tipsTotalArray.description)
-                print("Restaurant Total Array: " + pricesTotalArray.description)
-                print("Location Ids: " + locIdArray.description)
-                print("Order Ids: " + idArrays.description)
-                */
-                
+
             } catch {
                 print(error)
             }

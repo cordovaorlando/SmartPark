@@ -80,9 +80,6 @@ class RequestTableViewController: UITableViewController {
 
         postData()
         print("View Did Load")
-
-
-        
     }
     
     
@@ -91,12 +88,6 @@ class RequestTableViewController: UITableViewController {
         self.downloadData()
         super.viewWillAppear(animated)
         print("View Will Appear")
-
-        
-        
-
-
-       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -126,10 +117,10 @@ class RequestTableViewController: UITableViewController {
     
     func postData(){
         
-        
+
         let myUrl = URL(string: "http://spvalet.com/tokens.php");
         var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
+        request.httpMethod = "POST"
         let postString = "token=\(token)&locationID=\(locationID)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -139,7 +130,6 @@ class RequestTableViewController: UITableViewController {
                 print("error=\(error)")
                 return
             }
-            
         }
         task.resume()
         
@@ -258,7 +248,8 @@ class RequestTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1    }
+        return 1
+    }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -269,6 +260,9 @@ class RequestTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return self.orderIDArray.count
     }
+    
+    
+
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -283,6 +277,8 @@ class RequestTableViewController: UITableViewController {
         return cell
 
     }
+    
+
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

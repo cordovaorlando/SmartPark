@@ -56,7 +56,6 @@ class DailyReportViewController : UIViewController{
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
                 
-                
                 var tipsTotalArray = [String]()
                 var pricesTotalArray = [String]()
                 var idArrays = [String]()
@@ -83,38 +82,21 @@ class DailyReportViewController : UIViewController{
                     }
                 }
                 
-                
                 for i in (0..<tipsTotalArray.count){
                     sumOfTips  += (tipsTotalArray[i] as NSString).integerValue
                     sumOfSales += (pricesTotalArray[i] as NSString).integerValue
                     
                 }
-                
-            
-                
-               
+
                 finalTotal = (sumOfTips + sumOfSales)
-                /*
-                print("Tips: " + sumOfTips.description + ".00")
-                print("Sales: " + sumOfSales.description + ".00")
-                print("Total: " + finalTotal.description + ".00")
-                */
                 
-                DispatchQueue.main.async(execute: { () -> Void in                    // Do stuff to UI
-                
+                DispatchQueue.main.async(execute: { () -> Void in
                 
                 self.salesLabel.text = "$" + sumOfSales.description + ".00"
                 self.tipsLabel.text = "$" + sumOfTips.description + ".00"
                 self.totalsLabel.text = "$" + finalTotal.description + ".00"
 
                  })
-                /*
-                print("")
-                print("Tips Total Array: " + tipsTotalArray.description)
-                print("Restaurant Total Array: " + pricesTotalArray.description)
-                print("Location Ids: " + locIdArray.description)
-                print("Order Ids: " + idArrays.description)
-                */
                 
             } catch {
                 print(error)

@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class YearlyReportViewController : UIViewController{
     
     var locationID = String()
@@ -16,6 +17,7 @@ class YearlyReportViewController : UIViewController{
     var year = String()
     
     
+    @IBOutlet weak var subContainerView: UIView!
     @IBOutlet weak var salesLabel: UILabel!
     @IBOutlet weak var tipsLabel: UILabel!
     @IBOutlet weak var totalsLabel: UILabel!
@@ -32,7 +34,17 @@ class YearlyReportViewController : UIViewController{
         formatter.dateFormat = "yyyy"
         year = formatter.string(from: currentDate)
         downloadData()
+       // self.refresh?.addTarget( self, action: #selector( self.onTapped), for: UIControlEvents.touchUpInside)
+
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear( animated)
+    }
+    
+    
+
     
     
     
@@ -141,5 +153,11 @@ class YearlyReportViewController : UIViewController{
         downloadData()
         
     }
+}
 
+
+class Palette {
+    static let Background = UIColor(red: 17/255.0, green: 59/255.0, blue: 114/255.0, alpha: 1.0)
+    static let InfoText = UIColor.white
+    static let Text = UIColor(red: 36/255.0, green: 129/255.0, blue: 255/255.0, alpha: 1.0)
 }

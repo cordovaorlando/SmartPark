@@ -45,12 +45,12 @@ class DetailViewController: UIViewController{
         ticketNumberLabel.text = ticketNumber
         priceLabel.text = "$" + price
         tipLabel.text = "$" + tip
-        makeLabel.text = make
-        modelLabel.text = model
-        colorLabel.text = color
-        platesLabel.text = licensePlate
-        nameLabel.text = orderID + " " + lastName
-        phoneLabel.text = phoneNumber
+        makeLabel.text = "Volvo"
+        modelLabel.text = "S40"
+        colorLabel.text = "Silver"
+        platesLabel.text = "GSH3755"
+        nameLabel.text = "Jose Cordova"
+        phoneLabel.text = "713-355-7610"
         print(token)
         print("Ticket ID: " + ticketID)
 
@@ -59,10 +59,6 @@ class DetailViewController: UIViewController{
     
 
     func downloadData(){
-        
-        //var newTotal = finalEmailTotal - tipEmail - SERVICE_FEE
-        
-        //var jsonElement: NSDictionary = NSDictionary()
         
         let myUrl = URL(string: "http://spvalet.com/pushCustomer.php");
         var request = URLRequest(url:myUrl!)
@@ -76,7 +72,6 @@ class DetailViewController: UIViewController{
                 print("error=\(error)")
                 return
             }
-            
         }
         task.resume()
     }

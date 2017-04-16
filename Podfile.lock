@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.0.0):
+    - Charts/Core (= 3.0.0)
+  - Charts/Core (3.0.0)
   - Firebase/Core (3.7.1):
     - FirebaseAnalytics (= 3.4.4)
     - FirebaseCore (= 3.4.3)
@@ -31,11 +34,13 @@ PODS:
   - Stripe (9.0.0)
 
 DEPENDENCIES:
+  - Charts (= 3.0.0)
   - Firebase/Core
   - Firebase/Messaging
   - Stripe
 
 SPEC CHECKSUMS:
+  Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseCore: 5a885548bbc5f0c410b04f8e9ac9d73ff1221907
@@ -47,6 +52,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
   Stripe: 935c6deb5e96cbd29d247074bf3aa98a8438e22c
 
-PODFILE CHECKSUM: a76ca64b47d573ea6d26622ab2c492e3ed9b5e5f
+PODFILE CHECKSUM: 5aaa19ed58133df966658b3ad248ddaa6cc07a51
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.2.1.rc.1

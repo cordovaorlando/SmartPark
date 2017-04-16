@@ -397,7 +397,7 @@
                             <outlet property="delegate" destination="fh8-6a-qam" id="1Vc-d4-GJo"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Reports" id="n07-9i-Bkw"/>
+                    <tabBarItem key="tabBarItem" title="Reports" image="chart" id="n07-9i-Bkw"/>
                     <navigationItem key="navigationItem" id="WW5-t6-dH4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TD4-pZ-i2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -408,27 +408,27 @@
         <scene sceneID="I4R-aN-3p5">
             <objects>
                 <tableViewController id="dmw-XE-XCR" customClass="RequestTableViewController" customModule="SmartPark" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4ak-PQ-qZf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" id="4ak-PQ-qZf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="id" textLabel="zuK-Pj-Gea" detailTextLabel="FWU-5q-8vL" style="IBUITableViewCellStyleSubtitle" id="ijd-Zz-732">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="id" textLabel="zuK-Pj-Gea" detailTextLabel="FWU-5q-8vL" rowHeight="101" style="IBUITableViewCellStyleSubtitle" id="ijd-Zz-732">
+                                <rect key="frame" x="0.0" y="28" width="375" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ijd-Zz-732" id="lsO-Bs-niQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zuK-Pj-Gea">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <rect key="frame" x="15" y="32" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FWU-5q-8vL">
-                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <rect key="frame" x="15" y="53" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -447,12 +447,12 @@
                             <outlet property="delegate" destination="dmw-XE-XCR" id="w2E-RJ-aXl"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Requests" id="Swk-EQ-TSR" userLabel="Requests"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="request" id="Swk-EQ-TSR" userLabel="Requests"/>
                     <navigationItem key="navigationItem" title="Requests" id="r1h-WV-edO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67l-RU-L56" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="715" y="2953"/>
+            <point key="canvasLocation" x="714.5" y="2952.5"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="Kmc-V3-mvv">
@@ -940,11 +940,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgt-Gx-daC">
-                                <rect key="frame" x="259" y="343" width="44.5" height="20.5"/>
+                                <rect key="frame" x="259" y="343" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgv-XM-ziw">
+                                <rect key="frame" x="16" y="382" width="343" height="228"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -953,6 +957,7 @@
                             <constraint firstItem="d4m-ID-COa" firstAttribute="top" secondItem="0yN-GY-JAf" secondAttribute="bottom" constant="171" id="4jP-ZN-nN7"/>
                             <constraint firstItem="rTY-F1-QW9" firstAttribute="top" secondItem="1mR-93-9vZ" secondAttribute="bottom" constant="26" id="AU0-Lv-TUe"/>
                             <constraint firstItem="pgt-Gx-daC" firstAttribute="top" secondItem="K2k-cm-jCk" secondAttribute="bottom" constant="60" id="AYW-xN-FMT"/>
+                            <constraint firstItem="xgv-XM-ziw" firstAttribute="centerX" secondItem="vBr-7B-rW3" secondAttribute="centerX" id="CCX-Ni-AG9"/>
                             <constraint firstItem="K2k-cm-jCk" firstAttribute="leading" secondItem="ndQ-Iz-moe" secondAttribute="trailing" constant="150" id="CEq-AB-Vix"/>
                             <constraint firstItem="ndQ-Iz-moe" firstAttribute="top" secondItem="rTY-F1-QW9" secondAttribute="bottom" constant="6" id="Da5-dx-7vi"/>
                             <constraint firstItem="zSR-vD-jKq" firstAttribute="leading" secondItem="lxE-zf-Mhx" secondAttribute="leading" constant="-6" id="Fg8-wA-Bva"/>
@@ -962,15 +967,19 @@
                             <constraint firstItem="rTY-F1-QW9" firstAttribute="leading" secondItem="lxE-zf-Mhx" secondAttribute="leading" constant="71" id="PqO-RE-oZg"/>
                             <constraint firstItem="pgt-Gx-daC" firstAttribute="leading" secondItem="32T-CR-fSk" secondAttribute="trailing" constant="131" id="X4p-JK-v7g"/>
                             <constraint firstItem="32T-CR-fSk" firstAttribute="leading" secondItem="lxE-zf-Mhx" secondAttribute="leading" constant="71" id="aOC-PT-Nnw"/>
+                            <constraint firstItem="xgv-XM-ziw" firstAttribute="top" secondItem="32T-CR-fSk" secondAttribute="bottom" constant="18" id="atg-dF-Dpo"/>
                             <constraint firstItem="1mR-93-9vZ" firstAttribute="leading" secondItem="lxE-zf-Mhx" secondAttribute="leading" constant="-6" id="dst-EI-d9O"/>
                             <constraint firstItem="ndQ-Iz-moe" firstAttribute="leading" secondItem="lxE-zf-Mhx" secondAttribute="leading" constant="71" id="ggz-2r-7sI"/>
                             <constraint firstItem="vBr-7B-rW3" firstAttribute="top" secondItem="0yN-GY-JAf" secondAttribute="bottom" constant="42" id="jfq-xm-xE5"/>
                             <constraint firstItem="d4m-ID-COa" firstAttribute="leading" secondItem="rTY-F1-QW9" secondAttribute="trailing" constant="142" id="upA-PN-Nyx"/>
+                            <constraint firstItem="ERB-xC-iYA" firstAttribute="top" secondItem="xgv-XM-ziw" secondAttribute="bottom" constant="8" id="vUe-jT-0XF"/>
+                            <constraint firstAttribute="trailing" secondItem="xgv-XM-ziw" secondAttribute="trailing" constant="16" id="xOU-Nm-KR1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nne-qp-Ppa"/>
                     <connections>
                         <outlet property="salesLabel" destination="d4m-ID-COa" id="Lcf-3Y-eu7"/>
+                        <outlet property="subContainerView" destination="xgv-XM-ziw" id="hEc-0c-5Bi"/>
                         <outlet property="tipsLabel" destination="K2k-cm-jCk" id="eho-ki-fxK"/>
                         <outlet property="totalsLabel" destination="pgt-Gx-daC" id="qw3-tM-zRZ"/>
                     </connections>
@@ -1158,13 +1167,14 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKu-5a-3Iy">
                                 <rect key="frame" x="149" y="580" width="76" height="30"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.5725490196078431" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IZ3-GJ-osb"/>
                                     <constraint firstAttribute="width" constant="76" id="iGV-1L-6Tc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Log Out">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="logOutAction:" destination="4zp-iJ-PcU" eventType="touchUpInside" id="iJ6-D1-tVb"/>
@@ -1177,7 +1187,7 @@
                             <constraint firstItem="HKu-5a-3Iy" firstAttribute="centerX" secondItem="gea-Mr-91N" secondAttribute="centerX" id="ux7-N3-c72"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="eTK-BE-q58" userLabel="Settings"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="eTK-BE-q58" userLabel="Settings"/>
                     <navigationItem key="navigationItem" id="wgZ-hq-tah"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l4I-MW-iMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1187,6 +1197,9 @@
     </scenes>
     <resources>
         <image name="QR-Scan1-250x250" width="33" height="33"/>
+        <image name="chart" width="42" height="42"/>
+        <image name="request" width="42" height="42"/>
+        <image name="settings" width="28" height="28"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

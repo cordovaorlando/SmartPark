@@ -453,7 +453,7 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
         
         let myUrl = URL(string: "http://spvalet.com/push.php");
         var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
+        request.httpMethod = "POST"
         let postString = "locationID=\(locationId)&TicketNumber=\(message)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -466,14 +466,13 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             
         }
         task.resume()
-  
     }
     
     func postToken(){
 
         let myUrl = URL(string: "http://spvalet.com/customerToken.php");
         var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
+        request.httpMethod = "POST"
         let postString = "token=\(token)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
@@ -486,20 +485,17 @@ class CheckoutViewController: UIViewController, STPPaymentContextDelegate {
             
         }
         task.resume()
-        
     }
     
     
     
     func downloadData(){
         
-        var newTotal = finalEmailTotal - tipEmail - SERVICE_FEE
-        
-        //var jsonElement: NSDictionary = NSDictionary()
+        let newTotal = finalEmailTotal - tipEmail - SERVICE_FEE
 
         let myUrl = URL(string: "http://spvalet.com/OrderCompleted.php");
         var request = URLRequest(url:myUrl!)
-        request.httpMethod = "POST"// Compose a query string
+        request.httpMethod = "POST"
         let postString = "LocationID=\(locationId)&TicketNumber=\(message)&Tip=\(tipEmail)&Price=\(newTotal)&tokenID=\(token)";
         request.httpBody = postString.data(using: String.Encoding.utf8);
         let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
