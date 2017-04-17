@@ -133,8 +133,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate  {
             destinationVC.locationID = locationID
             
             let destinationVC2 = tabCtrl.viewControllers?[0] as! RequestTableViewController
-            
             destinationVC2.locationID = locationID
+            
+            let destinationVC3 = tabCtrl.viewControllers?[2] as! AccountSettingsViewController
+            destinationVC3.locationID = locationID
 
         }
     }
