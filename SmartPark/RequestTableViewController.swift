@@ -16,6 +16,24 @@ class RequestTableViewController: UITableViewController {
     var locationID = String()
     var token = String()
     weak var timer: Timer?
+    var test = "Hello World";
+    
+    
+    var UsernameArray = String()
+    var locNameArray = String()
+    var locStreetArray = String()
+    var locCityArray = String()
+    var locStateArray = String()
+    var locZipArray = String()
+    var locPhoneArray = String()
+    var valetNameArray = String()
+    var valetStreetArray = String()
+    var valetCityArray = String()
+    var valetStateArray = String()
+    var valetZipArray = String()
+    var valetPhoneArray = String()
+    
+    
     
     var orderIDArray = [String]() {
         didSet {
@@ -79,13 +97,21 @@ class RequestTableViewController: UITableViewController {
         super.viewDidLoad()
 
         postData()
+        settingsData()
         print("View Did Load")
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+        
+        
     }
     
     
     
     override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async(execute: { () -> Void in
         self.downloadData()
+            })
         super.viewWillAppear(animated)
         print("View Will Appear")
     }
@@ -105,6 +131,21 @@ class RequestTableViewController: UITableViewController {
         })
         
     }
+    
+    
+    func appMovedToBackground() {
+        print("App moved to background!")
+    }
+    
+    func appMovedToForeground() {
+        print("App moved to foreground!")
+        downloadData()
+    }
+    
+    
+    
+    
+
     
     
     
@@ -276,6 +317,132 @@ class RequestTableViewController: UITableViewController {
         
         return cell
 
+    }
+    
+    
+    
+    func settingsData(){
+        
+        var jsonElement: NSDictionary = NSDictionary()
+        
+        let myUrl = URL(string: "http://spvalet.com/settings.php");
+        var request = URLRequest(url:myUrl!)
+        request.httpMethod = "POST"// Compose a query string
+        let postString = "locationID=\(locationID)";
+        request.httpBody = postString.data(using: String.Encoding.utf8);
+        let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? NSArray
+                
+
+                
+                for i in (0..<json!.count){
+                    
+                    jsonElement = json![i] as! NSDictionary
+                    
+                    
+                    if let username = jsonElement["Username"] as? String,
+                        let locName = jsonElement["LocationName"] as? String,
+                        let locStreet = jsonElement["LocationStreet"] as? String,
+                        let locCity = jsonElement["LocationCity"] as? String,
+                        let locState = jsonElement["LocationState"] as? String,
+                        let locZip = jsonElement["LocationZip"] as? String,
+                        let locPhone = jsonElement["LocationPhone"] as? String,
+                        let valetName = jsonElement["ValetName"] as? String,
+                        let valetStreet = jsonElement["ValetStreet"] as? String,
+                        let valetCity = jsonElement["ValetCity"] as? String,
+                        let valetState = jsonElement["ValetState"] as? String,
+                        let valetZip = jsonElement["ValetZip"] as? String,
+                        let valetPhone = jsonElement["ValetPhone"] as? String
+                        
+                    {
+                        self.UsernameArray = username
+                        self.locNameArray = locName
+                        self.locStreetArray = locStreet
+                        self.locCityArray = locCity
+                        self.locStateArray = locState
+                        self.locZipArray = locZip
+                        self.locPhoneArray = locPhone
+                        self.valetNameArray = valetName
+                        self.valetStreetArray = valetStreet
+                        self.valetCityArray = valetCity
+                        self.valetStateArray = valetState
+                        self.valetZipArray = valetZip
+                        self.valetPhoneArray = valetPhone
+                        
+                        
+                        var secondTab = self.tabBarController?.viewControllers?[2] as! AccountSettingsViewController
+                        //secondTab.test = test
+                        secondTab.UsernameArray = self.UsernameArray
+                        secondTab.locNameArray = self.locNameArray
+                        secondTab.locStreetArray = self.locStreetArray
+                        secondTab.locStateArray = self.locStateArray
+                        secondTab.locCityArray = self.locCityArray
+                        secondTab.locZipArray = self.locZipArray
+                        secondTab.locPhoneArray = self.locPhoneArray
+                        secondTab.valetNameArray = self.valetNameArray
+                        secondTab.valetCityArray = self.valetCityArray
+                        secondTab.valetStreetArray = self.valetStreetArray
+                        secondTab.valetStateArray = self.valetStateArray
+                        secondTab.valetZipArray = self.valetZipArray
+                        secondTab.valetPhoneArray = self.valetPhoneArray
+
+                        
+                        
+                    }
+                }
+                
+                
+                
+                
+                
+                DispatchQueue.main.async(execute: { () -> Void in
+                    
+                    /*
+                    self.UsernameLabel.text = UsernameArray
+                    self.LocationNameLabel.text = locNameArray
+                    self.LocationAddressLabel.text = locStreetArray
+                    self.LocationAddress2Label.text = locCityArray + ", " + locStateArray + " " + locZipArray
+                    self.LocationPhoneLabel.text = locPhoneArray
+                    
+                    self.ValetNameLabel.text = valetNameArray
+                    self.ValetAddressLabel.text = valetStreetArray
+                    self.ValetAddress2Label.text = valetCityArray + ", " + valetStateArray + " " + valetZipArray
+                    self.ValetPhoneLabel.text = valetPhoneArray
+ 
+ */
+                    print("Request View Controller")
+                    print(self.UsernameArray)
+                    print(self.locNameArray)
+                    print(self.locStreetArray)
+                    print(self.locCityArray)
+                    print(self.locStateArray)
+                    print(self.locZipArray)
+                    print(self.locPhoneArray)
+                    print(self.valetNameArray)
+                    print(self.valetStreetArray)
+                    print(self.valetCityArray)
+                    print(self.valetStateArray)
+                    print(self.valetZipArray)
+                    print(self.valetPhoneArray)
+                    
+                    
+                    
+                })
+                
+            } catch {
+                print(error)
+            }
+            
+        }
+        task.resume()
+        
     }
     
 

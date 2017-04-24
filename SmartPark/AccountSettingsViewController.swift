@@ -13,12 +13,53 @@ import UIKit
 class AccountSettingsViewController: UIViewController{
     
     var locationID = String()
-
+    
+    @IBOutlet weak var UsernameLabel: UILabel!
+    @IBOutlet weak var LocationNameLabel: UILabel!
+    @IBOutlet weak var LocationAddressLabel: UILabel!
+    @IBOutlet weak var LocationAddress2Label: UILabel!
+    @IBOutlet weak var LocationPhoneLabel: UILabel!
+    @IBOutlet weak var ValetNameLabel: UILabel!
+    @IBOutlet weak var ValetAddressLabel: UILabel!
+    @IBOutlet weak var ValetAddress2Label: UILabel!
+    @IBOutlet weak var ValetPhoneLabel: UILabel!
+    
+    
+    
+    
+    var UsernameArray = String()
+    var locNameArray = String()
+    var locStreetArray = String()
+    var locCityArray = String()
+    var locStateArray = String()
+    var locZipArray = String()
+    var locPhoneArray = String()
+    var valetNameArray = String()
+    var valetStreetArray = String()
+    var valetCityArray = String()
+    var valetStateArray = String()
+    var valetZipArray = String()
+    var valetPhoneArray = String()
+    
+    var test = String()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(locationID)
-        downloadData()
+        
+
+        self.UsernameLabel.text = UsernameArray
+        self.LocationNameLabel.text = locNameArray
+        self.LocationAddressLabel.text = locStreetArray
+        self.LocationAddress2Label.text = locCityArray + ", " + locStateArray + " " + locZipArray
+        self.LocationPhoneLabel.text = locPhoneArray
+        
+        self.ValetNameLabel.text = valetNameArray
+        self.ValetAddressLabel.text = valetStreetArray
+        self.ValetAddress2Label.text = valetCityArray + ", " + valetStateArray + " " + valetZipArray
+        self.ValetPhoneLabel.text = valetPhoneArray
+
 
         
         self.navigationController!.navigationBar.barTintColor = UIColor.init(red: 248.0/255, green: 146.0/255, blue: 35.0/255, alpha: 1.0)
@@ -48,7 +89,7 @@ class AccountSettingsViewController: UIViewController{
     }
     
     
-    
+    /*
     func downloadData(){
         
         var jsonElement: NSDictionary = NSDictionary()
@@ -126,9 +167,20 @@ class AccountSettingsViewController: UIViewController{
                 
                 DispatchQueue.main.async(execute: { () -> Void in
                     
+                    self.UsernameLabel.text = UsernameArray
+                    self.LocationNameLabel.text = locNameArray
+                    self.LocationAddressLabel.text = locStreetArray
+                    self.LocationAddress2Label.text = locCityArray + ", " + locStateArray + " " + locZipArray
+                    self.LocationPhoneLabel.text = locPhoneArray
+                    
+                    self.ValetNameLabel.text = valetNameArray
+                    self.ValetAddressLabel.text = valetStreetArray
+                    self.ValetAddress2Label.text = valetCityArray + ", " + valetStateArray + " " + valetZipArray
+                    self.ValetPhoneLabel.text = valetPhoneArray
+                    
                     print(UsernameArray)
                     print(locNameArray)
-                    print(locStateArray)
+                    print(locStreetArray)
                     print(locCityArray)
                     print(locStateArray)
                     print(locZipArray)
@@ -152,6 +204,8 @@ class AccountSettingsViewController: UIViewController{
         task.resume()
         
     }
+ 
+ */
     
 
     

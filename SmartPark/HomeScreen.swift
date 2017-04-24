@@ -55,7 +55,7 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
         
         let token = FIRInstanceID.instanceID().token()
         
-        print("Token: " + token!);
+        //print("Token: " + token!);
         
     }
     
@@ -101,6 +101,8 @@ class HomeScreen: UIViewController, UITextFieldDelegate {
             var locationID = textFieldText.substring(to: index)
             let index2 = textFieldText.index(textFieldText.startIndex, offsetBy: 1)
             var ticketNumber = textFieldText.substring(from: index2)
+            
+            
             let myUrl = URL(string: "http://spvalet.com/locs.php");
             var request = URLRequest(url:myUrl!)
             request.httpMethod = "POST"
